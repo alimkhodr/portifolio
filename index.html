@@ -85,7 +85,7 @@
   /* ---------- Hero ---------- */
   .hero { padding: 56px 0 64px; }
   .hero-name {
-    font-size: clamp(3.4rem, 13vw, 11rem); font-weight: 600; letter-spacing: -0.06em; line-height: 0.88;
+    font-size: clamp(2.8rem, 9vw, 7.5rem); font-weight: 600; letter-spacing: -0.06em; line-height: 0.92;
     margin-bottom: 40px;
   }
   .hero-name span { display: block; }
@@ -147,7 +147,7 @@
   .about .lead { font-size: clamp(1.5rem, 2.8vw, 2.1rem); line-height: 1.32; letter-spacing: -0.03em; margin-bottom: 36px; font-weight: 500; }
   .about p { color: var(--ink-2); max-width: 62ch; margin-bottom: 20px; }
   .about strong { color: var(--ink); font-weight: 600; }
-  .profile { border-top: 2px solid var(--ink); }
+  .profile { border-top: 2px solid var(--accent); }
   .profile div { display: flex; justify-content: space-between; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--rule); font-size: 15px; }
   .profile dt { color: var(--ink-muted); }
   .profile dd { text-align: right; font-weight: 500; }
@@ -155,9 +155,9 @@
   /* ---------- Projetos ---------- */
   .project {
     display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 48px; padding: 48px 0;
-    border-top: 1px solid var(--ink);
+    border-top: 1px solid var(--rule);
   }
-  .project:last-of-type { border-bottom: 1px solid var(--ink); }
+  .project:last-of-type { border-bottom: 1px solid var(--rule); }
   @media (max-width: 860px) { .project { grid-template-columns: 1fr; gap: 20px; padding: 36px 0; } }
   .project-title { font-size: clamp(1.6rem, 3vw, 2.3rem); font-weight: 600; letter-spacing: -0.035em; line-height: 1.1; }
   .badge {
@@ -196,7 +196,7 @@
   .stack-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px 32px; }
   @media (max-width: 860px) { .stack-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   @media (max-width: 480px) { .stack-grid { grid-template-columns: 1fr; } }
-  .stack-group h3 { font-size: 13px; font-weight: 500; color: var(--ink-muted); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--ink); }
+  .stack-group h3 { font-size: 13px; font-weight: 500; color: var(--ink-muted); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--rule); }
   .stack-group ul { display: grid; gap: 10px; font-size: 16px; }
 
   .edu { margin-top: 72px; }
