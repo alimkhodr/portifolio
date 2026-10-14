@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Ali Mohamed Khodr | Software Engineer</title>
 <meta name="description" content="Software Engineer na Qeevo Group. Full-stack com Vue, Nuxt, Ruby e Node. Foco em pagamentos, multi-tenant e produtos construídos do zero." />
-<meta name="theme-color" content="#080a16" />
+<meta name="theme-color" content="#f4f4f9" />
 <meta property="og:title" content="Ali Mohamed Khodr | Software Engineer" />
 <meta property="og:description" content="Full-stack com foco em pagamentos, multi-tenant e produtos construídos do zero." />
 <meta property="og:image" content="assets/hero.webp" />
@@ -13,372 +13,275 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  /* Paleta extraída de assets/hero.webp: violeta #6967e5, periwinkle #707fea, azul-noite #080a16.
-     Um único destaque. Neutros tingidos de azul. Sem serifa, sem gradientes decorativos em loop. */
+  /* Direção: página clara, editorial, com blocos escuros nas pausas.
+     Cores tiradas da foto (assets/hero.webp): azul-noite #080a16, violeta #6967e5, periwinkle #707fea.
+     O violeta é o único destaque. Os blocos escuros usam o mesmo azul-noite da foto. */
   :root {
-    color-scheme: dark;
-    --bg: #080a16;
-    --surface: #0e0e1f;
-    --surface-2: #121436;
-    --line: #1d2350;
-    --line-strong: #2f3a7a;
-    --text: #eef0ff;
-    --text-muted: #b4bade;
-    --text-dim: #9aa1cf;
-    --accent: #707fea;
-    --accent-hover: #8d9bf2;
-    --accent-ink: #080a16;
-    --accent-soft: rgba(112, 127, 234, 0.14);
-    --radius: 16px;
-    --radius-sm: 10px;
-    --max: 1200px;
-    --gutter: 20px;
+    color-scheme: light;
+    --paper: #f4f4f9;
+    --paper-2: #e9eaf5;
+    --ink: #0d0f22;
+    --ink-2: #3c4170;
+    --ink-muted: #545a84;
+    --night: #080a16;
+    --night-2: #111332;
+    --night-text: #eef0ff;
+    --night-muted: #b4bade;
+    --accent: #4f52c9;
+    --accent-bright: #707fea;
+    --rule: #c9cce6;
+    --gutter: 22px;
+    --max: 1240px;
     --ease: cubic-bezier(0.16, 1, 0.3, 1);
-    --nav-h: 68px;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 16px); }
+  html { scroll-behavior: smooth; scroll-padding-top: 40px; }
   body {
     font-family: 'Geist', system-ui, sans-serif;
-    background: var(--bg);
-    color: var(--text);
+    background: var(--paper);
+    color: var(--ink);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
   img { display: block; max-width: 100%; }
   a { color: inherit; }
-  ul, ol { list-style: none; }
+  ul { list-style: none; }
 
-  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
 
   .skip-link {
-    position: absolute; left: var(--gutter); top: -56px; z-index: 100;
-    background: var(--accent); color: var(--accent-ink);
-    padding: 10px 14px; border-radius: var(--radius-sm); font-weight: 600;
+    position: absolute; left: var(--gutter); top: -60px; z-index: 100;
+    background: var(--ink); color: var(--paper); padding: 10px 14px; border-radius: 8px; font-weight: 600;
   }
   .skip-link:focus { top: 12px; }
 
   .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
   .mono { font-family: 'Geist Mono', ui-monospace, monospace; }
 
-  section { padding: 128px 0; }
-  @media (max-width: 767px) { section { padding: 88px 0; } }
-
-  /* ---------- Navegação ---------- */
-  .nav {
-    position: fixed; inset: 0 0 auto 0; z-index: 50; height: var(--nav-h);
-    border-bottom: 1px solid transparent;
-    transition: background-color 0.35s ease, border-color 0.35s ease;
+  /* ---------- Topo ---------- */
+  .top {
+    position: sticky; top: 0; z-index: 40;
+    background: var(--paper); border-bottom: 1px solid var(--rule);
   }
-  .nav.scrolled {
-    background: rgba(8, 10, 22, 0.88);
-    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-    border-bottom-color: var(--line);
+  .top .wrap {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    height: 60px;
   }
-  .nav .wrap {
-    height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  .brand { font-family: 'Geist Mono', monospace; font-size: 15px; text-decoration: none; font-weight: 500; }
+  .top-links { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+  .top-links::-webkit-scrollbar { display: none; }
+  .top-links a {
+    display: inline-flex; align-items: center; min-height: 44px; padding: 0 10px;
+    font-size: 14px; color: var(--ink-2); text-decoration: none; white-space: nowrap; border-radius: 8px;
   }
-  .brand {
-    font-family: 'Geist Mono', monospace; font-size: 15px; font-weight: 500;
-    text-decoration: none; min-height: 44px; display: inline-flex; align-items: center;
+  .top-links a:hover { color: var(--ink); background: var(--paper-2); }
+  @media (max-width: 760px) {
+    .top .wrap { height: auto; padding-top: 8px; padding-bottom: 4px; flex-direction: column; align-items: flex-start; gap: 0; }
+    .top-links { width: 100%; }
   }
-  .nav-links { display: flex; align-items: center; gap: 2px; }
-  .nav-links a {
-    display: inline-flex; align-items: center; min-height: 44px; padding: 0 12px;
-    color: var(--text-muted); text-decoration: none; font-size: 14px; border-radius: var(--radius-sm);
-    transition: color 0.2s ease, background-color 0.2s ease;
-  }
-  .nav-links a:hover { color: var(--text); background: var(--accent-soft); }
-  .nav-links a.nav-cta { background: var(--accent); color: var(--accent-ink); font-weight: 600; margin-left: 8px; }
-  .nav-links a.nav-cta:hover { background: var(--accent-hover); color: var(--accent-ink); }
-
-  @media (max-width: 899px) {
-    .nav { height: auto; }
-    .nav .wrap { flex-wrap: wrap; height: auto; padding-top: 10px; padding-bottom: 6px; row-gap: 4px; }
-    .nav-links {
-      width: 100%; overflow-x: auto; scrollbar-width: none; padding-bottom: 6px;
-    }
-    .nav-links::-webkit-scrollbar { display: none; }
-    .nav-links a { flex: none; font-size: 13px; padding: 0 10px; }
-    .nav-links a.nav-cta { margin-left: 0; }
-  }
-
-  /* ---------- Botões ---------- */
-  .btn {
-    display: inline-flex; align-items: center; justify-content: center;
-    min-height: 52px; padding: 0 24px; border-radius: var(--radius-sm);
-    font: inherit; font-weight: 600; font-size: 15px; text-decoration: none; white-space: nowrap;
-    transition: transform 0.15s ease, background-color 0.2s ease, border-color 0.2s ease;
-  }
-  .btn:active { transform: scale(0.98); }
-  .btn-primary { background: var(--accent); color: var(--accent-ink); }
-  .btn-primary:hover { background: var(--accent-hover); }
-  .btn-ghost { border: 1px solid var(--line-strong); color: var(--text); }
-  .btn-ghost:hover { border-color: var(--accent); background: var(--accent-soft); }
 
   /* ---------- Hero ---------- */
-  .hero {
-    min-height: 100dvh; padding: calc(var(--nav-h) + 48px) 0 72px;
-    display: flex; align-items: center; position: relative; overflow: hidden;
+  .hero { padding: 72px 0 80px; }
+  .hero-name {
+    font-size: clamp(3.4rem, 13vw, 11rem); font-weight: 600; letter-spacing: -0.06em; line-height: 0.88;
+    margin-bottom: 56px;
   }
-  .hero::before {
-    content: ''; position: absolute; pointer-events: none;
-    width: min(80vw, 880px); aspect-ratio: 1; right: -18vw; top: -12vw;
-    background: radial-gradient(closest-side, rgba(105, 103, 229, 0.28), transparent 70%);
-  }
-  .hero .wrap {
-    position: relative; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 64px; align-items: center;
-  }
-  @media (max-width: 899px) { .hero .wrap { grid-template-columns: 1fr; gap: 40px; } }
-
-  .hero h1 {
-    font-size: clamp(3.1rem, 8.4vw, 7.6rem); font-weight: 600;
-    letter-spacing: -0.045em; line-height: 0.96; margin-bottom: 32px;
-  }
-  .hero h1 .accent { color: var(--accent); display: block; }
-  .hero .lead {
-    font-size: clamp(1.05rem, 1.7vw, 1.3rem); color: var(--text-muted);
-    max-width: 36ch; margin-bottom: 44px;
-  }
+  .hero-name span { display: block; }
+  .hero-name .accent { color: var(--accent); }
+  .hero-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 56px; align-items: end; }
+  @media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; gap: 36px; } }
+  .hero-lead { font-size: clamp(1.1rem, 1.9vw, 1.4rem); line-height: 1.45; max-width: 30ch; margin-bottom: 36px; color: var(--ink-2); }
   .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-flex; align-items: center; min-height: 52px; padding: 0 24px; border-radius: 10px;
+    font: inherit; font-weight: 600; font-size: 15px; text-decoration: none; white-space: nowrap;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+  }
+  .btn:active { transform: scale(0.98); }
+  .btn-ink { background: var(--ink); color: var(--paper); }
+  .btn-ink:hover { background: var(--accent); }
+  .btn-line { border: 1px solid var(--ink); color: var(--ink); }
+  .btn-line:hover { background: var(--ink); color: var(--paper); }
+  .hero-photo { border-radius: 4px; overflow: hidden; aspect-ratio: 5 / 4; background: var(--night); }
+  .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 40% 40%; }
 
-  .hero-photo {
-    position: relative; border-radius: var(--radius); overflow: hidden;
-    border: 1px solid var(--line-strong); aspect-ratio: 4 / 5;
-    background: var(--surface);
-  }
-  .hero-photo img {
-    width: 100%; height: 100%; object-fit: cover; object-position: 42% 40%;
-    transition: transform 0.9s var(--ease);
-  }
-  .hero-photo:hover img { transform: scale(1.03); }
-  .hero-photo::after {
-    content: ''; position: absolute; inset: 0; pointer-events: none;
-    background: linear-gradient(180deg, transparent 55%, rgba(8, 10, 22, 0.8));
-  }
-  .hero-photo figcaption {
-    position: absolute; left: 20px; bottom: 18px; z-index: 1;
-    font-size: 13px; color: var(--text-muted);
-  }
+  /* ---------- Blocos escuros ---------- */
+  .night { background: var(--night); color: var(--night-text); }
+  .night .muted { color: var(--night-muted); }
 
-  /* ---------- Títulos de seção ---------- */
-  .section-head { display: grid; gap: 14px; margin-bottom: 64px; max-width: 760px; }
-  .section-title {
-    font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 600;
-    letter-spacing: -0.04em; line-height: 1.04;
+  /* ---------- Números ---------- */
+  .metrics-band { padding: 96px 0; }
+  .metrics-band h2 { font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 600; letter-spacing: -0.04em; line-height: 1.04; margin-bottom: 56px; max-width: 18ch; }
+  .metrics-band h2 .accent { color: var(--accent-bright); }
+  .metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; }
+  @media (max-width: 760px) { .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 40px; } }
+  .metric { padding-right: 20px; }
+  .metric-value {
+    font-size: clamp(3rem, 7vw, 5.4rem); font-weight: 600; letter-spacing: -0.06em; line-height: 0.9;
+    color: var(--accent-bright); font-variant-numeric: tabular-nums; margin-bottom: 14px;
   }
-  .section-title .accent { color: var(--accent); }
-  .section-intro { color: var(--text-muted); font-size: 1.05rem; max-width: 56ch; }
+  .metric-label { color: var(--night-muted); font-size: 15px; }
+  .metrics-note { margin-top: 48px; font-size: 13px; color: var(--night-muted); }
 
-  /* ---------- Movimento (poucos momentos, uma vez) ---------- */
-  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); }
+  /* ---------- Seções gerais ---------- */
+  section { padding: 120px 0; }
+  @media (max-width: 760px) { section { padding: 84px 0; } }
+  .title {
+    font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 600; letter-spacing: -0.04em; line-height: 1.04;
+    margin-bottom: 20px; max-width: 20ch;
+  }
+  .title .accent { color: var(--accent); }
+  .intro { color: var(--ink-2); font-size: 1.08rem; max-width: 56ch; margin-bottom: 64px; }
+
+  /* ---------- Sobre ---------- */
+  .about { display: grid; grid-template-columns: 1.4fr 1fr; gap: 88px; align-items: start; }
+  @media (max-width: 860px) { .about { grid-template-columns: 1fr; gap: 48px; } }
+  .about .lead { font-size: clamp(1.5rem, 2.8vw, 2.1rem); line-height: 1.32; letter-spacing: -0.03em; margin-bottom: 36px; font-weight: 500; }
+  .about p { color: var(--ink-2); max-width: 62ch; margin-bottom: 20px; }
+  .about strong { color: var(--ink); font-weight: 600; }
+  .profile { border-top: 2px solid var(--ink); }
+  .profile div { display: flex; justify-content: space-between; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--rule); font-size: 15px; }
+  .profile dt { color: var(--ink-muted); }
+  .profile dd { text-align: right; font-weight: 500; }
+
+  /* ---------- Projetos ---------- */
+  .project {
+    display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 48px; padding: 48px 0;
+    border-top: 1px solid var(--ink);
+  }
+  .project:last-of-type { border-bottom: 1px solid var(--ink); }
+  @media (max-width: 860px) { .project { grid-template-columns: 1fr; gap: 20px; padding: 36px 0; } }
+  .project-title { font-size: clamp(1.6rem, 3vw, 2.3rem); font-weight: 600; letter-spacing: -0.035em; line-height: 1.1; }
+  .badge {
+    display: inline-block; margin-top: 16px; font-family: 'Geist Mono', monospace; font-size: 12px;
+    color: var(--accent); border: 1px solid var(--accent); border-radius: 999px; padding: 4px 11px;
+  }
+  .badge.alt { color: var(--ink-2); border-color: var(--ink-2); }
+  .project-desc { color: var(--ink-2); max-width: 60ch; margin-bottom: 22px; font-size: 1.02rem; }
+  .kpi { margin-top: 22px; font-size: 15px; color: var(--ink-muted); }
+  .kpi strong { display: block; font-size: 1.7rem; color: var(--ink); font-weight: 600; letter-spacing: -0.03em; line-height: 1.1; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag { font-family: 'Geist Mono', monospace; font-size: 12px; color: var(--ink-2); background: var(--paper-2); border-radius: 6px; padding: 5px 10px; }
+
+  .mini-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 48px; margin-top: 72px; }
+  @media (max-width: 760px) { .mini-grid { grid-template-columns: 1fr; } }
+  .mini { padding: 32px 0; border-top: 1px solid var(--rule); }
+  .mini h3 { font-size: 1.15rem; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 8px; }
+  .mini p { color: var(--ink-2); font-size: 15px; margin-bottom: 16px; }
+  .mini .tags .tag { background: transparent; border: 1px solid var(--rule); }
+
+  /* ---------- Experiência ---------- */
+  .job {
+    display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 48px;
+    padding: 44px 0; border-top: 1px solid var(--rule);
+  }
+  .job:last-child { border-bottom: 1px solid var(--rule); }
+  @media (max-width: 860px) { .job { grid-template-columns: 1fr; gap: 12px; padding: 32px 0; } }
+  .job-date { font-family: 'Geist Mono', monospace; font-size: 13px; color: var(--ink-muted); padding-top: 8px; }
+  .job.current .job-date { color: var(--accent); }
+  .job-role { font-size: 1.4rem; font-weight: 600; letter-spacing: -0.02em; }
+  .job-company { color: var(--accent); font-size: 15px; margin: 4px 0 14px; font-weight: 500; }
+  .job-desc { color: var(--ink-2); max-width: 68ch; margin-bottom: 18px; }
+
+  /* ---------- Stack ---------- */
+  .stack-band { background: var(--paper-2); }
+  .stack-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px 32px; }
+  @media (max-width: 860px) { .stack-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 480px) { .stack-grid { grid-template-columns: 1fr; } }
+  .stack-group h3 { font-size: 13px; font-weight: 500; color: var(--ink-muted); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--ink); }
+  .stack-group ul { display: grid; gap: 10px; font-size: 16px; }
+
+  .edu { margin-top: 96px; }
+  .edu h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 20px; }
+  .edu-row { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 24px; padding: 18px 0; border-top: 1px solid var(--rule); }
+  .edu-row:last-child { border-bottom: 1px solid var(--rule); }
+  @media (max-width: 760px) { .edu-row { grid-template-columns: 1fr; gap: 4px; } }
+  .edu-row .mono { font-size: 13px; color: var(--ink-muted); padding-top: 3px; }
+  .edu-row .school { color: var(--ink-2); font-size: 15px; }
+
+  /* ---------- Contato (bloco escuro) ---------- */
+  .contact { padding: 120px 0; }
+  .contact .title .accent { color: var(--accent-bright); }
+  .contact-email {
+    display: inline-block; max-width: 100%; word-break: break-all; margin-top: 12px;
+    font-size: clamp(1.6rem, 5vw, 4rem); font-weight: 600; letter-spacing: -0.045em; line-height: 1.1;
+    color: var(--night-text); text-decoration: none; border-bottom: 2px solid var(--accent-bright); padding-bottom: 6px;
+  }
+  .contact-email:hover { color: var(--accent-bright); }
+  .contact-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 48px; }
+  .contact-link {
+    display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 20px;
+    border: 1px solid var(--night-muted); border-radius: 10px; color: var(--night-text); text-decoration: none;
+    font-size: 15px; font-weight: 500; transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  .contact-link:hover { background: var(--night-text); color: var(--night); }
+  .contact-link svg { width: 18px; height: 18px; flex: none; }
+
+  footer { padding: 28px 0; font-size: 14px; color: var(--ink-muted); }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+
+  /* ---------- Movimento: entrada do hero e revelação única ---------- */
+  @keyframes lift { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+  .hero-name, .hero-grid { animation: lift 1s var(--ease) both; }
+  .hero-grid { animation-delay: 0.15s; }
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); }
   .reveal.visible { opacity: 1; transform: none; }
-
-  @keyframes rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
-  @keyframes photo-in { from { opacity: 0; transform: scale(1.05); } to { opacity: 1; transform: scale(1); } }
-  .hero .rise { opacity: 0; animation: rise 1s var(--ease) forwards; animation-delay: var(--d, 0s); }
-  .hero-photo { opacity: 0; animation: photo-in 1.3s var(--ease) 0.2s forwards; }
 
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    *, *::before, *::after { transition: none !important; animation: none !important; }
-    .reveal, .hero .rise, .hero-photo { opacity: 1; transform: none; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .reveal { opacity: 1; transform: none; }
   }
-
-  /* ---------- Números ---------- */
-  .metrics {
-    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
-    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
-  }
-  @media (max-width: 767px) { .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  .metric { padding: 44px 24px 44px 0; }
-  .metric + .metric { padding-left: 24px; border-left: 1px solid var(--line); }
-  @media (max-width: 767px) {
-    .metric:nth-child(odd) { padding-left: 0; border-left: 0; }
-    .metric:nth-child(n+3) { border-top: 1px solid var(--line); }
-  }
-  .metric-value {
-    font-size: clamp(2.8rem, 5.6vw, 4.2rem); font-weight: 600; line-height: 1;
-    letter-spacing: -0.045em; color: var(--accent); margin-bottom: 14px; font-variant-numeric: tabular-nums;
-  }
-  .metric-label { color: var(--text-muted); font-size: 15px; }
-  .metrics-note { margin-top: 20px; color: var(--text-dim); font-size: 13px; }
-
-  /* ---------- Sobre ---------- */
-  .about { display: grid; grid-template-columns: 1.35fr 1fr; gap: 88px; align-items: start; }
-  @media (max-width: 899px) { .about { grid-template-columns: 1fr; gap: 48px; } }
-  .about .lead {
-    font-size: clamp(1.45rem, 2.6vw, 2rem); line-height: 1.38; letter-spacing: -0.025em;
-    margin-bottom: 36px;
-  }
-  .about p { color: var(--text-muted); max-width: 62ch; margin-bottom: 20px; }
-  .about strong { color: var(--text); font-weight: 500; }
-  .profile {
-    border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface);
-    padding: 8px 28px;
-  }
-  .profile div {
-    display: flex; justify-content: space-between; gap: 16px; padding: 16px 0;
-    border-bottom: 1px solid var(--line); font-size: 15px;
-  }
-  .profile div:last-child { border-bottom: 0; }
-  .profile dt { color: var(--text-dim); }
-  .profile dd { text-align: right; }
-
-  /* ---------- Projetos ---------- */
-  .project-list { display: grid; gap: 16px; }
-  .project {
-    display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); gap: 40px;
-    padding: 40px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface);
-    position: relative; overflow: hidden;
-    transition: border-color 0.3s ease, background-color 0.3s ease;
-  }
-  .project::before {
-    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--accent);
-    opacity: 0.6; transition: opacity 0.3s ease;
-  }
-  .project:hover { border-color: var(--line-strong); background: var(--surface-2); }
-  .project:hover::before { opacity: 1; }
-  .project-title {
-    font-size: clamp(1.5rem, 2.8vw, 2rem); font-weight: 600; letter-spacing: -0.03em;
-    line-height: 1.15; margin-bottom: 14px;
-  }
-  .project-desc { color: var(--text-muted); max-width: 60ch; margin-bottom: 22px; }
-  .project-side { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; justify-content: flex-end; }
-  .badge {
-    font-family: 'Geist Mono', monospace; font-size: 12px; color: var(--accent);
-    background: var(--accent-soft); padding: 6px 12px; border-radius: 999px;
-  }
-  .badge.alt { color: var(--text-muted); background: var(--surface-2); }
-  .kpi { font-size: 15px; color: var(--text-dim); }
-  .kpi strong { display: block; font-size: 1.6rem; color: var(--text); font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; }
-  .tags { display: flex; flex-wrap: wrap; gap: 8px; }
-  .tag {
-    font-family: 'Geist Mono', monospace; font-size: 12px; color: var(--text-muted);
-    border: 1px solid var(--line-strong); border-radius: 999px; padding: 5px 11px;
-  }
-  @media (max-width: 767px) {
-    .project { grid-template-columns: 1fr; gap: 24px; padding: 28px 24px; }
-    .project-side { flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: flex-start; }
-  }
-
-  .mini-grid {
-    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 16px;
-  }
-  @media (max-width: 767px) { .mini-grid { grid-template-columns: 1fr; } }
-  .mini {
-    padding: 28px; border: 1px solid var(--line); border-radius: var(--radius);
-    background: transparent; transition: border-color 0.3s ease;
-  }
-  .mini:hover { border-color: var(--line-strong); }
-  .mini h3 { font-size: 1.1rem; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 8px; }
-  .mini p { color: var(--text-muted); font-size: 15px; margin-bottom: 16px; }
-  .mini .tags { gap: 6px; }
-
-  /* ---------- Experiência ---------- */
-  .timeline { display: grid; gap: 0; }
-  .job {
-    display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 40px;
-    padding: 40px 0; border-top: 1px solid var(--line);
-  }
-  .job:last-child { border-bottom: 1px solid var(--line); }
-  @media (max-width: 767px) { .job { grid-template-columns: 1fr; gap: 10px; padding: 32px 0; } }
-  .job-date { font-family: 'Geist Mono', monospace; font-size: 13px; color: var(--text-dim); padding-top: 8px; }
-  .job.active .job-date { color: var(--accent); }
-  .job-role { font-size: 1.35rem; font-weight: 600; letter-spacing: -0.01em; }
-  .job-company { color: var(--accent); font-size: 15px; margin: 4px 0 14px; }
-  .job-desc { color: var(--text-muted); max-width: 68ch; margin-bottom: 16px; }
-
-  /* ---------- Stack ---------- */
-  .stack-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px 32px; }
-  @media (max-width: 899px) { .stack-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (max-width: 479px) { .stack-grid { grid-template-columns: 1fr; } }
-  .stack-group h3 {
-    font-size: 13px; font-weight: 500; color: var(--text-dim); margin-bottom: 16px;
-    padding-bottom: 12px; border-bottom: 1px solid var(--line);
-  }
-  .stack-group ul { display: grid; gap: 10px; font-size: 16px; }
-
-  .edu { margin-top: 112px; }
-  .edu h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 24px; }
-  .edu-row {
-    display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 24px;
-    padding: 20px 0; border-top: 1px solid var(--line);
-  }
-  .edu-row:last-child { border-bottom: 1px solid var(--line); }
-  @media (max-width: 767px) { .edu-row { grid-template-columns: 1fr; gap: 4px; } }
-  .edu-row .mono { font-size: 13px; color: var(--text-dim); padding-top: 3px; }
-  .edu-row .school { color: var(--text-muted); font-size: 15px; }
-
-  /* ---------- Contato ---------- */
-  .contact { border-top: 1px solid var(--line); }
-  .contact-email {
-    display: inline-flex; align-items: center; min-height: 52px; max-width: 100%;
-    font-size: clamp(1.5rem, 4.6vw, 3.8rem); font-weight: 600; letter-spacing: -0.04em;
-    color: var(--accent); text-decoration: none; word-break: break-all;
-    border-bottom: 2px solid var(--accent-soft); padding-bottom: 8px;
-    transition: border-color 0.2s ease;
-  }
-  .contact-email:hover { border-bottom-color: var(--accent); }
-  .contact-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 44px; }
-  .contact-link {
-    display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 20px;
-    border: 1px solid var(--line-strong); border-radius: var(--radius-sm);
-    text-decoration: none; font-size: 15px; font-weight: 500;
-    transition: border-color 0.2s ease, background-color 0.2s ease;
-  }
-  .contact-link:hover { border-color: var(--accent); background: var(--accent-soft); }
-  .contact-link svg { width: 18px; height: 18px; flex: none; }
-
-  footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--text-dim); font-size: 14px; }
-  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
 </style>
 </head>
 <body>
 
 <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-<nav class="nav" id="nav" aria-label="Principal">
+<header class="top">
   <div class="wrap">
     <a class="brand" href="#topo">ali.khodr</a>
-    <div class="nav-links">
+    <nav class="top-links" aria-label="Principal">
       <a href="#sobre">sobre</a>
       <a href="#projetos">projetos</a>
       <a href="#experiencia">experiência</a>
       <a href="#stack">stack</a>
-      <a href="#contato" class="nav-cta">contato</a>
-    </div>
+      <a href="#contato">contato</a>
+    </nav>
   </div>
-</nav>
+</header>
 
 <main id="conteudo">
 
-<!-- HERO: título, apoio e ações. A foto é o segundo plano visual. -->
+<!-- HERO -->
 <header class="hero" id="topo">
   <div class="wrap">
-    <div>
-      <h1 class="rise" style="--d: 0.1s">Ali Mohamed <span class="accent">Khodr</span></h1>
-      <p class="lead rise" style="--d: 0.25s">Software Engineer na Qeevo Group. Construo produtos full-stack com foco em pagamentos, multi-tenant e sistemas embarcáveis, do zero à produção.</p>
-      <div class="hero-actions rise" style="--d: 0.4s">
-        <a class="btn btn-primary" href="#projetos">Ver projetos</a>
-        <a class="btn btn-ghost" href="cv.pdf" download="Ali_Mohamed_Khodr_CV.pdf">Baixar CV</a>
+    <h1 class="hero-name">
+      <span>Ali Mohamed</span>
+      <span class="accent">Khodr</span>
+    </h1>
+    <div class="hero-grid">
+      <div>
+        <p class="hero-lead">Software Engineer na Qeevo Group. Construo produtos full-stack com foco em pagamentos, multi-tenant e sistemas embarcáveis, do zero à produção.</p>
+        <div class="hero-actions">
+          <a class="btn btn-ink" href="#projetos">Ver projetos</a>
+          <a class="btn btn-line" href="cv.pdf" download="Ali_Mohamed_Khodr_CV.pdf">Baixar CV</a>
+        </div>
       </div>
+      <figure class="hero-photo">
+        <img src="assets/hero.webp" width="1254" height="1254" alt="Ali Mohamed Khodr sentado em frente a dois monitores, com iluminação azul ao fundo" fetchpriority="high" />
+      </figure>
     </div>
-    <figure class="hero-photo">
-      <img src="assets/hero.webp" width="1254" height="1254" alt="Ali Mohamed Khodr sentado em frente a dois monitores, com iluminação azul ao fundo" fetchpriority="high" />
-    </figure>
   </div>
 </header>
 
 <!-- NÚMEROS -->
-<section aria-labelledby="titulo-numeros">
+<section class="night metrics-band" aria-labelledby="titulo-numeros">
   <div class="wrap">
-    <div class="section-head reveal">
-      <h2 class="section-title" id="titulo-numeros">Um ano de <span class="accent">entregas reais</span>.</h2>
-    </div>
-    <div class="metrics reveal">
+    <h2 id="titulo-numeros">Um ano de <span class="accent">entregas reais</span>.</h2>
+    <div class="metrics">
       <div class="metric">
         <div class="metric-value"><span class="count" data-to="170" data-prefix="~">~170</span></div>
         <div class="metric-label">Pull requests</div>
@@ -396,7 +299,7 @@
         <div class="metric-label">Repositórios</div>
       </div>
     </div>
-    <p class="metrics-note mono reveal">Abr 2025 a abr 2026 · Qeevo Group</p>
+    <p class="metrics-note mono">Abr 2025 a abr 2026 · Qeevo Group</p>
   </div>
 </section>
 
@@ -404,9 +307,7 @@
 <section id="sobre" aria-labelledby="titulo-sobre">
   <div class="wrap about">
     <div class="reveal">
-      <div class="section-head" style="margin-bottom: 40px;">
-        <h2 class="section-title" id="titulo-sobre">Sobre <span class="accent">mim</span>.</h2>
-      </div>
+      <h2 class="title" id="titulo-sobre">Sobre <span class="accent">mim</span>.</h2>
       <p class="lead">Gosto de assumir produtos do zero: arquitetura inicial, CI/CD, Docker, temas, testes e deploy.</p>
       <p>Comecei a programar no ensino médio técnico em Desenvolvimento de Sistemas, na <strong>ETEC</strong>. Depois fui para a <strong>Fatec São José dos Campos</strong>, onde migrei para Banco de Dados para conciliar a faculdade com a primeira experiência profissional.</p>
       <p>Passei pela <strong>APTIV</strong>, onde tive contato com VB, C#, SQL, React e Node. Hoje estou na <strong>Qeevo Group (ex-Quero Educação)</strong>, trabalhando full-stack com Vue, Nuxt, Ruby, Node e Docker em AWS.</p>
@@ -427,54 +328,44 @@
 <!-- PROJETOS -->
 <section id="projetos" aria-labelledby="titulo-projetos">
   <div class="wrap">
-    <div class="section-head reveal">
-      <h2 class="section-title" id="titulo-projetos">Projetos e <span class="accent">entregas</span>.</h2>
-      <p class="section-intro">Produtos que construí ou liderei tecnicamente, de pagamentos a coordenação entre times.</p>
-    </div>
+    <h2 class="title reveal" id="titulo-projetos">Projetos e <span class="accent">entregas</span>.</h2>
+    <p class="intro reveal">Produtos que construí ou liderei tecnicamente, de pagamentos a coordenação entre times.</p>
 
-    <div class="project-list">
-      <article class="project reveal">
-        <div>
-          <h3 class="project-title">Gateway de pagamentos embarcável</h3>
-          <p class="project-desc">Construção do zero de um gateway de pagamentos embarcável via iframe por parceiros externos. Renderização de oferta, fluxos de Cartão, PIX e Boleto, sistema de cupom, temas por marca, CI/CD e dockerização.</p>
-          <div class="tags">
-            <span class="tag">Vue</span><span class="tag">Nuxt</span><span class="tag">Ruby</span><span class="tag">Docker</span><span class="tag">AWS</span><span class="tag">CI/CD</span>
-          </div>
-        </div>
-        <div class="project-side">
-          <span class="badge">Tech lead · E2E</span>
-          <p class="kpi"><strong>~33 PRs</strong>entre backend e frontend, em 2025</p>
-        </div>
-      </article>
+    <article class="project reveal">
+      <div>
+        <h3 class="project-title">Gateway de pagamentos embarcável</h3>
+        <span class="badge">Tech lead · E2E</span>
+        <div class="kpi"><strong>~33 PRs</strong>entre backend e frontend, em 2025</div>
+      </div>
+      <div>
+        <p class="project-desc">Construção do zero de um gateway de pagamentos embarcável via iframe por parceiros externos. Renderização de oferta, fluxos de Cartão, PIX e Boleto, sistema de cupom, temas por marca, CI/CD e dockerização.</p>
+        <div class="tags"><span class="tag">Vue</span><span class="tag">Nuxt</span><span class="tag">Ruby</span><span class="tag">Docker</span><span class="tag">AWS</span><span class="tag">CI/CD</span></div>
+      </div>
+    </article>
 
-      <article class="project reveal">
-        <div>
-          <h3 class="project-title">Área do aluno multi-tenant</h3>
-          <p class="project-desc">Produto novo com histórico de pagamentos, reembolso self-service, modal de pagamento com Cartão e PIX, validação de chave PIX e localização por tenant. Arquitetura inicial, setup e deploy sob minha responsabilidade.</p>
-          <div class="tags">
-            <span class="tag">Vue</span><span class="tag">Nuxt</span><span class="tag">TypeScript</span><span class="tag">Ruby</span><span class="tag">i18n</span>
-          </div>
-        </div>
-        <div class="project-side">
-          <span class="badge">Tech lead · E2E</span>
-          <p class="kpi"><strong>~24 PRs</strong>como owner do produto, de 2025 a 2026</p>
-        </div>
-      </article>
+    <article class="project reveal">
+      <div>
+        <h3 class="project-title">Área do aluno multi-tenant</h3>
+        <span class="badge">Tech lead · E2E</span>
+        <div class="kpi"><strong>~24 PRs</strong>como owner do produto, de 2025 a 2026</div>
+      </div>
+      <div>
+        <p class="project-desc">Produto novo com histórico de pagamentos, reembolso self-service, modal de pagamento com Cartão e PIX, validação de chave PIX e localização por tenant. Arquitetura inicial, setup e deploy sob minha responsabilidade.</p>
+        <div class="tags"><span class="tag">Vue</span><span class="tag">Nuxt</span><span class="tag">TypeScript</span><span class="tag">Ruby</span><span class="tag">i18n</span></div>
+      </div>
+    </article>
 
-      <article class="project reveal">
-        <div>
-          <h3 class="project-title">Fluxo de reembolso ponta a ponta</h3>
-          <p class="project-desc">Iniciativa em mais de 6 repositórios, coordenando times diferentes: solicitação com acompanhamento, workers com retry administrativo, reembolso via PIX com fallback automático por e-mail e painel de auditoria.</p>
-          <div class="tags">
-            <span class="tag">Ruby</span><span class="tag">Vue</span><span class="tag">Workers</span><span class="tag">PIX</span>
-          </div>
-        </div>
-        <div class="project-side">
-          <span class="badge alt">Projeto transversal</span>
-          <p class="kpi"><strong>6+ repositórios</strong>e coordenação entre times</p>
-        </div>
-      </article>
-    </div>
+    <article class="project reveal">
+      <div>
+        <h3 class="project-title">Fluxo de reembolso ponta a ponta</h3>
+        <span class="badge alt">Projeto transversal</span>
+        <div class="kpi"><strong>6+ repositórios</strong>e coordenação entre times</div>
+      </div>
+      <div>
+        <p class="project-desc">Iniciativa em mais de 6 repositórios, coordenando times diferentes: solicitação com acompanhamento, workers com retry administrativo, reembolso via PIX com fallback automático por e-mail e painel de auditoria.</p>
+        <div class="tags"><span class="tag">Ruby</span><span class="tag">Vue</span><span class="tag">Workers</span><span class="tag">PIX</span></div>
+      </div>
+    </article>
 
     <div class="mini-grid">
       <article class="mini reveal">
@@ -502,13 +393,11 @@
 </section>
 
 <!-- EXPERIÊNCIA -->
-<section id="experiencia" aria-labelledby="titulo-experiencia">
+<section id="experiencia" aria-labelledby="titulo-experiencia" style="padding-top: 0;">
   <div class="wrap">
-    <div class="section-head reveal">
-      <h2 class="section-title" id="titulo-experiencia">Experiência <span class="accent">profissional</span>.</h2>
-    </div>
-    <ol class="timeline">
-      <li class="job active reveal">
+    <h2 class="title reveal" id="titulo-experiencia">Experiência <span class="accent">profissional</span>.</h2>
+    <ol>
+      <li class="job current reveal">
         <div class="job-date">Abr 2025 a atual</div>
         <div>
           <h3 class="job-role">Software Engineer</h3>
@@ -540,12 +429,10 @@
 </section>
 
 <!-- STACK -->
-<section id="stack" aria-labelledby="titulo-stack">
+<section id="stack" class="stack-band" aria-labelledby="titulo-stack">
   <div class="wrap">
-    <div class="section-head reveal">
-      <h2 class="section-title" id="titulo-stack">Stack de <span class="accent">trabalho</span>.</h2>
-    </div>
-    <div class="stack-grid reveal">
+    <h2 class="title reveal" id="titulo-stack">Stack de <span class="accent">trabalho</span>.</h2>
+    <div class="stack-grid reveal" style="margin-top: 56px;">
       <div class="stack-group">
         <h3>Frontend</h3>
         <ul><li>Vue · Nuxt</li><li>React</li><li>TypeScript</li><li>JavaScript</li><li>HTML e CSS</li></ul>
@@ -586,16 +473,14 @@
   </div>
 </section>
 
-<!-- CONTATO -->
-<section id="contato" class="contact" aria-labelledby="titulo-contato">
+<!-- CONTATO (bloco escuro) -->
+<section id="contato" class="night contact" aria-labelledby="titulo-contato">
   <div class="wrap">
-    <div class="section-head reveal">
-      <h2 class="section-title" id="titulo-contato">Contato<span class="accent">.</span></h2>
-    </div>
-    <a href="mailto:ali.m.khodr@gmail.com" class="contact-email reveal">ali.m.khodr@gmail.com</a>
-    <div class="contact-links reveal">
+    <h2 class="title" id="titulo-contato">Contato<span class="accent">.</span></h2>
+    <a href="mailto:ali.m.khodr@gmail.com" class="contact-email">ali.m.khodr@gmail.com</a>
+    <div class="contact-links">
       <a class="contact-link" href="https://www.linkedin.com/in/alimohamedkhodr/" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.930-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
         LinkedIn
       </a>
       <a class="contact-link" href="https://github.com/alimkhodr" target="_blank" rel="noopener">
@@ -620,13 +505,7 @@
 </footer>
 
 <script>
-  // Navegação: estado "scrolled" via IntersectionObserver, sem listener de scroll.
-  const nav = document.getElementById('nav');
-  new IntersectionObserver(([entry]) => {
-    nav.classList.toggle('scrolled', !entry.isIntersecting);
-  }, { rootMargin: '-68px 0px 0px 0px' }).observe(document.getElementById('topo'));
-
-  // Revelar elementos ao entrar na tela, uma vez.
+  // Revelar blocos ao entrar na tela, uma vez.
   const io = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
