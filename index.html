@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Ali Mohamed Khodr | Software Engineer</title>
 <meta name="description" content="Software Engineer na Qeevo Group. Full-stack com Vue, Nuxt, Ruby e Node. Foco em pagamentos, multi-tenant e produtos construídos do zero." />
-<meta name="theme-color" content="#f4f4f9" />
+<meta name="theme-color" content="#080a16" />
 <meta property="og:title" content="Ali Mohamed Khodr | Software Engineer" />
 <meta property="og:description" content="Full-stack com foco em pagamentos, multi-tenant e produtos construídos do zero." />
 <meta property="og:image" content="assets/hero.webp" />
@@ -17,19 +17,19 @@
      Cores tiradas da foto (assets/hero.webp): azul-noite #080a16, violeta #6967e5, periwinkle #707fea.
      O violeta é o único destaque. Os blocos escuros usam o mesmo azul-noite da foto. */
   :root {
-    color-scheme: light;
-    --paper: #f4f4f9;
-    --paper-2: #e9eaf5;
-    --ink: #0d0f22;
-    --ink-2: #3c4170;
-    --ink-muted: #545a84;
+    color-scheme: dark;
+    --paper: #080a16;
+    --paper-2: #0e1024;
+    --ink: #eef0ff;
+    --ink-2: #b9bfe3;
+    --ink-muted: #9aa1cf;
     --night: #080a16;
     --night-2: #111332;
     --night-text: #eef0ff;
     --night-muted: #b4bade;
-    --accent: #4f52c9;
-    --accent-bright: #707fea;
-    --rule: #c9cce6;
+    --accent: #8d9bf2;
+    --accent-bright: #8d9bf2;
+    --rule: #1d2350;
     --gutter: 22px;
     --max: 1240px;
     --ease: cubic-bezier(0.16, 1, 0.3, 1);
@@ -83,15 +83,21 @@
   }
 
   /* ---------- Hero ---------- */
-  .hero { padding: 72px 0 80px; }
+  .hero { padding: 56px 0 64px; }
   .hero-name {
     font-size: clamp(3.4rem, 13vw, 11rem); font-weight: 600; letter-spacing: -0.06em; line-height: 0.88;
-    margin-bottom: 56px;
+    margin-bottom: 40px;
   }
   .hero-name span { display: block; }
   .hero-name .accent { color: var(--accent); }
-  .hero-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 56px; align-items: end; }
-  @media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; gap: 36px; } }
+  .hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: end; }
+  .hero-grid .hero-name { grid-column: 1; grid-row: 1; margin-bottom: 0; }
+  .hero-grid > div:not(.hero-photo) { grid-column: 1; grid-row: 2; }
+  .hero-grid .hero-photo { grid-column: 2; grid-row: 1 / span 2; aspect-ratio: auto; min-height: 460px; }
+  @media (max-width: 860px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+    .hero-grid .hero-name, .hero-grid > div:not(.hero-photo), .hero-grid .hero-photo { grid-column: auto; grid-row: auto; }
+  }
   .hero-lead { font-size: clamp(1.1rem, 1.9vw, 1.4rem); line-height: 1.45; max-width: 30ch; margin-bottom: 36px; color: var(--ink-2); }
   .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
   .btn {
@@ -112,7 +118,7 @@
   .night .muted { color: var(--night-muted); }
 
   /* ---------- Números ---------- */
-  .metrics-band { padding: 96px 0; }
+  .metrics-band { padding: 80px 0; }
   .metrics-band h2 { font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 600; letter-spacing: -0.04em; line-height: 1.04; margin-bottom: 56px; max-width: 18ch; }
   .metrics-band h2 .accent { color: var(--accent-bright); }
   .metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; }
@@ -126,14 +132,14 @@
   .metrics-note { margin-top: 48px; font-size: 13px; color: var(--night-muted); }
 
   /* ---------- Seções gerais ---------- */
-  section { padding: 120px 0; }
-  @media (max-width: 760px) { section { padding: 84px 0; } }
+  section { padding: 96px 0; }
+  @media (max-width: 760px) { section { padding: 72px 0; } }
   .title {
     font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 600; letter-spacing: -0.04em; line-height: 1.04;
     margin-bottom: 20px; max-width: 20ch;
   }
   .title .accent { color: var(--accent); }
-  .intro { color: var(--ink-2); font-size: 1.08rem; max-width: 56ch; margin-bottom: 64px; }
+  .intro { color: var(--ink-2); font-size: 1.08rem; max-width: 56ch; margin-bottom: 40px; }
 
   /* ---------- Sobre ---------- */
   .about { display: grid; grid-template-columns: 1.4fr 1fr; gap: 88px; align-items: start; }
@@ -165,7 +171,7 @@
   .tags { display: flex; flex-wrap: wrap; gap: 8px; }
   .tag { font-family: 'Geist Mono', monospace; font-size: 12px; color: var(--ink-2); background: var(--paper-2); border-radius: 6px; padding: 5px 10px; }
 
-  .mini-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 48px; margin-top: 72px; }
+  .mini-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 48px; margin-top: 48px; }
   @media (max-width: 760px) { .mini-grid { grid-template-columns: 1fr; } }
   .mini { padding: 32px 0; border-top: 1px solid var(--rule); }
   .mini h3 { font-size: 1.15rem; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 8px; }
@@ -174,8 +180,8 @@
 
   /* ---------- Experiência ---------- */
   .job {
-    display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 48px;
-    padding: 44px 0; border-top: 1px solid var(--rule);
+    display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 40px;
+    padding: 36px 0; border-top: 1px solid var(--rule);
   }
   .job:last-child { border-bottom: 1px solid var(--rule); }
   @media (max-width: 860px) { .job { grid-template-columns: 1fr; gap: 12px; padding: 32px 0; } }
@@ -193,16 +199,16 @@
   .stack-group h3 { font-size: 13px; font-weight: 500; color: var(--ink-muted); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--ink); }
   .stack-group ul { display: grid; gap: 10px; font-size: 16px; }
 
-  .edu { margin-top: 96px; }
+  .edu { margin-top: 72px; }
   .edu h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 20px; }
-  .edu-row { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 24px; padding: 18px 0; border-top: 1px solid var(--rule); }
+  .edu-row { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 24px; padding: 18px 0; border-top: 1px solid var(--rule); }
   .edu-row:last-child { border-bottom: 1px solid var(--rule); }
   @media (max-width: 760px) { .edu-row { grid-template-columns: 1fr; gap: 4px; } }
   .edu-row .mono { font-size: 13px; color: var(--ink-muted); padding-top: 3px; }
   .edu-row .school { color: var(--ink-2); font-size: 15px; }
 
   /* ---------- Contato (bloco escuro) ---------- */
-  .contact { padding: 120px 0; }
+  .contact { padding: 96px 0; }
   .contact .title .accent { color: var(--accent-bright); }
   .contact-email {
     display: inline-block; max-width: 100%; word-break: break-all; margin-top: 12px;
@@ -258,11 +264,11 @@
 <!-- HERO -->
 <header class="hero" id="topo">
   <div class="wrap">
-    <h1 class="hero-name">
-      <span>Ali Mohamed</span>
-      <span class="accent">Khodr</span>
-    </h1>
     <div class="hero-grid">
+      <h1 class="hero-name">
+        <span>Ali Mohamed</span>
+        <span class="accent">Khodr</span>
+      </h1>
       <div>
         <p class="hero-lead">Software Engineer na Qeevo Group. Construo produtos full-stack com foco em pagamentos, multi-tenant e sistemas embarcáveis, do zero à produção.</p>
         <div class="hero-actions">
