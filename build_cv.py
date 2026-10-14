@@ -2,16 +2,26 @@
 
 Layout de coluna unica, sem tabelas, icones ou colunas, para que os
 parsers de ATS (sistemas de RH) leiam o texto na ordem correta.
+A hierarquia visual vem de tamanho, cor e filetes, nunca de colunas.
 Uso: .tools-venv/bin/python build_cv.py
 """
 
 from docx import Document
 from docx.enum.text import WD_ALIGN_PARAGRAPH
-from docx.shared import Cm, Pt
+from docx.oxml import OxmlElement
+from docx.oxml.ns import qn
+from docx.shared import Cm, Pt, RGBColor
+from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.units import cm
-from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer
+from reportlab.platypus import HRFlowable, Paragraph, SimpleDocTemplate, Spacer
+
+# Paleta: azul-noite para texto, violeta da foto do site para destaque.
+INK = "#1d2350"
+ACCENT = "#4f52c9"
+MUTED = "#5b6185"
+RULE = "#d9dcf0"
 
 NAME = "Ali Mohamed Khodr"
 TITLE = "Software Engineer | Full-stack: Vue, Nuxt, Ruby on Rails, Node.js"
@@ -21,6 +31,11 @@ CONTACT = [
     "(12) 98859-4305",
     "linkedin.com/in/alimohamedkhodr",
     "github.com/alimkhodr",
+]
+# Duas linhas de contato, quebradas de proposito para nao cortar um link no meio.
+CONTACT_LINES = [
+    "  |  ".join(CONTACT[:3]),
+    "  |  ".join(CONTACT[3:]),
 ]
 
 SUMMARY = (
@@ -110,30 +125,74 @@ LANGUAGES = [
 ]
 
 
+def _rgb(hex_color):
+    return RGBColor.from_string(hex_color.lstrip("#"))
+
+
+def _bottom_border(paragraph, hex_color, size=8):
+    """Filete embaixo do paragrafo (usado nos titulos de secao)."""
+    p_pr = paragraph._p.get_or_add_pPr()
+    borders = OxmlElement("w:pBdr")
+    bottom = OxmlElement("w:bottom")
+    bottom.set(qn("w:val"), "single")
+    bottom.set(qn("w:sz"), str(size))
+    bottom.set(qn("w:space"), "2")
+    bottom.set(qn("w:color"), hex_color.lstrip("#"))
+    borders.append(bottom)
+    p_pr.append(borders)
+
+
 def build_docx(path):
     doc = Document()
     for section in doc.sections:
-        section.top_margin = section.bottom_margin = Cm(1.8)
+        section.top_margin = section.bottom_margin = Cm(1.6)
         section.left_margin = section.right_margin = Cm(2)
 
     normal = doc.styles["Normal"]
     normal.font.name = "Calibri"
     normal.font.size = Pt(10.5)
-    normal.paragraph_format.space_after = Pt(2)
+    normal.font.color.rgb = _rgb(INK)
+    normal.paragraph_format.space_after = Pt(3)
+    normal.paragraph_format.line_spacing = 1.15
+
+    bullet_style = doc.styles["List Bullet"]
+    bullet_style.font.size = Pt(10)
+    bullet_style.paragraph_format.space_after = Pt(2)
 
     name_p = doc.add_paragraph()
-    name_p.alignment = WD_ALIGN_PARAGRAPH.LEFT
+    name_p.paragraph_format.space_after = Pt(0)
     run = name_p.add_run(NAME)
     run.bold = True
-    run.font.size = Pt(20)
+    run.font.size = Pt(24)
+    run.font.color.rgb = _rgb(INK)
 
-    doc.add_paragraph(TITLE).runs[0].bold = True
-    doc.add_paragraph(" | ".join(CONTACT))
+    title_p = doc.add_paragraph()
+    title_p.paragraph_format.space_after = Pt(2)
+    t_run = title_p.add_run(TITLE)
+    t_run.bold = True
+    t_run.font.size = Pt(11)
+    t_run.font.color.rgb = _rgb(ACCENT)
+
+    contact_p = doc.add_paragraph()
+    contact_p.paragraph_format.space_after = Pt(6)
+    for i, line in enumerate(CONTACT_LINES):
+        c_run = contact_p.add_run(line)
+        c_run.font.size = Pt(9.5)
+        c_run.font.color.rgb = _rgb(MUTED)
+        if i < len(CONTACT_LINES) - 1:
+            c_run.add_break()
+    _bottom_border(contact_p, ACCENT, size=12)
 
     def heading(text):
-        h = doc.add_heading(text, level=2)
-        h.paragraph_format.space_before = Pt(10)
-        h.paragraph_format.space_after = Pt(3)
+        h = doc.add_paragraph()
+        h.paragraph_format.space_before = Pt(12)
+        h.paragraph_format.space_after = Pt(5)
+        h.paragraph_format.keep_with_next = True
+        r = h.add_run(text.upper())
+        r.bold = True
+        r.font.size = Pt(10.5)
+        r.font.color.rgb = _rgb(ACCENT)
+        _bottom_border(h, RULE, size=6)
 
     def bullet(text):
         doc.add_paragraph(text, style="List Bullet")
@@ -144,79 +203,129 @@ def build_docx(path):
     heading("Competências Técnicas")
     for label, items in SKILLS:
         p = doc.add_paragraph()
-        p.add_run(f"{label}: ").bold = True
+        p.paragraph_format.space_after = Pt(2)
+        lab = p.add_run(f"{label}: ")
+        lab.bold = True
+        lab.font.color.rgb = _rgb(INK)
         p.add_run(items)
 
     heading("Experiência Profissional")
     for company in EXPERIENCE:
         p = doc.add_paragraph()
-        p.add_run(company["company"]).bold = True
-        p.add_run(f" | {company['location']}")
+        p.paragraph_format.space_before = Pt(6)
+        p.paragraph_format.space_after = Pt(0)
+        p.paragraph_format.keep_with_next = True
+        c = p.add_run(company["company"])
+        c.bold = True
+        c.font.size = Pt(11.5)
+        p.add_run(f"   {company['location']}").font.color.rgb = _rgb(MUTED)
         for role in company["roles"]:
             r = doc.add_paragraph()
-            r.add_run(role["title"]).bold = True
-            r.add_run(f" | {role['period']}")
+            r.paragraph_format.space_before = Pt(4)
+            r.paragraph_format.space_after = Pt(2)
+            r.paragraph_format.keep_with_next = True
+            t = r.add_run(role["title"])
+            t.bold = True
+            t.font.color.rgb = _rgb(ACCENT)
+            r.add_run(f"   {role['period']}").font.color.rgb = _rgb(MUTED)
             for b in role["bullets"]:
                 bullet(b)
             s = doc.add_paragraph()
-            s.add_run(f"Tecnologias: {role['stack']}").italic = True
+            s.paragraph_format.space_after = Pt(4)
+            st = s.add_run(f"Tecnologias: {role['stack']}")
+            st.italic = True
+            st.font.size = Pt(9.5)
+            st.font.color.rgb = _rgb(MUTED)
 
     heading("Formação Acadêmica")
     for course, school, period, status in EDUCATION:
         p = doc.add_paragraph()
+        p.paragraph_format.space_after = Pt(4)
         p.add_run(course).bold = True
-        p.add_run(f" | {school} | {period}" + (f" | {status}" if status else ""))
+        p.add_run().add_break()
+        p.add_run(school)
+        meta = f"   {period}" + (f"  |  {status}" if status else "")
+        p.add_run(meta).font.color.rgb = _rgb(MUTED)
 
     heading("Idiomas")
     for lang, level in LANGUAGES:
         p = doc.add_paragraph()
-        p.add_run(f"{lang}: ").bold = True
+        p.paragraph_format.space_after = Pt(2)
+        lab = p.add_run(f"{lang}: ")
+        lab.bold = True
         p.add_run(level)
 
     doc.save(path)
 
 
 def build_pdf(path):
-    base = ParagraphStyle("base", fontName="Helvetica", fontSize=9.5, leading=12.5, spaceAfter=2)
-    name = ParagraphStyle("name", parent=base, fontName="Helvetica-Bold", fontSize=18, leading=22)
-    title = ParagraphStyle("title", parent=base, fontName="Helvetica-Bold", fontSize=10.5)
-    head = ParagraphStyle("head", parent=base, fontName="Helvetica-Bold", fontSize=11, leading=14,
-                          spaceBefore=9, spaceAfter=3)
-    bullet = ParagraphStyle("bullet", parent=base, leftIndent=12, bulletIndent=2)
+    base = ParagraphStyle("base", fontName="Helvetica", fontSize=9.5, leading=13,
+                          spaceAfter=2, textColor=colors.HexColor(INK))
+    name = ParagraphStyle("name", parent=base, fontName="Helvetica-Bold", fontSize=24,
+                          leading=28, spaceAfter=2)
+    title = ParagraphStyle("title", parent=base, fontName="Helvetica-Bold", fontSize=11,
+                           leading=14, textColor=colors.HexColor(ACCENT), spaceAfter=3)
+    contact = ParagraphStyle("contact", parent=base, fontSize=9, leading=12,
+                             textColor=colors.HexColor(MUTED), spaceAfter=0)
+    head = ParagraphStyle("head", parent=base, fontName="Helvetica-Bold", fontSize=10,
+                          leading=13, textColor=colors.HexColor(ACCENT), spaceBefore=12, spaceAfter=5)
+    company = ParagraphStyle("company", parent=base, fontName="Helvetica-Bold", fontSize=11,
+                             leading=14, spaceBefore=6, spaceAfter=0)
+    role = ParagraphStyle("role", parent=base, fontName="Helvetica-Bold", fontSize=9.8,
+                          leading=13, textColor=colors.HexColor(ACCENT), spaceBefore=4, spaceAfter=2)
+    stack = ParagraphStyle("stack", parent=base, fontName="Helvetica-Oblique", fontSize=8.8,
+                           leading=12, textColor=colors.HexColor(MUTED), spaceAfter=4)
+    bullet = ParagraphStyle("bullet", parent=base, leftIndent=13, bulletIndent=2, spaceAfter=2)
 
     def esc(t):
         return t.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
-    story = [Paragraph(NAME, name), Paragraph(esc(TITLE), title),
-             Paragraph(esc(" | ".join(CONTACT)), base)]
+    def section(text):
+        # Titulo de secao com filete abaixo, desenhado pelo flowable HRFlowable.
+        return [Paragraph(text.upper(), head), HRFlowable(width="100%", thickness=0.6,
+                                                          color=colors.HexColor(RULE), spaceAfter=6)]
 
-    story.append(Paragraph("Resumo Profissional", head))
+    story = [
+        Paragraph(NAME, name),
+        Paragraph(esc(TITLE), title),
+        Paragraph("<br/>".join(esc(line) for line in CONTACT_LINES), contact),
+        HRFlowable(width="100%", thickness=1.4, color=colors.HexColor(ACCENT), spaceBefore=6, spaceAfter=2),
+    ]
+
+    story += section("Resumo Profissional")
     story.append(Paragraph(esc(SUMMARY), base))
 
-    story.append(Paragraph("Competências Técnicas", head))
+    story += section("Competências Técnicas")
     for label, items in SKILLS:
         story.append(Paragraph(f"<b>{esc(label)}:</b> {esc(items)}", base))
 
-    story.append(Paragraph("Experiência Profissional", head))
-    for company in EXPERIENCE:
-        story.append(Paragraph(f"<b>{esc(company['company'])}</b> | {esc(company['location'])}", base))
-        for role in company["roles"]:
-            story.append(Paragraph(f"<b>{esc(role['title'])}</b> | {esc(role['period'])}", base))
-            for b in role["bullets"]:
-                story.append(Paragraph(esc(b), bullet, bulletText="-"))
-            story.append(Paragraph(f"<i>Tecnologias: {esc(role['stack'])}</i>", base))
+    story += section("Experiência Profissional")
+    for co in EXPERIENCE:
+        story.append(Paragraph(
+            f"{esc(co['company'])}<font size=8.8 color='{MUTED}'>&nbsp;&nbsp;&nbsp;{esc(co['location'])}</font>",
+            company))
+        for ro in co["roles"]:
+            story.append(Paragraph(
+                f"{esc(ro['title'])}<font size=8.8 color='{MUTED}'>&nbsp;&nbsp;&nbsp;{esc(ro['period'])}</font>",
+                role))
+            for b in ro["bullets"]:
+                story.append(Paragraph(esc(b), bullet, bulletText="•"))
+            story.append(Paragraph(f"Tecnologias: {esc(ro['stack'])}", stack))
 
-    story.append(Paragraph("Formação Acadêmica", head))
+    story += section("Formação Acadêmica")
     for course, school, period, status in EDUCATION:
-        extra = f" | {status}" if status else ""
-        story.append(Paragraph(f"<b>{esc(course)}</b> | {esc(school)} | {esc(period)}{esc(extra)}", base))
+        extra = f"  |  {esc(status)}" if status else ""
+        story.append(Paragraph(
+            f"<b>{esc(course)}</b><br/>{esc(school)}<font color='{MUTED}'>&nbsp;&nbsp;&nbsp;"
+            f"{esc(period)}{extra}</font>", base))
+        story.append(Spacer(1, 4))
 
-    story.append(Paragraph("Idiomas", head))
+    story += section("Idiomas")
     for lang, level in LANGUAGES:
         story.append(Paragraph(f"<b>{esc(lang)}:</b> {esc(level)}", base))
 
     doc = SimpleDocTemplate(path, pagesize=A4, leftMargin=2 * cm, rightMargin=2 * cm,
-                            topMargin=1.6 * cm, bottomMargin=1.6 * cm,
+                            topMargin=1.5 * cm, bottomMargin=1.5 * cm,
                             title=f"CV - {NAME}", author=NAME)
     doc.build(story)
 
