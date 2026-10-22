@@ -4,13 +4,15 @@ Um unico conteudo por idioma, mesmo layout. Coluna unica, sem tabelas,
 icones ou colunas, para que os parsers de ATS (sistemas de RH) leiam o
 texto na ordem correta. A hierarquia visual vem de tamanho, cor e filetes.
 
-Saidas:
-  cv.pdf, cv.docx          (portugues, usado pelo site)
+Saidas (em public/, servidas pelo site):
+  cv.pdf, cv.docx          (portugues)
   cv_en.pdf, cv_en.docx    (ingles)
   cv_es.pdf, cv_es.docx    (espanhol)
 
 Uso: .tools-venv/bin/python build_cv.py
 """
+
+from pathlib import Path
 
 from docx import Document
 from docx.oxml import OxmlElement
@@ -540,8 +542,12 @@ def build_pdf(lang, path):
     doc.build(story)
 
 
+OUTPUT_DIR = Path(__file__).parent / "public"
+
+
 if __name__ == "__main__":
+    OUTPUT_DIR.mkdir(exist_ok=True)
     for code, content in CONTENT.items():
-        build_docx(code, f"{content['file']}.docx")
-        build_pdf(code, f"{content['file']}.pdf")
-        print(f"{content['file']}.pdf e {content['file']}.docx gerados")
+        build_docx(code, str(OUTPUT_DIR / f"{content['file']}.docx"))
+        build_pdf(code, str(OUTPUT_DIR / f"{content['file']}.pdf"))
+        print(f"public/{content['file']}.pdf e public/{content['file']}.docx gerados")

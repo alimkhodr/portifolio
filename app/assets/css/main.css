@@ -1,0 +1,243 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+/* Direção: catálogo da Cloudflare (grade com filetes e marcadores, pílulas, painel de cor),
+   com azul-cobalto no lugar do laranja. Decisões em DESIGN.md. */
+
+@theme static {
+  --font-sans: 'Host Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'DM Mono', ui-monospace, monospace;
+
+  --color-cobalt-50: #f0f3ff;
+  --color-cobalt-100: #e3e9ff;
+  --color-cobalt-200: #c9d4ff;
+  --color-cobalt-300: #a6b8ff;
+  --color-cobalt-400: #86a2ff;
+  --color-cobalt-500: #4d6fff;
+  --color-cobalt-600: #2b52f0;
+  --color-cobalt-700: #2141cc;
+  --color-cobalt-800: #1f37a3;
+  --color-cobalt-900: #1e3281;
+  --color-cobalt-950: #141e4d;
+
+  /* Neutro levemente frio, para combinar com o cobalto. */
+  --color-ink-50: #f7f8fa;
+  --color-ink-100: #eef0f3;
+  --color-ink-200: #dfe2e8;
+  --color-ink-300: #c4c9d2;
+  --color-ink-400: #9aa3b2;
+  --color-ink-500: #6e7685;
+  --color-ink-600: #5a6271;
+  --color-ink-700: #3b414c;
+  --color-ink-800: #22262d;
+  --color-ink-900: #15181d;
+  --color-ink-950: #0e1013;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root {
+  --ui-radius: 0.375rem;
+  --ui-container: 78rem;
+  --ui-header-height: 4rem;
+
+  --ui-primary: var(--color-cobalt-600);
+  --ui-bg: #fbfbfc;
+  --ui-bg-muted: var(--color-ink-100);
+  --ui-bg-elevated: #ffffff;
+  --ui-bg-accented: var(--color-ink-200);
+  --ui-text: var(--color-ink-700);
+  --ui-text-muted: var(--color-ink-600);
+  --ui-text-toned: var(--color-ink-700);
+  --ui-text-dimmed: var(--color-ink-500);
+  --ui-text-highlighted: #14161a;
+  --ui-border: rgb(20 22 26 / 0.12);
+  --ui-border-muted: rgb(20 22 26 / 0.08);
+  --ui-border-accented: rgb(20 22 26 / 0.2);
+
+  /* Tokens próprios */
+  --line: rgb(20 22 26 / 0.12);
+  --node: var(--ui-bg);
+  --panel: var(--color-cobalt-600);
+  --panel-text: #ffffff;
+  --panel-muted: var(--color-cobalt-100);
+  --panel-line: rgb(255 255 255 / 0.28);
+}
+
+.dark {
+  --ui-primary: var(--color-cobalt-400);
+  --ui-bg: var(--color-ink-950);
+  --ui-bg-muted: var(--color-ink-900);
+  --ui-bg-elevated: var(--color-ink-900);
+  --ui-bg-accented: var(--color-ink-800);
+  --ui-text: var(--color-ink-300);
+  --ui-text-muted: var(--color-ink-400);
+  --ui-text-toned: var(--color-ink-300);
+  --ui-text-dimmed: var(--color-ink-500);
+  --ui-text-highlighted: var(--color-ink-50);
+  --ui-border: rgb(238 240 243 / 0.12);
+  --ui-border-muted: rgb(238 240 243 / 0.08);
+  --ui-border-accented: rgb(238 240 243 / 0.2);
+
+  --line: rgb(238 240 243 / 0.12);
+}
+
+/* Superfícies do navegador também seguem a paleta. */
+::selection {
+  background: color-mix(in oklab, var(--ui-primary) 35%, transparent);
+  color: var(--ui-text-highlighted);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--ui-header-height) + 1rem);
+  scrollbar-color: var(--ui-border-accented) transparent;
+  accent-color: var(--ui-primary);
+}
+
+body {
+  font-feature-settings: 'ss01', 'cv11';
+  text-rendering: optimizeLegibility;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ui-primary);
+  outline-offset: 3px;
+}
+
+a {
+  text-underline-offset: 0.2em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@layer components {
+  /* ---------- Grade com filetes e marcadores (assinatura da referência) ----------
+     O fundo da grade é a cor do filete; o gap de 1px vira a linha.
+     Cada célula desenha os quatro marcadores dos seus cantos (componente NodeCell);
+     cantos compartilhados se sobrepõem no mesmo ponto. */
+  .node-grid {
+    --node-size: 7px;
+    position: relative;
+    display: grid;
+    gap: 1px;
+    padding: 1px;
+    background: var(--line);
+  }
+
+  .node-cell {
+    position: relative;
+    background: var(--ui-bg);
+  }
+
+  .node-cell:hover {
+    z-index: 3;
+  }
+
+  .node {
+    position: absolute;
+    z-index: 2;
+    width: var(--node-size);
+    height: var(--node-size);
+    border: 1px solid var(--line);
+    background: var(--node);
+    pointer-events: none;
+    transition: border-color 0.3s var(--ease-out-expo), background-color 0.3s var(--ease-out-expo);
+    --edge: calc(var(--node-size) / -2 - 0.5px);
+  }
+
+  .node-tl { top: var(--edge); left: var(--edge); }
+  .node-tr { top: var(--edge); right: var(--edge); }
+  .node-bl { bottom: var(--edge); left: var(--edge); }
+  .node-br { bottom: var(--edge); right: var(--edge); }
+
+  .node-cell:hover > .node {
+    border-color: var(--ui-primary);
+    background: var(--ui-primary);
+  }
+
+  /* Linha tracejada sob o cabeçalho, como na referência. */
+  .dash-rule {
+    background-image: linear-gradient(to right, var(--line) 50%, transparent 50%);
+    background-size: 10px 1px;
+    background-repeat: repeat-x;
+    background-position: bottom left;
+  }
+
+  /* Painel de cor com textura de pontos. */
+  .panel {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border-radius: 1rem;
+    background: var(--panel);
+    color: var(--panel-text);
+  }
+
+  .dot-field {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image: radial-gradient(circle at center, rgb(255 255 255 / 0.22) 1px, transparent 1.4px);
+    background-size: 9px 9px;
+    mask-image: radial-gradient(120% 90% at 50% 110%, black 10%, transparent 70%);
+  }
+
+  /* Camada que acende sob o cursor; a posição vem de --x / --y. */
+  .dot-field--glow {
+    background-image: radial-gradient(circle at center, rgb(255 255 255 / 0.85) 1.1px, transparent 1.6px);
+    mask-image: radial-gradient(220px circle at var(--x, 50%) var(--y, 120%), black, transparent 75%);
+    opacity: var(--glow, 0);
+    transition: opacity 0.6s var(--ease-out-expo);
+  }
+
+  .mono-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ui-text-muted);
+  }
+}
+
+/* ---------- Movimento ---------- */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(6px);
+  }
+}
+
+@keyframes unclip {
+  from {
+    clip-path: inset(18% 0 0 0 round 0.75rem);
+    transform: scale(1.04);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rise {
+    animation: rise 0.9s var(--ease-out-expo) both;
+    animation-delay: calc(var(--i, 0) * 90ms + 80ms);
+  }
+
+  .unclip {
+    animation: unclip 1.2s var(--ease-out-expo) both;
+    animation-delay: 0.15s;
+  }
+
+  /* Revelação ao rolar sem JS: o conteúdo já está visível onde não há suporte. */
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 40%;
+    }
+  }
+}
