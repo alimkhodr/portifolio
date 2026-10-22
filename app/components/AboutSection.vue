@@ -22,7 +22,7 @@ import { education } from '~/data/portfolio'
             Hoje estou na <strong class="font-medium text-highlighted">Qeevo Group (ex-Quero Educação)</strong>, full-stack com Vue, Nuxt, Ruby, Node e Docker em AWS.
           </p>
           <p>
-            Atuei como tech lead em dois produtos este ano: um gateway de pagamentos embarcável e uma área do aluno multi-tenant.
+            Na Qeevo, fui tech lead de dois produtos construídos do zero: um gateway de pagamentos embarcável e uma área do aluno multi-tenant.
           </p>
           <p class="text-muted">
             Fora do código: café, futebol e música.

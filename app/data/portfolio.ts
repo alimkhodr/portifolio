@@ -26,13 +26,15 @@ export const navLinks = [
   { label: 'Contato', href: '#contato' }
 ]
 
+// API de busca do GitHub, org quero-edu, PRs criados de 22/10/2025 a 22/10/2026.
+// Revisados = reviewed-by:alimkhodr -author:alimkhodr (sem contar os próprios PRs).
 export const metrics = {
   period: 'Out 2025 a out 2026, Qeevo Group, dados do GitHub',
   items: [
-    { value: 602, label: 'Pull requests criados', icon: 'i-ph-git-pull-request' },
-    { value: 515, label: 'Pull requests mergeados', icon: 'i-ph-git-merge' },
+    { value: 634, label: 'PRs abertos', icon: 'i-ph-git-pull-request' },
+    { value: 540, label: 'PRs mergeados', icon: 'i-ph-git-merge' },
     { value: 26, label: 'Repositórios', icon: 'i-ph-folders' },
-    { value: 374, label: 'PRs revisados', icon: 'i-ph-eye' }
+    { value: 295, label: 'PRs de outros devs revisados', icon: 'i-ph-eye' }
   ]
 }
 
@@ -62,7 +64,7 @@ export const projects: Project[] = [
     icon: 'i-ph-student',
     tags: ['Vue', 'Nuxt', 'TypeScript', 'Ruby', 'i18n'],
     role: 'Tech lead',
-    kpi: { value: '~24 PRs', label: 'como owner do produto' }
+    kpi: { value: '~24 PRs', label: 'como owner técnico do produto' }
   },
   {
     title: 'Reembolso ponta a ponta',
@@ -115,8 +117,9 @@ export const jobs: Job[] = [
     company: 'Qeevo Group',
     description: 'Full-stack com foco em pagamentos, multi-tenant e produtos embarcáveis. Tech lead de dois produtos lançados do zero.',
     highlights: [
+      '295 PRs de outros desenvolvedores revisados nos últimos 12 meses',
       'Contribuições ao design system compartilhado da organização',
-      'Experimentos A/B em cross-sell pós-checkout'
+      'Testes A/B de cross-sell pós-checkout'
     ],
     tags: ['Vue', 'Nuxt', 'Ruby', 'Node', 'TypeScript', 'Docker', 'AWS'],
     current: true
@@ -127,7 +130,7 @@ export const jobs: Job[] = [
     company: 'Qeevo Group (ex-Quero Educação)',
     description: 'Produtos do marketplace de educação com múltiplas marcas e tenants. Primeiro contato com Nuxt, Ruby e AWS em produção.',
     highlights: [
-      'Novo layout das páginas de pagamento de assinatura',
+      'Reformulação das páginas de pagamento de assinatura',
       'Cross-sell multi-oferta no pós-checkout'
     ],
     tags: ['Vue', 'React', 'Nuxt', 'AWS', 'Docker']
