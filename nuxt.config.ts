@@ -1,4 +1,4 @@
-const siteUrl = 'https://alimkhodr.netlify.app'
+const siteUrl = 'https://alikhodr.dev'
 
 export default defineNuxtConfig({
   modules: ['@nuxt/ui', '@nuxtjs/i18n'],

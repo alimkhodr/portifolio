@@ -43,7 +43,7 @@ NAME = "Ali Mohamed Khodr"
 EMAIL = "ali.m.khodr@gmail.com"
 LINKEDIN = "linkedin.com/in/alimohamedkhodr"
 GITHUB = "github.com/alimkhodr"
-WEBSITE = "alimkhodr.netlify.app"
+WEBSITE = "alikhodr.dev"
 PHONE_LOCAL = "(12) 98859-4305"
 PHONE_INTL = "+55 12 98859-4305"
 
