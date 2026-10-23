@@ -83,9 +83,11 @@ export const en: SiteCopy = {
         title: 'Recurring PIX',
         description: 'PIX subscriptions, from the controller in the monolith to the payment modal in the student portal.'
       },
-      api5sem: {
-        title: 'API-5SEM, Fatec',
-        description: 'Full-stack academic project in a monorepo with submodules: backend, frontend and ETL pipeline.'
+      expediente: {
+        title: 'Expediente Bar',
+        description: 'Website, order-number display and reviews for a live pagode bar in São José dos Campos: Supabase CMS without redeploys, Sympla events, Google opening hours and reviews, real-time number calls on the TV and OCR to read order tickets. I also handle the visual identity and marketing.',
+        role: 'Design, web and marketing',
+        kpi: { value: 'SEO 100', label: 'on Lighthouse, in production' }
       }
     }
   },

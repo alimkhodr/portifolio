@@ -58,6 +58,16 @@ function span(featured: boolean | undefined, index: number) {
           >
             {{ project.description }}
           </p>
+          <a
+            v-if="project.href"
+            :href="project.href"
+            target="_blank"
+            rel="noopener"
+            class="mt-4 inline-flex w-fit items-center gap-1.5 font-medium text-primary underline-offset-4 hover:underline"
+          >
+            {{ project.href.replace('https://', '') }}
+            <UIcon name="i-ph-arrow-up-right" class="size-4" />
+          </a>
 
           <div class="mt-auto flex flex-wrap items-end justify-between gap-x-6 gap-y-5 pt-8">
             <div v-if="project.kpi">

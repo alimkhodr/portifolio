@@ -83,9 +83,11 @@ export const pt: SiteCopy = {
         title: 'PIX recorrente',
         description: 'Assinaturas por PIX, do controller no monolito ao modal de pagamento na área do aluno.'
       },
-      api5sem: {
-        title: 'API-5SEM, Fatec',
-        description: 'Projeto acadêmico full-stack em monorepo com submódulos: backend, frontend e pipeline ETL.'
+      expediente: {
+        title: 'Expediente Bar',
+        description: 'Site, painel de senhas e avaliações de um bar com pagode ao vivo em São José dos Campos: CMS no Supabase sem redeploy, eventos do Sympla, horários e avaliações do Google, chamada de senhas em tempo real na TV e leitura de comanda por OCR. Também cuido da identidade visual e do marketing.',
+        role: 'Design, site e marketing',
+        kpi: { value: 'SEO 100', label: 'no Lighthouse, em produção' }
       }
     }
   },

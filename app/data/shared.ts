@@ -28,17 +28,17 @@ export const metricValues = [
   { value: 295, icon: 'i-ph-eye' }
 ]
 
-const projectIds = ['gateway', 'studentArea', 'refunds', 'marketplace', 'crossSell', 'recurringPix', 'api5sem'] as const
+const projectIds = ['gateway', 'studentArea', 'expediente', 'refunds', 'marketplace', 'crossSell', 'recurringPix'] as const
 export type ProjectId = typeof projectIds[number]
 
-export const projectMeta: { id: ProjectId, icon: string, tags: string[], featured?: boolean }[] = [
+export const projectMeta: { id: ProjectId, icon: string, tags: string[], featured?: boolean, href?: string }[] = [
   { id: 'gateway', icon: 'i-ph-credit-card', tags: ['Vue', 'Nuxt', 'Ruby', 'Docker', 'AWS', 'CI/CD'], featured: true },
   { id: 'studentArea', icon: 'i-ph-student', tags: ['Vue', 'Nuxt', 'TypeScript', 'Ruby', 'i18n'] },
+  { id: 'expediente', icon: 'i-ph-beer-stein', tags: ['Nuxt', 'Supabase', 'Realtime', 'OCR', 'PostHog'], href: 'https://expedientebar.com.br' },
   { id: 'refunds', icon: 'i-ph-arrow-u-up-left', tags: ['Ruby', 'Vue', 'Workers', 'PIX'] },
   { id: 'marketplace', icon: 'i-ph-storefront', tags: ['Nuxt', 'OAuth', 'Multi-tenant'] },
   { id: 'crossSell', icon: 'i-ph-arrows-split', tags: ['Vue', 'A/B', 'Tracking'] },
-  { id: 'recurringPix', icon: 'i-ph-repeat', tags: ['Ruby', 'Vue', 'PIX'] },
-  { id: 'api5sem', icon: 'i-ph-graduation-cap', tags: ['Nuxt', 'Node', 'Python', 'Docker'] }
+  { id: 'recurringPix', icon: 'i-ph-repeat', tags: ['Ruby', 'Vue', 'PIX'] }
 ]
 
 const jobIds = ['qeevoEngineer', 'aptiv'] as const
