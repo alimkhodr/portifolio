@@ -1,0 +1,3 @@
+# O endereço antigo do Netlify redireciona para o domínio próprio.
+https://alimkhodr.netlify.app/* https://alikhodr.dev/:splat 301!
+http://alimkhodr.netlify.app/* https://alikhodr.dev/:splat 301!
