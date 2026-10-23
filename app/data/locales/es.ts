@@ -36,7 +36,7 @@ export const es: SiteCopy = {
     title: { lead: 'Sobre ', accent: 'mí', tail: '.' },
     lead: 'Me gusta asumir productos desde cero: arquitectura inicial, CI/CD, Docker, temas, pruebas y deploy.',
     paragraphs: [
-      'Empecé a programar en la secundaria técnica en Desarrollo de Sistemas, en la **ETEC**. Después fui a la **Fatec São José dos Campos**, donde cambié a Base de Datos para conciliar la facultad con mi primer empleo.',
+      'Empecé a programar en la formación técnica en Desarrollo de Sistemas, en la **ETEC**. Después estudié Base de Datos en la **Fatec São José dos Campos** y Análisis y Desarrollo de Sistemas en la **Univap**.',
       'Pasé por **APTIV**, con VB, C#, SQL, React y Node. Hoy estoy en **Qeevo Group (antes Quero Educação)**, como full-stack con Vue, Nuxt, Ruby, Node y Docker en AWS.',
       'En Qeevo fui tech lead de dos productos construidos desde cero: una pasarela de pagos embebible y un portal de estudiantes multi-tenant.',
       'Fuera del código: café, fútbol y música.'
@@ -44,7 +44,7 @@ export const es: SiteCopy = {
     educationTitle: 'Formación',
     education: [
       { period: 'Mar 2023 a oct 2025', course: 'Análisis y Desarrollo de Sistemas', school: 'Universidade do Vale do Paraíba (Univap)', status: 'Completado' },
-      { period: 'Feb 2022 a la actualidad', course: 'Tecnología en Base de Datos', school: 'Fatec São José dos Campos, Prof. Jessen Vidal' },
+      { period: 'Feb 2022 a dic 2025', course: 'Tecnología en Base de Datos', school: 'Fatec São José dos Campos, Prof. Jessen Vidal' },
       { period: 'Feb 2019 a dic 2021', course: 'Técnico en Desarrollo de Sistemas', school: 'ETEC Profª Ilza Nascimento Pintus' },
       { period: 'Ene 2022 a dic 2026', course: 'Inglés avanzado (C1)', school: 'CNA Idiomas' }
     ]
@@ -93,30 +93,22 @@ export const es: SiteCopy = {
     title: { lead: 'Experiencia ', accent: 'profesional', tail: '.' },
     jobs: {
       qeevoEngineer: {
-        period: 'Abr 2025 a la actualidad',
+        period: 'Nov 2024 a la actualidad',
         role: 'Ingeniero de Software',
         company: 'Qeevo Group',
-        description: 'Full-stack enfocado en pagos, sistemas multi-tenant y productos embebibles. Tech lead de dos productos lanzados desde cero.',
+        description: 'Full-stack enfocado en pagos, sistemas multi-tenant y productos embebibles. Tech lead de dos productos lanzados desde cero, en un marketplace educativo con múltiples marcas y tenants.',
         highlights: [
           '295 pull requests de otros desarrolladores revisados en los últimos 12 meses',
           'Contribuciones al design system compartido de la organización',
-          'Pruebas A/B de cross-sell post-checkout'
-        ]
-      },
-      qeevoFullstack: {
-        period: '2024 a mar 2025',
-        role: 'Desarrollador Full-stack',
-        company: 'Qeevo Group (antes Quero Educação)',
-        description: 'Productos del marketplace educativo con múltiples marcas y tenants. Primer contacto con Nuxt, Ruby y AWS en producción.',
-        highlights: [
-          'Rediseño de las páginas de pago de suscripciones',
-          'Cross-sell multi-oferta post-checkout'
+          'Pruebas A/B de cross-sell post-checkout',
+          'Rediseño de las páginas de pago de suscripciones'
         ]
       },
       aptiv: {
-        period: '2022 a 2024',
-        role: 'Desarrollador de Herramientas Internas',
+        period: 'Abr 2023 a nov 2024',
+        role: 'Ingeniero de Software',
         company: 'APTIV',
+        kind: 'Pasantía',
         description: 'Herramientas internas y automatización de procesos industriales, integradas con bases SQL Server en producción.',
         highlights: [
           'Proyecto interno de tres meses presentado a la dirección, con reconocimiento formal'

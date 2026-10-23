@@ -4,7 +4,7 @@ Um unico conteudo por idioma, mesmo layout. Coluna unica, sem tabelas,
 icones, imagens, cabecalho ou rodape, para que os parsers de ATS (sistemas
 de RH) leiam o texto na ordem correta. Fontes padrao (Helvetica no PDF,
 Calibri no DOCX), titulos de secao com nomes reconhecidos pelos ATS e datas
-no mesmo formato em todo o documento. A hierarquia visual vem de tamanho,
+no mesmo formato (MM/AAAA) em todo o documento. A hierarquia visual vem de tamanho,
 peso, cor e filetes, na mesma paleta cobalto do site.
 
 Saidas (em public/, servidas pelo site):
@@ -85,7 +85,7 @@ CONTENT = {
                 "roles": [
                     {
                         "title": "Software Engineer",
-                        "period": "2025 - atual",
+                        "period": "11/2024 - atual",
                         "bullets": [
                             "Liderei tecnicamente a construção do zero de um gateway de pagamentos embarcável via "
                             "iframe para parceiros: Cartão, PIX e Boleto, cupons, temas por marca, CI/CD e Docker "
@@ -100,29 +100,20 @@ CONTENT = {
                             "Revisei 295 pull requests de outros desenvolvedores nos últimos 12 meses, contribuí com "
                             "o design system compartilhado da organização e implementei testes A/B de cross-sell "
                             "pós-checkout.",
+                            "Reformulei as páginas de pagamento de assinatura e implementei cross-sell multi-oferta no "
+                            "pós-checkout, com estado controlado por cookies.",
                         ],
-                        "stack": "Vue.js, Nuxt, TypeScript, Ruby on Rails, Node.js, Docker, AWS, PostgreSQL, CI/CD",
-                    },
-                    {
-                        "title": "Desenvolvedor Full-stack",
-                        "period": "2024 - 2025",
-                        "bullets": [
-                            "Desenvolvi funcionalidades full-stack em um marketplace de educação com múltiplas "
-                            "marcas e tenants.",
-                            "Reformulei as páginas de pagamento de assinatura e implementei cross-sell multi-oferta "
-                            "no pós-checkout, com estado controlado por cookies.",
-                        ],
-                        "stack": "Vue.js, React, Nuxt, Ruby, AWS, Docker",
+                        "stack": "Vue.js, Nuxt, TypeScript, React, Ruby on Rails, Node.js, Docker, AWS, PostgreSQL, CI/CD",
                     },
                 ],
             },
             {
                 "company": "APTIV",
-                "location": "São José dos Campos, SP",
+                "location": "Jambeiro, SP",
                 "roles": [
                     {
-                        "title": "Desenvolvedor de Ferramentas Internas",
-                        "period": "2022 - 2024",
+                        "title": "Engenheiro de Software (estágio)",
+                        "period": "04/2023 - 11/2024",
                         "bullets": [
                             "Desenvolvi ferramentas internas e automações de processos industriais integradas a "
                             "bancos SQL Server em produção.",
@@ -135,9 +126,9 @@ CONTENT = {
         ],
         "education": [
             ("Análise e Desenvolvimento de Sistemas", "Universidade do Vale do Paraíba (Univap)",
-             "2023 - 2025", "concluído"),
-            ("Banco de Dados (Tecnólogo)", "Fatec São José dos Campos", "2022 - atual", ""),
-            ("Técnico em Desenvolvimento de Sistemas", "ETEC Profª Ilza Nascimento Pintus", "2019 - 2021", ""),
+             "03/2023 - 10/2025", "concluído"),
+            ("Banco de Dados (Tecnólogo)", "Fatec São José dos Campos", "02/2022 - 12/2025", ""),
+            ("Técnico em Desenvolvimento de Sistemas", "ETEC Profª Ilza Nascimento Pintus", "02/2019 - 12/2021", ""),
         ],
         "languages": [
             ("Português", "nativo"),
@@ -181,7 +172,7 @@ CONTENT = {
                 "roles": [
                     {
                         "title": "Software Engineer",
-                        "period": "2025 - present",
+                        "period": "11/2024 - present",
                         "bullets": [
                             "Led the technical build, from scratch, of an embeddable payment gateway for partners "
                             "(iframe): Card, PIX and Boleto flows, coupons, per-brand theming, CI/CD and Docker "
@@ -196,28 +187,20 @@ CONTENT = {
                             "Reviewed 295 pull requests from other developers in the last 12 months, contributed to "
                             "the organization's shared design system and implemented A/B tests for post-checkout "
                             "cross-sell.",
-                        ],
-                        "stack": "Vue.js, Nuxt, TypeScript, Ruby on Rails, Node.js, Docker, AWS, PostgreSQL, CI/CD",
-                    },
-                    {
-                        "title": "Full-stack Developer",
-                        "period": "2024 - 2025",
-                        "bullets": [
-                            "Built full-stack features for an education marketplace with multiple brands and tenants.",
                             "Redesigned the subscription payment pages and implemented multi-offer post-checkout "
                             "cross-sell with cookie-based state.",
                         ],
-                        "stack": "Vue.js, React, Nuxt, Ruby, AWS, Docker",
+                        "stack": "Vue.js, Nuxt, TypeScript, React, Ruby on Rails, Node.js, Docker, AWS, PostgreSQL, CI/CD",
                     },
                 ],
             },
             {
                 "company": "APTIV",
-                "location": "São José dos Campos, SP, Brazil",
+                "location": "Jambeiro, SP, Brazil",
                 "roles": [
                     {
-                        "title": "Internal Tools Developer",
-                        "period": "2022 - 2024",
+                        "title": "Software Engineer (internship)",
+                        "period": "04/2023 - 11/2024",
                         "bullets": [
                             "Built internal tools and industrial process automations integrated with production "
                             "SQL Server databases.",
@@ -230,9 +213,9 @@ CONTENT = {
         ],
         "education": [
             ("Systems Analysis and Development", "Universidade do Vale do Paraíba (Univap)",
-             "2023 - 2025", "completed"),
-            ("Database Technology (Technologist degree)", "Fatec São José dos Campos", "2022 - present", ""),
-            ("Systems Development Technician", "ETEC Profª Ilza Nascimento Pintus", "2019 - 2021", ""),
+             "03/2023 - 10/2025", "completed"),
+            ("Database Technology (Technologist degree)", "Fatec São José dos Campos", "02/2022 - 12/2025", ""),
+            ("Systems Development Technician", "ETEC Profª Ilza Nascimento Pintus", "02/2019 - 12/2021", ""),
         ],
         "languages": [
             ("Portuguese", "native"),
@@ -276,7 +259,7 @@ CONTENT = {
                 "roles": [
                     {
                         "title": "Ingeniero de Software",
-                        "period": "2025 - actual",
+                        "period": "11/2024 - actual",
                         "bullets": [
                             "Lideré técnicamente la construcción desde cero de una pasarela de pagos embebible para "
                             "socios (iframe): flujos de Tarjeta, PIX y Boleto, cupones, temas por marca, CI/CD y "
@@ -292,29 +275,20 @@ CONTENT = {
                             "Revisé 295 pull requests de otros desarrolladores en los últimos 12 meses, contribuí al "
                             "design system compartido de la organización e implementé pruebas A/B de cross-sell "
                             "post-checkout.",
-                        ],
-                        "stack": "Vue.js, Nuxt, TypeScript, Ruby on Rails, Node.js, Docker, AWS, PostgreSQL, CI/CD",
-                    },
-                    {
-                        "title": "Desarrollador Full-stack",
-                        "period": "2024 - 2025",
-                        "bullets": [
-                            "Desarrollé funcionalidades full-stack en un marketplace educativo con múltiples marcas "
-                            "y tenants.",
                             "Rediseñé las páginas de pago de suscripciones e implementé cross-sell multi-oferta "
                             "post-checkout, con estado controlado por cookies.",
                         ],
-                        "stack": "Vue.js, React, Nuxt, Ruby, AWS, Docker",
+                        "stack": "Vue.js, Nuxt, TypeScript, React, Ruby on Rails, Node.js, Docker, AWS, PostgreSQL, CI/CD",
                     },
                 ],
             },
             {
                 "company": "APTIV",
-                "location": "São José dos Campos, SP, Brasil",
+                "location": "Jambeiro, SP, Brasil",
                 "roles": [
                     {
-                        "title": "Desarrollador de Herramientas Internas",
-                        "period": "2022 - 2024",
+                        "title": "Ingeniero de Software (pasantía)",
+                        "period": "04/2023 - 11/2024",
                         "bullets": [
                             "Desarrollé herramientas internas y automatizaciones de procesos industriales integradas "
                             "con bases SQL Server en producción.",
@@ -327,9 +301,9 @@ CONTENT = {
         ],
         "education": [
             ("Análisis y Desarrollo de Sistemas", "Universidade do Vale do Paraíba (Univap)",
-             "2023 - 2025", "completado"),
-            ("Tecnología en Base de Datos", "Fatec São José dos Campos", "2022 - actual", ""),
-            ("Técnico en Desarrollo de Sistemas", "ETEC Profª Ilza Nascimento Pintus", "2019 - 2021", ""),
+             "03/2023 - 10/2025", "completado"),
+            ("Tecnología en Base de Datos", "Fatec São José dos Campos", "02/2022 - 12/2025", ""),
+            ("Técnico en Desarrollo de Sistemas", "ETEC Profª Ilza Nascimento Pintus", "02/2019 - 12/2021", ""),
         ],
         "languages": [
             ("Portugués", "nativo"),

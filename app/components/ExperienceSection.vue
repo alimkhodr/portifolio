@@ -24,6 +24,7 @@ const content = useSiteContent()
           <div class="flex items-center gap-3 font-mono text-sm text-muted md:flex-col md:items-start md:gap-2 md:pt-0.5">
             <span :class="{ 'text-primary': job.current }">{{ job.period }}</span>
             <span v-if="job.current" class="rounded-full px-2 py-0.5 text-xs text-primary ring ring-primary/40 ring-inset">{{ content.ui.current }}</span>
+            <span v-if="job.kind" class="rounded-full px-2 py-0.5 text-xs text-muted ring ring-default ring-inset">{{ job.kind }}</span>
           </div>
 
           <div>

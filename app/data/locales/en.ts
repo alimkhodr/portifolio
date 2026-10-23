@@ -36,7 +36,7 @@ export const en: SiteCopy = {
     title: { lead: 'About ', accent: 'me', tail: '.' },
     lead: 'I like owning products from day one: initial architecture, CI/CD, Docker, theming, tests and deploy.',
     paragraphs: [
-      'I started coding in a technical high school program in Systems Development at **ETEC**. Then I went to **Fatec São José dos Campos**, where I switched to Database Technology to balance college with my first job.',
+      'I started coding in a technical program in Systems Development at **ETEC**. Then I studied Database Technology at **Fatec São José dos Campos** and Systems Analysis and Development at **Univap**.',
       'I worked at **APTIV** with VB, C#, SQL, React and Node. Today I am at **Qeevo Group (formerly Quero Educação)**, working full-stack with Vue, Nuxt, Ruby, Node and Docker on AWS.',
       'At Qeevo, I was the tech lead of two products built from scratch: an embeddable payment gateway and a multi-tenant student portal.',
       'Away from code: coffee, football and music.'
@@ -44,7 +44,7 @@ export const en: SiteCopy = {
     educationTitle: 'Education',
     education: [
       { period: 'Mar 2023 to Oct 2025', course: 'Systems Analysis and Development', school: 'Universidade do Vale do Paraíba (Univap)', status: 'Completed' },
-      { period: 'Feb 2022 to present', course: 'Database Technology', school: 'Fatec São José dos Campos, Prof. Jessen Vidal' },
+      { period: 'Feb 2022 to Dec 2025', course: 'Database Technology', school: 'Fatec São José dos Campos, Prof. Jessen Vidal' },
       { period: 'Feb 2019 to Dec 2021', course: 'Systems Development Technician', school: 'ETEC Profª Ilza Nascimento Pintus' },
       { period: 'Jan 2022 to Dec 2026', course: 'Advanced English (C1)', school: 'CNA Idiomas' }
     ]
@@ -93,30 +93,22 @@ export const en: SiteCopy = {
     title: { lead: 'Work ', accent: 'experience', tail: '.' },
     jobs: {
       qeevoEngineer: {
-        period: 'Apr 2025 to present',
+        period: 'Nov 2024 to present',
         role: 'Software Engineer',
         company: 'Qeevo Group',
-        description: 'Full-stack work focused on payments, multi-tenant systems and embeddable products. Tech lead of two products launched from scratch.',
+        description: 'Full-stack work focused on payments, multi-tenant systems and embeddable products. Tech lead of two products launched from scratch, on an education marketplace with multiple brands and tenants.',
         highlights: [
           '295 pull requests from other developers reviewed in the last 12 months',
           'Contributions to the organization\'s shared design system',
-          'A/B tests for post-checkout cross-sell'
-        ]
-      },
-      qeevoFullstack: {
-        period: '2024 to Mar 2025',
-        role: 'Full-stack Developer',
-        company: 'Qeevo Group (formerly Quero Educação)',
-        description: 'Products for an education marketplace with multiple brands and tenants. First hands-on work with Nuxt, Ruby and AWS in production.',
-        highlights: [
-          'Redesign of the subscription payment pages',
-          'Multi-offer post-checkout cross-sell'
+          'A/B tests for post-checkout cross-sell',
+          'Redesign of the subscription payment pages'
         ]
       },
       aptiv: {
-        period: '2022 to 2024',
-        role: 'Internal Tools Developer',
+        period: 'Apr 2023 to Nov 2024',
+        role: 'Software Engineer',
         company: 'APTIV',
+        kind: 'Internship',
         description: 'Internal tools and industrial process automation, integrated with production SQL Server databases.',
         highlights: [
           'Three-month internal project presented to leadership, with formal recognition'

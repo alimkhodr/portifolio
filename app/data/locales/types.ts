@@ -64,6 +64,8 @@ export interface SiteCopy {
       period: string
       role: string
       company: string
+      // Tipo de vínculo, quando não é tempo integral (ex.: estágio).
+      kind?: string
       description: string
       highlights: string[]
     }>

@@ -58,8 +58,14 @@ export default defineNuxtConfig({
     head: {
       meta: [
         { property: 'og:type', content: 'website' },
-        { property: 'og:image', content: `${siteUrl}/assets/hero.webp` },
-        { name: 'twitter:card', content: 'summary_large_image' }
+        // Gerada de brand/og-image.html. PNG porque nem todo serviço lê WebP no preview.
+        { property: 'og:image', content: `${siteUrl}/og-image.png` },
+        { property: 'og:image:type', content: 'image/png' },
+        { property: 'og:image:width', content: '1200' },
+        { property: 'og:image:height', content: '630' },
+        { property: 'og:image:alt', content: 'Ali Mohamed Khodr, Software Engineer. alikhodr.dev' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:image', content: `${siteUrl}/og-image.png` }
       ],
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }

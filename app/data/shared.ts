@@ -41,12 +41,11 @@ export const projectMeta: { id: ProjectId, icon: string, tags: string[], feature
   { id: 'api5sem', icon: 'i-ph-graduation-cap', tags: ['Nuxt', 'Node', 'Python', 'Docker'] }
 ]
 
-const jobIds = ['qeevoEngineer', 'qeevoFullstack', 'aptiv'] as const
+const jobIds = ['qeevoEngineer', 'aptiv'] as const
 export type JobId = typeof jobIds[number]
 
 export const jobMeta: { id: JobId, tags: string[], current?: boolean }[] = [
-  { id: 'qeevoEngineer', tags: ['Vue', 'Nuxt', 'Ruby', 'Node', 'TypeScript', 'Docker', 'AWS'], current: true },
-  { id: 'qeevoFullstack', tags: ['Vue', 'React', 'Nuxt', 'AWS', 'Docker'] },
+  { id: 'qeevoEngineer', tags: ['Vue', 'Nuxt', 'TypeScript', 'React', 'Ruby', 'Node', 'Docker', 'AWS'], current: true },
   { id: 'aptiv', tags: ['VB', 'C#', 'SQL', 'React', 'Node', 'Docker'] }
 ]
 

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Imagem de compartilhamento</title>
+<!-- og:image do site (1200x630), no mesmo visual do banner do LinkedIn. Gere o PNG com:
+     "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --hide-scrollbars \
+       --force-device-scale-factor=1 --window-size=1200,630 --virtual-time-budget=8000 \
+       --screenshot=public/og-image.png brand/og-image.html -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400;500&display=block" rel="stylesheet">
+<style>
+  :root { --cobalt: #2b52f0; --cobalt-100: #e3e9ff; --cobalt-700: #2141cc; --line: rgb(255 255 255 / 0.18); }
+  * { margin: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body { position: relative; background: var(--cobalt); color: #fff; font-family: 'Host Grotesk', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  .layer { position: absolute; inset: 0; pointer-events: none; }
+  .light { background: radial-gradient(60% 55% at 50% 118%, rgb(186 204 255 / 0.5), transparent 70%), radial-gradient(60% 70% at 0% 0%, rgb(20 34 140 / 0.45), transparent 60%); }
+  .dots { background-image: radial-gradient(circle at center, rgb(255 255 255 / 0.24) 1px, transparent 1.4px); background-size: 9px 9px; mask-image: radial-gradient(100% 90% at 50% 105%, black 15%, transparent 75%); }
+  .rule { position: absolute; left: 0; right: 0; top: 504px; height: 1px; background: var(--line); }
+  .cell { position: absolute; top: 504px; width: 126px; height: 126px; display: grid; place-items: center; background: rgb(255 255 255 / 0.06); color: rgb(255 255 255 / 0.92); border-left: 1px solid var(--line); }
+  .node { position: absolute; width: 9px; height: 9px; margin: -4px 0 0 -4px; border: 1px solid rgb(255 255 255 / 0.55); background: var(--cobalt); }
+  .copy { position: absolute; left: 72px; right: 72px; top: 64px; display: flex; flex-direction: column; gap: 26px; }
+  .badge { width: fit-content; padding: 8px 20px; border-radius: 999px; box-shadow: inset 0 0 0 1.5px rgb(255 255 255 / 0.45); font-size: 24px; }
+  h1 { font-size: 96px; line-height: 0.98; font-weight: 500; letter-spacing: -0.035em; }
+  .lead { font-size: 30px; line-height: 1.35; color: var(--cobalt-100); max-width: 30ch; }
+  .domain { position: absolute; left: 72px; top: 532px; display: flex; align-items: center; gap: 16px; font-size: 40px; font-weight: 500; letter-spacing: -0.02em; }
+  .arrow { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 999px; background: #fff; color: var(--cobalt-700); }
+</style>
+</head>
+<body>
+  <div class="layer light"></div>
+  <div class="layer dots"></div>
+  <div class="rule"></div>
+  <div class="layer">
+    <div class="cell" style="left:444px"><svg width="42" height="42" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill="currentColor" d="M24 1.61h-9.94L12 5.16L9.94 1.61H0l12 20.78ZM12 14.08L5.16 2.23h4.43L12 6.41l2.41-4.18h4.43Z"/></svg></div>
+    <div class="cell" style="left:570px"><svg width="42" height="42" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill="currentColor" d="M13.464 19.83h8.922c.283 0 .562-.073.807-.21a1.6 1.6 0 0 0 .591-.574a1.53 1.53 0 0 0 .216-.783a1.53 1.53 0 0 0-.217-.782L17.792 7.414a1.6 1.6 0 0 0-.591-.573a1.65 1.65 0 0 0-.807-.21c-.283 0-.562.073-.807.21a1.6 1.6 0 0 0-.59.573L13.463 9.99L10.47 4.953a1.6 1.6 0 0 0-.591-.573a1.65 1.65 0 0 0-.807-.21c-.284 0-.562.073-.807.21a1.6 1.6 0 0 0-.591.573L.216 17.481a1.53 1.53 0 0 0-.217.782c0 .275.074.545.216.783a1.6 1.6 0 0 0 .59.574c.246.137.525.21.808.21h5.6c2.22 0 3.856-.946 4.982-2.79l2.733-4.593l1.464-2.457l4.395 7.382h-5.859Zm-6.341-2.46l-3.908-.002l5.858-9.842l2.923 4.921l-1.957 3.29c-.748 1.196-1.597 1.632-2.916 1.632"/></svg></div>
+    <div class="cell" style="left:696px"><svg width="42" height="42" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill="currentColor" d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75q.918 0 1.627.111a6.4 6.4 0 0 1 1.306.34v2.458a4 4 0 0 0-.643-.361a5 5 0 0 0-.717-.26a5.5 5.5 0 0 0-1.426-.2q-.45 0-.819.086a2.1 2.1 0 0 0-.623.242q-.254.156-.393.374a.9.9 0 0 0-.14.49q0 .294.156.529q.156.234.443.444c.287.21.423.276.696.41q.41.203.926.416q.705.296 1.266.628q.561.333.963.753q.402.418.614.957q.213.538.214 1.253q0 .986-.373 1.656a3 3 0 0 1-1.012 1.085a4.4 4.4 0 0 1-1.487.596q-.85.18-1.79.18a10 10 0 0 1-1.84-.164a5.5 5.5 0 0 1-1.512-.493v-2.63a5.03 5.03 0 0 0 3.237 1.2q.5 0 .872-.09q.373-.09.623-.25q.249-.162.373-.38a1.02 1.02 0 0 0-.074-1.089a2.1 2.1 0 0 0-.537-.5a5.6 5.6 0 0 0-.807-.444a28 28 0 0 0-1.007-.436q-1.377-.575-2.053-1.405t-.676-2.005q0-.92.369-1.582q.368-.662 1.004-1.089a4.5 4.5 0 0 1 1.47-.629a7.5 7.5 0 0 1 1.77-.201m-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z"/></svg></div>
+    <div class="cell" style="left:822px"><svg width="42" height="42" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill="currentColor" d="M20.156.083c3.033.525 3.893 2.598 3.829 4.77L24 4.822L22.635 22.71L4.89 23.926h.016C3.433 23.864.15 23.729 0 19.139l1.645-3l2.819 6.586l.503 1.172l2.805-9.144l-.03.007l.016-.03l9.255 2.956l-1.396-5.431l-.99-3.9l8.82-.569l-.615-.51L16.5 2.114L20.159.073zM5.13 5.073c3.561-3.533 8.157-5.621 9.922-3.84c1.762 1.777-.105 6.105-3.673 9.636c-3.563 3.532-8.103 5.734-9.864 3.957c-1.766-1.777.045-6.217 3.612-9.75z"/></svg></div>
+    <div class="cell" style="left:948px"><svg width="42" height="42" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill="currentColor" d="M11.998 24c-.321 0-.641-.084-.922-.247L8.14 22.016c-.438-.245-.224-.332-.08-.383c.585-.203.703-.25 1.328-.604c.065-.037.151-.023.218.017l2.256 1.339a.29.29 0 0 0 .272 0l8.795-5.076a.28.28 0 0 0 .134-.238V6.921a.28.28 0 0 0-.137-.242l-8.791-5.072a.28.28 0 0 0-.271 0L3.075 6.68a.28.28 0 0 0-.139.241v10.15a.27.27 0 0 0 .139.235l2.409 1.392c1.307.654 2.108-.116 2.108-.89V7.787c0-.142.114-.253.256-.253h1.115c.139 0 .255.112.255.253v10.021c0 1.745-.95 2.745-2.604 2.745c-.508 0-.909 0-2.026-.551L2.28 18.675a1.86 1.86 0 0 1-.922-1.604V6.921c0-.659.353-1.275.922-1.603L11.075.236a1.93 1.93 0 0 1 1.848 0l8.794 5.082c.57.329.924.944.924 1.603v10.15a1.86 1.86 0 0 1-.924 1.604l-8.794 5.078c-.28.163-.599.247-.925.247m7.101-10.007c0-1.9-1.284-2.406-3.987-2.763c-2.731-.361-3.009-.548-3.009-1.187c0-.528.235-1.233 2.258-1.233c1.807 0 2.473.389 2.747 1.607a.254.254 0 0 0 .247.199h1.141a.26.26 0 0 0 .186-.081a.26.26 0 0 0 .067-.196c-.177-2.098-1.571-3.076-4.388-3.076c-2.508 0-4.004 1.058-4.004 2.833c0 1.925 1.488 2.457 3.895 2.695c2.88.282 3.103.703 3.103 1.269c0 .983-.789 1.402-2.642 1.402c-2.327 0-2.839-.584-3.011-1.742a.255.255 0 0 0-.253-.215h-1.137a.25.25 0 0 0-.254.253c0 1.482.806 3.248 4.655 3.248c2.788.001 4.386-1.096 4.386-3.013"/></svg></div>
+    <div class="cell" style="left:1074px"><svg width="42" height="42" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill="currentColor" d="M13.983 11.078h2.119a.186.186 0 0 0 .186-.185V9.006a.186.186 0 0 0-.186-.186h-2.119a.185.185 0 0 0-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 0 0 .186-.186V3.574a.186.186 0 0 0-.186-.185h-2.118a.185.185 0 0 0-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 0 0 .186-.186V6.29a.186.186 0 0 0-.186-.185h-2.118a.185.185 0 0 0-.185.185v1.887c0 .102.082.185.185.186m-2.93 0h2.12a.186.186 0 0 0 .184-.186V6.29a.185.185 0 0 0-.185-.185H8.1a.185.185 0 0 0-.185.185v1.887c0 .102.083.185.185.186m-2.964 0h2.119a.186.186 0 0 0 .185-.186V6.29a.185.185 0 0 0-.185-.185H5.136a.186.186 0 0 0-.186.185v1.887c0 .102.084.185.186.186m5.893 2.715h2.118a.186.186 0 0 0 .186-.185V9.006a.186.186 0 0 0-.186-.186h-2.118a.185.185 0 0 0-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 0 0 .184-.185V9.006a.185.185 0 0 0-.184-.186h-2.12a.185.185 0 0 0-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 0 0 .185-.185V9.006a.185.185 0 0 0-.184-.186h-2.12a.186.186 0 0 0-.186.186v1.887c0 .102.084.185.186.185m-2.92 0h2.12a.185.185 0 0 0 .184-.185V9.006a.185.185 0 0 0-.184-.186h-2.12a.185.185 0 0 0-.184.185v1.888c0 .102.082.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51q-.508.001-1.01.087c-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199l-.226.327c-.284.438-.49.922-.612 1.43c-.23.97-.09 1.882.403 2.661c-.595.332-1.55.413-1.744.42H.751a.75.75 0 0 0-.75.748a11.4 11.4 0 0 0 .692 4.062c.545 1.428 1.355 2.48 2.41 3.124c1.18.723 3.1 1.137 5.275 1.137a15.7 15.7 0 0 0 2.93-.266a12.3 12.3 0 0 0 3.823-1.389a10.5 10.5 0 0 0 2.61-2.136c1.252-1.418 1.998-2.997 2.553-4.4h.221c1.372 0 2.215-.549 2.68-1.009c.309-.293.55-.65.707-1.046l.098-.288Z"/></svg></div>
+    <span class="node" style="left:444px;top:504px"></span>
+    <span class="node" style="left:570px;top:504px"></span>
+    <span class="node" style="left:696px;top:504px"></span>
+    <span class="node" style="left:822px;top:504px"></span>
+    <span class="node" style="left:948px;top:504px"></span>
+    <span class="node" style="left:1074px;top:504px"></span>
+  </div>
+  <div class="copy">
+    <div class="badge">Software Engineer na Qeevo Group</div>
+    <h1>Ali Mohamed Khodr</h1>
+    <p class="lead">Produtos full-stack do zero à produção, com foco em pagamentos e multi-tenant.</p>
+  </div>
+  <div class="domain">alikhodr.dev <span class="arrow"><svg width="24" height="24" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path fill="currentColor" d="m221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32"/></svg></span></div>
+</body>
+</html>
