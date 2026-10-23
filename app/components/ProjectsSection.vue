@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import type { Project } from '~/data/portfolio'
-import { projects } from '~/data/portfolio'
+const content = useSiteContent()
 
 // Bento de 4 colunas: o destaque ocupa 2x2, os dois seguintes 2x1, os menores 1x1.
 // 4 + 2 + 2 + 4 = 12 células, três linhas cheias no desktop.
-function span(project: Project, index: number) {
-  if (project.featured) return 'md:col-span-2 lg:row-span-2'
+function span(featured: boolean | undefined, index: number) {
+  if (featured) return 'md:col-span-2 lg:row-span-2'
   if (index <= 2) return 'md:col-span-2'
   return ''
 }
@@ -15,21 +14,19 @@ function span(project: Project, index: number) {
   <section id="projetos" aria-labelledby="projects-title" class="py-20 sm:py-28">
     <UContainer>
       <div class="reveal mb-12 flex flex-col gap-4 sm:mb-14">
-        <h2 id="projects-title" class="text-[clamp(2rem,4.4vw,3.25rem)] leading-[1.05] font-medium tracking-[-0.03em] text-highlighted">
-          Projetos e <span class="text-primary">entregas</span>.
-        </h2>
+        <SectionTitle id="projects-title" :heading="content.projects.title" />
         <p class="max-w-[56ch] text-lg text-muted">
-          Produtos que construí ou liderei tecnicamente, de pagamentos a coordenação entre times.
+          {{ content.projects.intro }}
         </p>
       </div>
 
       <div class="node-grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
         <NodeCell
-          v-for="(project, index) in projects"
-          :key="project.title"
+          v-for="(project, index) in content.projectItems"
+          :key="project.id"
           as="article"
           class="group flex flex-col p-6 sm:p-8"
-          :class="[span(project, index), project.featured ? 'isolate bg-(--panel) text-white' : '']"
+          :class="[span(project.featured, index), project.featured ? 'isolate bg-(--panel) text-white' : '']"
         >
           <template v-if="project.featured">
             <div class="dot-field" aria-hidden="true" />
@@ -74,7 +71,7 @@ function span(project: Project, index: number) {
                 {{ project.kpi.label }}
               </div>
             </div>
-            <ul class="flex flex-wrap gap-1.5" aria-label="Tecnologias">
+            <ul class="flex flex-wrap gap-1.5" :aria-label="content.ui.technologies">
               <li
                 v-for="tag in project.tags"
                 :key="tag"

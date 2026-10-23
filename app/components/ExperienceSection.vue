@@ -1,18 +1,16 @@
 <script setup lang="ts">
-import { jobs } from '~/data/portfolio'
+const content = useSiteContent()
 </script>
 
 <template>
   <section id="experiencia" aria-labelledby="experience-title" class="py-20 sm:py-28">
     <UContainer>
-      <h2 id="experience-title" class="reveal mb-12 text-[clamp(2rem,4.4vw,3.25rem)] leading-[1.05] font-medium tracking-[-0.03em] text-highlighted sm:mb-16">
-        Experiência <span class="text-primary">profissional</span>.
-      </h2>
+      <SectionTitle id="experience-title" :heading="content.experience.title" class="reveal mb-12 sm:mb-16" />
 
       <ol class="relative">
         <li
-          v-for="job in jobs"
-          :key="job.role + job.period"
+          v-for="job in content.jobItems"
+          :key="job.id"
           class="reveal relative grid gap-4 pb-14 pl-9 last:pb-0 md:grid-cols-[13rem_minmax(0,1fr)] md:gap-x-16 md:pl-0"
         >
           <!-- Trilho: linha tracejada com um marcador por cargo. -->
@@ -25,7 +23,7 @@ import { jobs } from '~/data/portfolio'
 
           <div class="flex items-center gap-3 font-mono text-sm text-muted md:flex-col md:items-start md:gap-2 md:pt-0.5">
             <span :class="{ 'text-primary': job.current }">{{ job.period }}</span>
-            <span v-if="job.current" class="rounded-full px-2 py-0.5 text-xs text-primary ring ring-primary/40 ring-inset">Atual</span>
+            <span v-if="job.current" class="rounded-full px-2 py-0.5 text-xs text-primary ring ring-primary/40 ring-inset">{{ content.ui.current }}</span>
           </div>
 
           <div>
@@ -38,13 +36,13 @@ import { jobs } from '~/data/portfolio'
             <p class="mt-4 max-w-[64ch] leading-relaxed">
               {{ job.description }}
             </p>
-            <ul v-if="job.highlights?.length" class="mt-4 space-y-2">
+            <ul v-if="job.highlights.length" class="mt-4 space-y-2">
               <li v-for="item in job.highlights" :key="item" class="flex gap-3 text-muted">
                 <span class="mt-[0.6em] size-1.5 shrink-0 bg-primary" aria-hidden="true" />
                 {{ item }}
               </li>
             </ul>
-            <ul class="mt-5 flex flex-wrap gap-1.5" aria-label="Tecnologias">
+            <ul class="mt-5 flex flex-wrap gap-1.5" :aria-label="content.ui.technologies">
               <li v-for="tag in job.tags" :key="tag" class="rounded-full px-2 py-0.5 font-mono text-[11px] text-muted ring ring-default ring-inset">
                 {{ tag }}
               </li>

@@ -7,6 +7,7 @@ Portfólio de desenvolvedor para recrutadores e líderes técnicos. Linguagem in
 - Nuxt 4 + Nuxt UI 4 (Tailwind CSS 4, Reka UI), gerado como site estático (`nuxt generate`).
 - Ícones Phosphor (`i-ph-*`) e Simple Icons (`i-simple-icons-*`) empacotados no build.
 - Fontes via `@nuxt/fonts` (self-host): Host Grotesk (texto e títulos) e DM Mono (datas, números, tags).
+- Idiomas via `@nuxtjs/i18n`: português em `/`, inglês em `/en`, espanhol em `/es`. Textos em `app/data/locales/`, dados comuns (ícones, tags, números) em `app/data/shared.ts`.
 
 ## Cor
 

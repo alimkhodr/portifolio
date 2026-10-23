@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { profile } from '~/data/portfolio'
+const content = useSiteContent()
 </script>
 
 <template>
@@ -12,7 +12,7 @@ import { profile } from '~/data/portfolio'
             class="rise group inline-flex w-fit items-center gap-3 rounded-full py-1 pr-1 pl-4 text-sm ring ring-white/40 ring-inset transition-colors hover:bg-white/10"
             style="--i: 0"
           >
-            {{ profile.role }} na {{ profile.company }}
+            {{ content.hero.badge }}
             <span class="grid size-7 place-items-center rounded-full bg-white text-cobalt-700 transition-transform duration-500 ease-out-expo group-hover:translate-x-0.5">
               <UIcon name="i-ph-arrow-right" class="size-4" />
             </span>
@@ -27,7 +27,7 @@ import { profile } from '~/data/portfolio'
           </h1>
 
           <p class="rise max-w-[34ch] text-lg leading-relaxed text-(--panel-muted) sm:text-xl" style="--i: 2">
-            Construo produtos full-stack do zero à produção, com foco em pagamentos, multi-tenant e sistemas embarcáveis.
+            {{ content.hero.lead }}
           </p>
 
           <div class="rise flex flex-wrap items-center gap-3 pt-1" style="--i: 3">
@@ -35,7 +35,7 @@ import { profile } from '~/data/portfolio'
               to="#projetos"
               external
               size="lg"
-              label="Ver projetos"
+              :label="content.ui.viewProjects"
               trailing-icon="i-ph-arrow-down"
               color="neutral"
               class="bg-white text-ink-950 hover:bg-cobalt-50 active:bg-cobalt-100 focus-visible:outline-white"
@@ -49,7 +49,7 @@ import { profile } from '~/data/portfolio'
             src="/assets/hero.webp"
             width="1254"
             height="1254"
-            alt="Ali Mohamed Khodr sentado em frente a dois monitores, com iluminação azul ao fundo"
+            :alt="content.ui.heroImageAlt"
             fetchpriority="high"
             class="absolute inset-0 size-full object-cover object-[38%_35%]"
           >

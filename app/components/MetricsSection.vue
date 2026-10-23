@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { metrics } from '~/data/portfolio'
-
 // Os números chegam prontos no HTML. Com JS e sem reduced motion, contam a partir do zero ao entrar na tela.
+const content = useSiteContent()
 const root = ref<HTMLElement>()
 let observer: IntersectionObserver | undefined
 
@@ -43,16 +42,14 @@ onBeforeUnmount(() => observer?.disconnect())
   <section ref="root" aria-labelledby="metrics-title" class="py-20 sm:py-28">
     <UContainer>
       <div class="mb-12 flex flex-col gap-3 sm:mb-14">
-        <h2 id="metrics-title" class="text-[clamp(2rem,4.4vw,3.25rem)] leading-[1.05] font-medium tracking-[-0.03em] text-highlighted">
-          Um ano de <span class="text-primary">entregas reais</span>.
-        </h2>
+        <SectionTitle id="metrics-title" :heading="content.metrics.title" />
         <p class="font-mono text-sm text-muted">
-          {{ metrics.period }}
+          {{ content.metrics.period }}
         </p>
       </div>
 
       <div class="node-grid grid-cols-2 lg:grid-cols-4">
-        <NodeCell v-for="item in metrics.items" :key="item.label" class="group flex flex-col gap-10 p-5 sm:p-8">
+        <NodeCell v-for="item in content.metricItems" :key="item.icon" class="group flex flex-col gap-10 p-5 sm:p-8">
           <UIcon :name="item.icon" class="size-6 text-muted transition-colors duration-300 group-hover:text-primary" />
           <div>
             <div

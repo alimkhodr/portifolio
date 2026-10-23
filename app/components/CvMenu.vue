@@ -1,14 +1,15 @@
 <script setup lang="ts">
 import type { DropdownMenuItem } from '@nuxt/ui'
-import { cvFiles } from '~/data/portfolio'
+import { cvFiles } from '~/data/shared'
 
 // "panel": sobre o painel cobalto. "page": sobre o fundo da página.
+// O botão principal baixa o CV no idioma do site; o menu oferece os três.
 const props = withDefaults(defineProps<{ tone?: 'panel' | 'page', size?: 'md' | 'lg' | 'xl' }>(), {
   tone: 'page',
   size: 'lg'
 })
 
-const [main] = cvFiles
+const content = useSiteContent()
 
 const items: DropdownMenuItem[] = cvFiles.map(cv => ({
   label: cv.label,
@@ -26,11 +27,11 @@ const tone = computed(() => props.tone === 'panel'
 <template>
   <UFieldGroup :size="size">
     <UButton
-      :to="main?.href"
+      :to="content.cv.href"
       external
-      :download="main?.file"
+      :download="content.cv.file"
       icon="i-ph-download-simple"
-      label="Baixar CV"
+      :label="content.ui.downloadCv"
       color="neutral"
       variant="outline"
       :class="tone"
@@ -40,7 +41,7 @@ const tone = computed(() => props.tone === 'panel'
         icon="i-ph-caret-down"
         color="neutral"
         variant="outline"
-        aria-label="Escolher idioma do CV"
+        :aria-label="content.ui.cvLanguage"
         :class="tone"
       />
     </UDropdownMenu>

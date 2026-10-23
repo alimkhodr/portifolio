@@ -1,28 +1,27 @@
 <script setup lang="ts">
 import type { TabsItem } from '@nuxt/ui'
-import { stack } from '~/data/portfolio'
+
+const content = useSiteContent()
 
 // Barra de filtros em pílula, como a do catálogo de produtos da referência.
-const tabs: TabsItem[] = [
-  { label: 'Tudo', value: 'all' },
-  ...stack.map(group => ({ label: group.label, value: group.id }))
-]
+const tabs = computed<TabsItem[]>(() => [
+  { label: content.value.stack.all, value: 'all' },
+  ...content.value.stackGroups.map(group => ({ label: group.label, value: group.id }))
+])
 
 const selected = ref<string | number>('all')
 const visibleGroups = computed(() => selected.value === 'all'
-  ? stack
-  : stack.filter(group => group.id === selected.value))
+  ? content.value.stackGroups
+  : content.value.stackGroups.filter(group => group.id === selected.value))
 </script>
 
 <template>
   <section id="stack" aria-labelledby="stack-title" class="py-20 sm:py-28">
     <UContainer>
       <div class="reveal mb-10 flex flex-col gap-4">
-        <h2 id="stack-title" class="text-[clamp(2rem,4.4vw,3.25rem)] leading-[1.05] font-medium tracking-[-0.03em] text-highlighted">
-          Stack de <span class="text-primary">trabalho</span>.
-        </h2>
+        <SectionTitle id="stack-title" :heading="content.stack.title" />
         <p class="max-w-[56ch] text-lg text-muted">
-          Ferramentas que uso no dia a dia, da interface ao banco de dados.
+          {{ content.stack.intro }}
         </p>
       </div>
 
@@ -33,7 +32,7 @@ const visibleGroups = computed(() => selected.value === 'all'
           :content="false"
           color="neutral"
           variant="pill"
-          aria-label="Filtrar stack por área"
+          :aria-label="content.ui.stackFilter"
           :ui="{
             root: 'w-max',
             list: 'w-max gap-1 rounded-full bg-transparent p-1 ring ring-default ring-inset',

@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import { profile } from '~/data/portfolio'
+import { profile } from '~/data/shared'
 
-const links = [
+const content = useSiteContent()
+
+const links = computed(() => [
   { label: 'LinkedIn', href: profile.linkedin, icon: 'i-simple-icons-linkedin', external: true },
   { label: 'GitHub', href: profile.github, icon: 'i-simple-icons-github', external: true },
-  { label: profile.phone, href: profile.phoneHref, icon: 'i-ph-phone', external: false }
-]
+  { label: content.value.contact.phone, href: profile.phoneHref, icon: 'i-ph-phone', external: false }
+])
 </script>
 
 <template>
@@ -14,10 +16,10 @@ const links = [
       <div class="flex flex-col gap-10 px-5 py-16 sm:px-10 sm:py-20 lg:px-14 lg:py-24">
         <div class="flex flex-col gap-4">
           <h2 id="contact-title" class="text-[clamp(2.5rem,6vw,4.5rem)] leading-none font-medium tracking-[-0.035em]">
-            Contato.
+            {{ content.contact.title }}
           </h2>
           <p class="max-w-[40ch] text-lg text-(--panel-muted)">
-            Para vagas, projetos ou uma conversa sobre pagamentos e produtos multi-tenant.
+            {{ content.contact.lead }}
           </p>
         </div>
 
@@ -48,7 +50,7 @@ const links = [
         </div>
 
         <p class="font-mono text-sm text-white">
-          {{ profile.city }}
+          {{ content.contact.city }}
         </p>
       </div>
     </DotPanel>

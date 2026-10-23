@@ -1,18 +1,34 @@
 const siteUrl = 'https://alimkhodr.netlify.app'
-const title = 'Ali Mohamed Khodr | Software Engineer'
-const description = 'Software Engineer na Qeevo Group. Full-stack com Vue, Nuxt, Ruby e Node. Foco em pagamentos, multi-tenant e produtos construídos do zero.'
 
 export default defineNuxtConfig({
-  modules: ['@nuxt/ui'],
+  modules: ['@nuxt/ui', '@nuxtjs/i18n'],
 
   devtools: { enabled: false },
 
   css: ['~/assets/css/main.css'],
 
+  runtimeConfig: {
+    public: { siteUrl }
+  },
+
   ui: {
     theme: {
       colors: ['primary', 'neutral']
     }
+  },
+
+  // Português na raiz, inglês em /en e espanhol em /es. Sem redirecionar pelo idioma do
+  // navegador: o link que a pessoa recebeu abre no idioma escolhido por quem enviou.
+  i18n: {
+    baseUrl: siteUrl,
+    defaultLocale: 'pt',
+    strategy: 'prefix_except_default',
+    detectBrowserLanguage: false,
+    locales: [
+      { code: 'pt', language: 'pt-BR', name: 'Português' },
+      { code: 'en', language: 'en', name: 'English' },
+      { code: 'es', language: 'es', name: 'Español' }
+    ]
   },
 
   colorMode: {
@@ -37,29 +53,23 @@ export default defineNuxtConfig({
     ]
   },
 
+  // Título, descrição, lang, canonical e hreflang são definidos por idioma em app.vue.
   app: {
     head: {
-      htmlAttrs: { lang: 'pt-BR' },
-      title,
       meta: [
-        { name: 'description', content: description },
         { property: 'og:type', content: 'website' },
-        { property: 'og:url', content: siteUrl },
-        { property: 'og:title', content: title },
-        { property: 'og:description', content: 'Full-stack com foco em pagamentos, multi-tenant e produtos construídos do zero.' },
         { property: 'og:image', content: `${siteUrl}/assets/hero.webp` },
         { name: 'twitter:card', content: 'summary_large_image' }
       ],
       link: [
-        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
-        { rel: 'canonical', href: siteUrl }
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }
       ]
     }
   },
 
   nitro: {
     prerender: {
-      routes: ['/']
+      routes: ['/', '/en', '/es']
     }
   },
 
