@@ -19,6 +19,7 @@ Metricas do GitHub (org quero-edu, 22/10/2025 a 22/10/2026, API de busca):
 Uso: .tools-venv/bin/python build_cv.py
 """
 
+from datetime import date
 from pathlib import Path
 
 from docx import Document
@@ -38,6 +39,9 @@ MUTED = "#545C6A"
 RULE = "#D5D9E2"
 
 NAME = "Ali Mohamed Khodr"
+
+# Base para a duracao do cargo atual.
+TODAY = date.today()
 
 # Dados que nao mudam entre idiomas.
 EMAIL = "ali.m.khodr@gmail.com"
@@ -61,6 +65,8 @@ CONTENT = {
             "languages": "Idiomas",
         },
         "tech_label": "Tecnologias",
+        "present": "atual",
+        "units": {"year": ("ano", "anos"), "month": ("mês", "meses"), "join": " e "},
         "summary": (
             "Software Engineer full-stack com experiência em levar produtos web do zero à produção. "
             "Tech lead de um gateway de pagamentos embarcável (Cartão, PIX e Boleto) e de uma área do aluno "
@@ -80,48 +86,47 @@ CONTENT = {
         ],
         "experience": [
             {
+                "title": "Software Engineer",
                 "company": "Qeevo Group (ex-Quero Educação)",
+                "kind": "Tempo integral",
+                "start": (2024, 11),
+                "end": None,
                 "location": "São José dos Campos, SP",
-                "roles": [
-                    {
-                        "title": "Software Engineer",
-                        "period": "11/2024 - atual",
-                        "bullets": [
-                            "Liderei tecnicamente a construção do zero de um gateway de pagamentos embarcável via "
-                            "iframe para parceiros: Cartão, PIX e Boleto, cupons, temas por marca, CI/CD e Docker "
-                            "(cerca de 33 pull requests entre backend e frontend).",
-                            "Liderei a área do aluno multi-tenant, também criada do zero: histórico de pagamentos, "
-                            "reembolso self-service, validação de chave PIX e localização por tenant (cerca de 24 "
-                            "pull requests como owner técnico do produto).",
-                            "Coordenei um fluxo de reembolso ponta a ponta em mais de 6 repositórios e vários times, "
-                            "com reembolso via PIX, fallback automático por e-mail e painel de auditoria.",
-                            "Habilitei o PIX recorrente como método de pagamento de assinaturas, do controller no "
-                            "monolito Ruby ao modal de pagamento no frontend.",
-                            "Revisei 295 pull requests de outros desenvolvedores nos últimos 12 meses, contribuí com "
-                            "o design system compartilhado da organização e implementei testes A/B de cross-sell "
-                            "pós-checkout.",
-                            "Reformulei as páginas de pagamento de assinatura e implementei cross-sell multi-oferta no "
-                            "pós-checkout, com estado controlado por cookies.",
-                        ],
-                        "stack": "Vue.js, Nuxt, TypeScript, React, Ruby on Rails, Node.js, Docker, AWS, PostgreSQL, CI/CD",
-                    },
+                "workplace": "Presencial",
+                "description": "Full-stack com foco em pagamentos, multi-tenant e produtos embarcáveis.",
+                "bullets": [
+                    "Liderei tecnicamente a construção do zero de um gateway de pagamentos embarcável via "
+                    "iframe para parceiros: Cartão, PIX e Boleto, cupons, temas por marca, CI/CD e Docker "
+                    "(cerca de 33 pull requests entre backend e frontend).",
+                    "Liderei a área do aluno multi-tenant, também criada do zero: histórico de pagamentos, "
+                    "reembolso self-service, validação de chave PIX e localização por tenant (cerca de 24 "
+                    "pull requests como owner técnico do produto).",
+                    "Coordenei um fluxo de reembolso ponta a ponta em mais de 6 repositórios e vários times, "
+                    "com reembolso via PIX, fallback automático por e-mail e painel de auditoria.",
+                    "Habilitei o PIX recorrente como método de pagamento de assinaturas, do controller no "
+                    "monolito Ruby ao modal de pagamento no frontend.",
+                    "Revisei 295 pull requests de outros desenvolvedores nos últimos 12 meses, contribuí com "
+                    "o design system compartilhado da organização e implementei testes A/B de cross-sell "
+                    "pós-checkout.",
+                    "Reformulei as páginas de pagamento de assinatura e implementei cross-sell multi-oferta no "
+                    "pós-checkout, com estado controlado por cookies.",
                 ],
+                "stack": "Vue.js, Nuxt, TypeScript, React, Ruby on Rails, Node.js, Docker, AWS, PostgreSQL, CI/CD",
             },
             {
+                "title": "Engenheiro de Software",
                 "company": "APTIV",
+                "kind": "Estágio",
+                "start": (2023, 4),
+                "end": (2024, 11),
                 "location": "Jambeiro, SP",
-                "roles": [
-                    {
-                        "title": "Engenheiro de Software (estágio)",
-                        "period": "04/2023 - 11/2024",
-                        "bullets": [
-                            "Desenvolvi ferramentas internas e automações de processos industriais integradas a "
-                            "bancos SQL Server em produção.",
-                            "Apresentei à liderança um projeto interno de três meses, com reconhecimento formal.",
-                        ],
-                        "stack": "Visual Basic, C#, SQL, React, Node.js, Docker",
-                    },
+                "workplace": "Presencial",
+                "bullets": [
+                    "Desenvolvi ferramentas internas e automações de processos industriais integradas a "
+                    "bancos SQL Server em produção.",
+                    "Apresentei à liderança um projeto interno de três meses, com reconhecimento formal.",
                 ],
+                "stack": "Visual Basic, C#, SQL, React, Node.js, Docker",
             },
         ],
         "education": [
@@ -148,6 +153,8 @@ CONTENT = {
             "languages": "Languages",
         },
         "tech_label": "Technologies",
+        "present": "present",
+        "units": {"year": ("year", "years"), "month": ("month", "months"), "join": " "},
         "summary": (
             "Full-stack Software Engineer who takes web products from scratch to production. Tech lead of an "
             "embeddable payment gateway (Card, PIX and Boleto) and of a multi-tenant student portal at Qeevo "
@@ -167,48 +174,47 @@ CONTENT = {
         ],
         "experience": [
             {
+                "title": "Software Engineer",
                 "company": "Qeevo Group (formerly Quero Educação)",
+                "kind": "Full-time",
+                "start": (2024, 11),
+                "end": None,
                 "location": "São José dos Campos, SP, Brazil",
-                "roles": [
-                    {
-                        "title": "Software Engineer",
-                        "period": "11/2024 - present",
-                        "bullets": [
-                            "Led the technical build, from scratch, of an embeddable payment gateway for partners "
-                            "(iframe): Card, PIX and Boleto flows, coupons, per-brand theming, CI/CD and Docker "
-                            "(about 33 pull requests across backend and frontend).",
-                            "Led a multi-tenant student portal, also built from scratch: payment history, "
-                            "self-service refunds, PIX key validation and per-tenant localization (about 24 pull "
-                            "requests as the product's technical owner).",
-                            "Coordinated an end-to-end refund flow across more than 6 repositories and several "
-                            "teams, with PIX refunds, automatic e-mail fallback and an audit panel.",
-                            "Enabled recurring PIX as a subscription payment method, from the controller in the "
-                            "Ruby monolith to the frontend payment modal.",
-                            "Reviewed 295 pull requests from other developers in the last 12 months, contributed to "
-                            "the organization's shared design system and implemented A/B tests for post-checkout "
-                            "cross-sell.",
-                            "Redesigned the subscription payment pages and implemented multi-offer post-checkout "
-                            "cross-sell with cookie-based state.",
-                        ],
-                        "stack": "Vue.js, Nuxt, TypeScript, React, Ruby on Rails, Node.js, Docker, AWS, PostgreSQL, CI/CD",
-                    },
+                "workplace": "On-site",
+                "description": "Full-stack work focused on payments, multi-tenant systems and embeddable products.",
+                "bullets": [
+                    "Led the technical build, from scratch, of an embeddable payment gateway for partners "
+                    "(iframe): Card, PIX and Boleto flows, coupons, per-brand theming, CI/CD and Docker "
+                    "(about 33 pull requests across backend and frontend).",
+                    "Led a multi-tenant student portal, also built from scratch: payment history, "
+                    "self-service refunds, PIX key validation and per-tenant localization (about 24 pull "
+                    "requests as the product's technical owner).",
+                    "Coordinated an end-to-end refund flow across more than 6 repositories and several "
+                    "teams, with PIX refunds, automatic e-mail fallback and an audit panel.",
+                    "Enabled recurring PIX as a subscription payment method, from the controller in the "
+                    "Ruby monolith to the frontend payment modal.",
+                    "Reviewed 295 pull requests from other developers in the last 12 months, contributed to "
+                    "the organization's shared design system and implemented A/B tests for post-checkout "
+                    "cross-sell.",
+                    "Redesigned the subscription payment pages and implemented multi-offer post-checkout "
+                    "cross-sell with cookie-based state.",
                 ],
+                "stack": "Vue.js, Nuxt, TypeScript, React, Ruby on Rails, Node.js, Docker, AWS, PostgreSQL, CI/CD",
             },
             {
+                "title": "Software Engineer",
                 "company": "APTIV",
+                "kind": "Internship",
+                "start": (2023, 4),
+                "end": (2024, 11),
                 "location": "Jambeiro, SP, Brazil",
-                "roles": [
-                    {
-                        "title": "Software Engineer (internship)",
-                        "period": "04/2023 - 11/2024",
-                        "bullets": [
-                            "Built internal tools and industrial process automations integrated with production "
-                            "SQL Server databases.",
-                            "Presented a three-month internal project to leadership and received formal recognition.",
-                        ],
-                        "stack": "Visual Basic, C#, SQL, React, Node.js, Docker",
-                    },
+                "workplace": "On-site",
+                "bullets": [
+                    "Built internal tools and industrial process automations integrated with production "
+                    "SQL Server databases.",
+                    "Presented a three-month internal project to leadership and received formal recognition.",
                 ],
+                "stack": "Visual Basic, C#, SQL, React, Node.js, Docker",
             },
         ],
         "education": [
@@ -235,6 +241,8 @@ CONTENT = {
             "languages": "Idiomas",
         },
         "tech_label": "Tecnologías",
+        "present": "actual",
+        "units": {"year": ("año", "años"), "month": ("mes", "meses"), "join": " y "},
         "summary": (
             "Ingeniero de software full-stack que lleva productos web desde cero hasta producción. Tech lead de "
             "una pasarela de pagos embebible (Tarjeta, PIX y Boleto) y de un portal de estudiantes multi-tenant "
@@ -254,49 +262,48 @@ CONTENT = {
         ],
         "experience": [
             {
+                "title": "Ingeniero de Software",
                 "company": "Qeevo Group (antes Quero Educação)",
+                "kind": "Tiempo completo",
+                "start": (2024, 11),
+                "end": None,
                 "location": "São José dos Campos, SP, Brasil",
-                "roles": [
-                    {
-                        "title": "Ingeniero de Software",
-                        "period": "11/2024 - actual",
-                        "bullets": [
-                            "Lideré técnicamente la construcción desde cero de una pasarela de pagos embebible para "
-                            "socios (iframe): flujos de Tarjeta, PIX y Boleto, cupones, temas por marca, CI/CD y "
-                            "Docker (unos 33 pull requests entre backend y frontend).",
-                            "Lideré un portal de estudiantes multi-tenant, también construido desde cero: historial "
-                            "de pagos, reembolsos de autoservicio, validación de clave PIX y localización por tenant "
-                            "(unos 24 pull requests como responsable técnico del producto).",
-                            "Coordiné un flujo de reembolso de punta a punta en más de 6 repositorios y varios "
-                            "equipos, con reembolso por PIX, respaldo automático por correo electrónico y panel de "
-                            "auditoría.",
-                            "Habilité el PIX recurrente como método de pago de suscripciones, desde el controller "
-                            "del monolito Ruby hasta el modal de pago del frontend.",
-                            "Revisé 295 pull requests de otros desarrolladores en los últimos 12 meses, contribuí al "
-                            "design system compartido de la organización e implementé pruebas A/B de cross-sell "
-                            "post-checkout.",
-                            "Rediseñé las páginas de pago de suscripciones e implementé cross-sell multi-oferta "
-                            "post-checkout, con estado controlado por cookies.",
-                        ],
-                        "stack": "Vue.js, Nuxt, TypeScript, React, Ruby on Rails, Node.js, Docker, AWS, PostgreSQL, CI/CD",
-                    },
+                "workplace": "Presencial",
+                "description": "Full-stack enfocado en pagos, sistemas multi-tenant y productos embebibles.",
+                "bullets": [
+                    "Lideré técnicamente la construcción desde cero de una pasarela de pagos embebible para "
+                    "socios (iframe): flujos de Tarjeta, PIX y Boleto, cupones, temas por marca, CI/CD y "
+                    "Docker (unos 33 pull requests entre backend y frontend).",
+                    "Lideré un portal de estudiantes multi-tenant, también construido desde cero: historial "
+                    "de pagos, reembolsos de autoservicio, validación de clave PIX y localización por tenant "
+                    "(unos 24 pull requests como responsable técnico del producto).",
+                    "Coordiné un flujo de reembolso de punta a punta en más de 6 repositorios y varios "
+                    "equipos, con reembolso por PIX, respaldo automático por correo electrónico y panel de "
+                    "auditoría.",
+                    "Habilité el PIX recurrente como método de pago de suscripciones, desde el controller "
+                    "del monolito Ruby hasta el modal de pago del frontend.",
+                    "Revisé 295 pull requests de otros desarrolladores en los últimos 12 meses, contribuí al "
+                    "design system compartido de la organización e implementé pruebas A/B de cross-sell "
+                    "post-checkout.",
+                    "Rediseñé las páginas de pago de suscripciones e implementé cross-sell multi-oferta "
+                    "post-checkout, con estado controlado por cookies.",
                 ],
+                "stack": "Vue.js, Nuxt, TypeScript, React, Ruby on Rails, Node.js, Docker, AWS, PostgreSQL, CI/CD",
             },
             {
+                "title": "Ingeniero de Software",
                 "company": "APTIV",
+                "kind": "Pasantía",
+                "start": (2023, 4),
+                "end": (2024, 11),
                 "location": "Jambeiro, SP, Brasil",
-                "roles": [
-                    {
-                        "title": "Ingeniero de Software (pasantía)",
-                        "period": "04/2023 - 11/2024",
-                        "bullets": [
-                            "Desarrollé herramientas internas y automatizaciones de procesos industriales integradas "
-                            "con bases SQL Server en producción.",
-                            "Presenté a la dirección un proyecto interno de tres meses, con reconocimiento formal.",
-                        ],
-                        "stack": "Visual Basic, C#, SQL, React, Node.js, Docker",
-                    },
+                "workplace": "Presencial",
+                "bullets": [
+                    "Desarrollé herramientas internas y automatizaciones de procesos industriales integradas "
+                    "con bases SQL Server en producción.",
+                    "Presenté a la dirección un proyecto interno de tres meses, con reconocimiento formal.",
                 ],
+                "stack": "Visual Basic, C#, SQL, React, Node.js, Docker",
             },
         ],
         "education": [
@@ -321,6 +328,36 @@ def _contact_lines(lang):
     first = [c["location"], EMAIL, c["phone"]]
     second = [LINKEDIN, GITHUB, WEBSITE]
     return [SEPARATOR.join(first), SEPARATOR.join(second)]
+
+
+def _duration(lang, start, end):
+    """Tempo no cargo contado como o LinkedIn conta: o mes de inicio e o de fim entram na conta.
+
+    Cargo atual (end None) vai ate o mes em que o CV e gerado."""
+    end = end or (TODAY.year, TODAY.month)
+    years, months = divmod((end[0] - start[0]) * 12 + (end[1] - start[1]) + 1, 12)
+    units = CONTENT[lang]["units"]
+    parts = []
+    if years:
+        parts.append(f"{years} {units['year'][0 if years == 1 else 1]}")
+    if months:
+        parts.append(f"{months} {units['month'][0 if months == 1 else 1]}")
+    return units["join"].join(parts)
+
+
+def _job_lines(lang, job):
+    """Linhas do cabecalho de cada experiencia, na ordem do LinkedIn:
+    cargo, empresa e tipo de vinculo, periodo e duracao, local e modelo de trabalho."""
+    c = CONTENT[lang]
+    start = f"{job['start'][1]:02d}/{job['start'][0]}"
+    end = f"{job['end'][1]:02d}/{job['end'][0]}" if job["end"] else c["present"]
+    return {
+        "title": job["title"],
+        "company": job["company"],
+        "kind": job["kind"],
+        "dates": f"{start} - {end}{SEPARATOR}{_duration(lang, job['start'], job['end'])}",
+        "place": f"{job['location']}{SEPARATOR}{job['workplace']}",
+    }
 
 
 def _education_line(entry):
@@ -444,30 +481,31 @@ def build_docx(lang, path):
         p.add_run(f"{label}: ").bold = True
         p.add_run(items)
 
-    heading(c["sections"]["experience"])
-    for company in c["experience"]:
+    def header_line(space_before=0, space_after=0):
         p = doc.add_paragraph()
-        p.paragraph_format.space_before = Pt(5)
-        p.paragraph_format.space_after = Pt(0)
+        p.paragraph_format.space_before = Pt(space_before)
+        p.paragraph_format.space_after = Pt(space_after)
         p.paragraph_format.keep_with_next = True
-        co = p.add_run(company["company"])
-        co.bold = True
-        co.font.size = Pt(10.5)
-        muted(p, f"{SEPARATOR}{company['location']}")
-        for role in company["roles"]:
-            r = doc.add_paragraph()
-            r.paragraph_format.space_before = Pt(3)
-            r.paragraph_format.space_after = Pt(1)
-            r.paragraph_format.keep_with_next = True
-            t = r.add_run(role["title"])
-            t.bold = True
-            t.font.color.rgb = _rgb(ACCENT)
-            muted(r, f"{SEPARATOR}{role['period']}")
-            for b in role["bullets"]:
-                doc.add_paragraph(b, style="List Bullet")
-            s = doc.add_paragraph()
-            s.paragraph_format.space_after = Pt(3)
-            muted(s, f"{c['tech_label']}: {role['stack']}")
+        return p
+
+    heading(c["sections"]["experience"])
+    for job in c["experience"]:
+        lines = _job_lines(lang, job)
+        t = header_line(space_before=5).add_run(lines["title"])
+        t.bold = True
+        t.font.size = Pt(10.5)
+        co = header_line()
+        co.add_run(lines["company"])
+        muted(co, f"{SEPARATOR}{lines['kind']}")
+        muted(header_line(), lines["dates"])
+        muted(header_line(space_after=2), lines["place"])
+        if job.get("description"):
+            doc.add_paragraph(job["description"])
+        for b in job["bullets"]:
+            doc.add_paragraph(b, style="List Bullet")
+        s = doc.add_paragraph()
+        s.paragraph_format.space_after = Pt(3)
+        muted(s, f"{c['tech_label']}: {job['stack']}")
 
     heading(c["sections"]["education"])
     for entry in c["education"]:
@@ -497,10 +535,12 @@ def build_pdf(lang, path):
                              textColor=colors.HexColor(MUTED), spaceAfter=0)
     head = ParagraphStyle("head", parent=base, fontName="Helvetica-Bold", fontSize=9.4,
                           leading=12, textColor=colors.HexColor(ACCENT), spaceBefore=9, spaceAfter=3)
-    company = ParagraphStyle("company", parent=base, fontName="Helvetica-Bold", fontSize=10.2,
-                             leading=13, spaceBefore=4, spaceAfter=0)
-    role = ParagraphStyle("role", parent=base, fontName="Helvetica-Bold", fontSize=9.4,
-                          leading=12.3, textColor=colors.HexColor(ACCENT), spaceBefore=2.5, spaceAfter=1.5)
+    # Cabecalho de cada experiencia, na ordem do LinkedIn (ver _job_lines).
+    job_title = ParagraphStyle("job_title", parent=base, fontName="Helvetica-Bold", fontSize=10.2,
+                               leading=13, spaceBefore=4, spaceAfter=0, keepWithNext=1)
+    job_company = ParagraphStyle("job_company", parent=base, spaceAfter=0, keepWithNext=1)
+    job_meta = ParagraphStyle("job_meta", parent=base, fontSize=8.5, leading=11,
+                              textColor=colors.HexColor(MUTED), spaceAfter=0, keepWithNext=1)
     stack = ParagraphStyle("stack", parent=base, fontSize=8.5, leading=11.2,
                            textColor=colors.HexColor(MUTED), spaceBefore=0.5, spaceAfter=3)
     bullet = ParagraphStyle("bullet", parent=base, leftIndent=11, bulletIndent=1.5, spaceAfter=1.5)
@@ -529,13 +569,20 @@ def build_pdf(lang, path):
         story.append(Paragraph(f"<b>{esc(label)}:</b> {esc(items)}", base))
 
     story += section(c["sections"]["experience"])
-    for co in c["experience"]:
-        story.append(Paragraph(f"{esc(co['company'])}{meta}{SEPARATOR}{esc(co['location'])}</font>", company))
-        for ro in co["roles"]:
-            story.append(Paragraph(f"{esc(ro['title'])}{meta}{SEPARATOR}{esc(ro['period'])}</font>", role))
-            for b in ro["bullets"]:
-                story.append(Paragraph(esc(b), bullet, bulletText="•"))
-            story.append(Paragraph(f"{esc(c['tech_label'])}: {esc(ro['stack'])}", stack))
+    for job in c["experience"]:
+        lines = _job_lines(lang, job)
+        story += [
+            Paragraph(esc(lines["title"]), job_title),
+            Paragraph(f"{esc(lines['company'])}{meta}{SEPARATOR}{esc(lines['kind'])}</font>", job_company),
+            Paragraph(esc(lines["dates"]), job_meta),
+            Paragraph(esc(lines["place"]), job_meta),
+            Spacer(1, 2),
+        ]
+        if job.get("description"):
+            story.append(Paragraph(esc(job["description"]), base))
+        for b in job["bullets"]:
+            story.append(Paragraph(esc(b), bullet, bulletText="•"))
+        story.append(Paragraph(f"{esc(c['tech_label'])}: {esc(job['stack'])}", stack))
 
     story += section(c["sections"]["education"])
     for entry in c["education"]:
@@ -546,8 +593,10 @@ def build_pdf(lang, path):
     story += section(c["sections"]["languages"])
     story.append(Paragraph(esc(_languages_line(lang)), base))
 
+    # O frame do reportlab soma 6pt de respiro por dentro da margem; descontado em cima e embaixo
+    # para a margem visivel ficar em 1,3 cm, igual ao DOCX.
     doc = SimpleDocTemplate(path, pagesize=A4, leftMargin=1.7 * cm, rightMargin=1.7 * cm,
-                            topMargin=1.3 * cm, bottomMargin=1.3 * cm,
+                            topMargin=1.3 * cm - 6, bottomMargin=1.3 * cm - 6,
                             title=f"{NAME} - CV", author=NAME, subject=c["title"],
                             keywords=_keywords(lang), lang={"pt": "pt-BR", "en": "en", "es": "es"}[lang])
     doc.build(story)
