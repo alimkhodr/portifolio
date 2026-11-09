@@ -5,7 +5,7 @@ const content = useSiteContent()
 <template>
   <section id="topo" aria-labelledby="hero-title" class="px-2 pt-2 sm:px-3 sm:pt-3">
     <DotPanel>
-      <div class="grid min-h-[min(calc(100dvh-var(--ui-header-height)-1rem),50rem)] lg:grid-cols-[1.15fr_1fr]">
+      <div class="grid min-h-[min(calc(100dvh-var(--ui-header-height)-1rem),50rem)] lg:grid-cols-[1.3fr_1fr]">
         <div class="flex flex-col justify-center gap-7 px-5 py-12 sm:px-10 sm:py-16 lg:py-20 lg:pl-14 lg:pr-6">
           <a
             href="#experiencia"
@@ -44,7 +44,7 @@ const content = useSiteContent()
           </div>
         </div>
 
-        <figure class="unclip relative m-2 mt-0 min-h-[22rem] overflow-hidden rounded-xl sm:m-3 sm:mt-0 lg:mt-3 lg:ml-0 lg:min-h-0">
+        <figure class="unclip relative m-2 mt-0 min-h-[19rem] overflow-hidden rounded-xl sm:m-3 sm:mt-0 lg:my-14 lg:mr-14 lg:ml-0 lg:min-h-0">
           <img
             src="/assets/hero.webp"
             width="1254"
