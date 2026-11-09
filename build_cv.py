@@ -86,7 +86,7 @@ CONTENT = {
         ],
         "experience": [
             {
-                "title": "Software Engineer",
+                "title": "Engenheiro de Software",
                 "company": "Qeevo Group (ex-Quero Educação)",
                 "kind": "Tempo integral",
                 "start": (2024, 11),

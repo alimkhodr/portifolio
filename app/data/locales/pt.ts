@@ -96,7 +96,7 @@ export const pt: SiteCopy = {
     jobs: {
       qeevoEngineer: {
         period: 'Nov 2024 a atual',
-        role: 'Software Engineer',
+        role: 'Engenheiro de Software',
         company: 'Qeevo Group',
         description: 'Full-stack com foco em pagamentos, multi-tenant e produtos embarcáveis. Tech lead de dois produtos lançados do zero, em um marketplace de educação com múltiplas marcas e tenants.',
         highlights: [
