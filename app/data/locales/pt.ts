@@ -44,7 +44,7 @@ export const pt: SiteCopy = {
     educationTitle: 'Formação',
     education: [
       { period: 'Mar 2023 a out 2025', course: 'Análise e Desenvolvimento de Sistemas', school: 'Universidade do Vale do Paraíba (Univap)', status: 'Concluído' },
-      { period: 'Fev 2022 a dez 2025', course: 'Banco de Dados', school: 'Fatec São José dos Campos, Prof. Jessen Vidal' },
+      { period: 'Fev 2022 a dez 2025', course: 'Banco de Dados', school: 'Fatec São José dos Campos, Prof. Jessen Vidal', link: 'Portfólio de Projetos Integradores' },
       { period: 'Fev 2019 a dez 2021', course: 'Técnico em Desenvolvimento de Sistemas', school: 'ETEC Profª Ilza Nascimento Pintus' },
       { period: 'Jan 2022 a dez 2026', course: 'Inglês avançado (C1)', school: 'CNA Idiomas' }
     ]

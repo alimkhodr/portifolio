@@ -2,9 +2,18 @@
 import type { DropdownMenuItem } from '@nuxt/ui'
 
 const content = useSiteContent()
+const route = useRoute()
+const localePath = useLocalePath()
+const getRouteBaseName = useRouteBaseName()
+
+// Na home as âncoras ficam locais; nas outras páginas apontam para as seções da home do idioma.
+// A barra final evita o redirecionamento de /en para /en/ no Netlify.
+const isHome = computed(() => getRouteBaseName(route) === 'index')
+const homeHref = computed(() => localePath('/').replace(/\/?$/, '/'))
+const hrefFor = (hash: string) => isHome.value ? hash : `${homeHref.value}${hash}`
 
 const mobileItems = computed<DropdownMenuItem[][]>(() => [
-  content.value.navLinks.map(link => ({ label: link.label, to: link.href, external: true })),
+  content.value.navLinks.map(link => ({ label: link.label, to: hrefFor(link.href), external: true })),
   [{ label: content.value.ui.downloadCv, icon: 'i-ph-download-simple', to: content.value.cv.href, external: true, target: '_blank' }]
 ])
 </script>
@@ -12,7 +21,7 @@ const mobileItems = computed<DropdownMenuItem[][]>(() => [
 <template>
   <header class="dash-rule sticky top-0 z-40 bg-default/85 backdrop-blur-md supports-[backdrop-filter]:bg-default/70">
     <UContainer class="flex h-(--ui-header-height) items-center justify-between gap-4">
-      <a href="#topo" class="group flex items-center gap-2.5 rounded-md text-[15px] font-medium text-highlighted">
+      <a :href="isHome ? '#topo' : homeHref" class="group flex items-center gap-2.5 rounded-md text-[15px] font-medium text-highlighted">
         <span class="size-3 bg-primary transition-transform duration-500 ease-out-expo group-hover:rotate-90" aria-hidden="true" />
         ali khodr
       </a>
@@ -21,7 +30,7 @@ const mobileItems = computed<DropdownMenuItem[][]>(() => [
         <ul class="flex items-center gap-1">
           <li v-for="link in content.navLinks" :key="link.href">
             <a
-              :href="link.href"
+              :href="hrefFor(link.href)"
               class="rounded-md px-3 py-2 text-sm font-medium text-muted transition-colors hover:bg-muted hover:text-highlighted"
             >{{ link.label }}</a>
           </li>

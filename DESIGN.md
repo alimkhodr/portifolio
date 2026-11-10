@@ -9,6 +9,11 @@ Portfólio de desenvolvedor para recrutadores e líderes técnicos. Linguagem in
 - Fontes via `@nuxt/fonts` (self-host): Host Grotesk (texto e títulos) e DM Mono (datas, números, tags).
 - Idiomas via `@nuxtjs/i18n`: português em `/`, inglês em `/en`, espanhol em `/es`. Textos em `app/data/locales/`, dados comuns (ícones, tags, números) em `app/data/shared.ts`.
 
+## Páginas
+
+- `/`: portfólio profissional.
+- `/portfolio-banco-de-dados`: portfólio do Trabalho de Graduação (Fatec SJC), a partir do README de `alimkhodr/portfolio-banco-de-dados`. Topo no painel de pontos com a ficha do curso em filetes; sobre e conhecimentos na grade de células; os seis Projetos Integradores no mesmo trilho tracejado da experiência, com os detalhes em `<details>` nativo (abre sem JS). Textos em `app/data/tg/`, nos três idiomas. Na home, o curso da Fatec leva para essa página.
+
 ## Cor
 
 Um único destaque. Tema claro e escuro seguindo o sistema, com alternância manual.

@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import { tgPath } from '~/data/tg/shared'
+
 const content = useSiteContent()
+const localePath = useLocalePath()
 </script>
 
 <template>
@@ -36,6 +39,14 @@ const content = useSiteContent()
             <div class="text-sm text-muted">
               {{ item.school }}
             </div>
+            <a
+              v-if="item.link"
+              :href="localePath(tgPath)"
+              class="mt-2 inline-flex w-fit items-center gap-1.5 text-sm font-medium text-primary underline-offset-4 hover:underline"
+            >
+              {{ item.link }}
+              <UIcon name="i-ph-arrow-right" class="size-4" />
+            </a>
           </NodeCell>
         </ol>
       </div>

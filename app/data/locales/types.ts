@@ -46,7 +46,8 @@ export interface SiteCopy {
     // **texto** vira destaque em negrito.
     paragraphs: string[]
     educationTitle: string
-    education: { period: string, course: string, school: string, status?: string }[]
+    // link: rótulo do link para a página do portfólio do TG (só no curso da Fatec).
+    education: { period: string, course: string, school: string, status?: string, link?: string }[]
   }
   projects: {
     title: Heading

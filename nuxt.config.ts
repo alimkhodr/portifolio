@@ -75,7 +75,10 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
-      routes: ['/', '/en', '/es']
+      routes: [
+        '/', '/en', '/es',
+        '/portfolio-banco-de-dados', '/en/portfolio-banco-de-dados', '/es/portfolio-banco-de-dados'
+      ]
     }
   },
 
