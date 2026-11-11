@@ -10,6 +10,7 @@ export const tgPt: TgCopy = {
     title: 'Portfólio de Projetos Integradores',
     lead: 'Seis semestres, seis empresas parceiras e seis problemas reais, de páginas em HTML a aplicações com ETL, testes e CI.',
     viewProjects: 'Ver projetos',
+    photoAlt: 'Prédio da Fatec São José dos Campos sob céu azul',
     facts: [
       { label: 'Curso', value: 'Tecnólogo em Banco de Dados' },
       { label: 'Instituição', value: 'Fatec São José dos Campos, Prof. Jessen Vidal' },
@@ -48,6 +49,10 @@ export const tgPt: TgCopy = {
     hardSkills: 'Hard skills',
     softSkills: 'Soft skills',
     links: 'Links',
+    gallery: 'Imagens do projeto',
+    zoom: 'Ampliar imagem',
+    photoBy: 'Foto',
+    cropped: 'recortada',
     levels: {
       teach: 'Sei ensinar',
       alone: 'Sei fazer sozinho',
@@ -81,6 +86,8 @@ export const tgPt: TgCopy = {
         { title: 'Requisitos e documentação', text: 'Participei do levantamento de requisitos com o cliente e da documentação exigida na disciplina: wireframes, Design Thinking e Balanced Scorecard.' }
       ],
       commitsNote: 'Os commits foram feitos pela conta compartilhada da equipe (TechForce-ADS), por isso não há histórico individual no repositório.',
+      coverAlt: 'Página inicial do DispVag',
+      gallery: ['Vagas de Front-end', 'Detalhes da vaga'],
       hardSkills: [
         { name: 'HTML e CSS', level: 'alone' },
         { name: 'Bootstrap', level: 'alone' },
@@ -115,6 +122,8 @@ export const tgPt: TgCopy = {
         { title: 'Banco de dados MySQL', text: 'Script de criação das tabelas de administrador, canais, canais do administrador e usuários, com as chaves primárias e estrangeiras.' }
       ],
       commitsNote: 'Os commits foram feitos pela conta compartilhada da equipe (TechForce-ADS), por isso não há histórico individual no repositório.',
+      coverAlt: 'Tela inicial do TrackCash',
+      gallery: ['Cadastro de canais', 'Modelo de dados'],
       hardSkills: [
         { name: 'Java (Swing e NetBeans)', level: 'alone' },
         { name: 'Modelagem de banco de dados', level: 'alone' },
@@ -147,6 +156,8 @@ export const tgPt: TgCopy = {
         { title: 'Página do projeto e navegação entre estágios', text: 'Criei a página do projeto (project/page.tsx) com o controle de navegação entre os estágios Landing Zone, Bronze e Silver (page-control.tsx) e os cards dos campos mapeados (field-card.tsx). Depois refatorei essa página para acompanhar as novas rotas e componentes da aplicação.' },
         { title: 'Opção "arquivo possui cabeçalho" no upload', text: 'No formulário de upload (upload-form.tsx), adicionei a opção de informar se o CSV tem linha de cabeçalho e passei a enviar essa informação ao serviço de upload, para que o backend identifique corretamente os nomes dos campos.' }
       ],
+      coverAlt: 'Página do projeto, com os campos mapeados',
+      gallery: ['Upload de arquivo', 'Modelo entidade-relacionamento'],
       hardSkills: [
         { name: 'React e Next.js', level: 'help' },
         { name: 'TypeScript', level: 'help' },
@@ -181,6 +192,8 @@ export const tgPt: TgCopy = {
         { title: 'Áreas geográficas', text: 'Trabalhei no filtro de áreas geográficas, atualizando a listagem após salvar ou excluir uma área e sincronizando o modal quando o usuário troca de área. Adicionei loading nos botões, snackbar de erro e a limpeza dos marcadores.' },
         { title: 'Rotas e Street View', text: 'Criei o componente GeoRoutesFilter, que busca e traça no mapa as rotas percorridas por um usuário, e ajustei o posicionamento da localização no Street View.' }
       ],
+      coverAlt: 'Filtros de busca e marcadores no mapa',
+      gallery: ['Áreas geográficas', 'Modelagem do banco de dados'],
       hardSkills: [
         { name: 'Vue.js 3', level: 'alone' },
         { name: 'Vuetify', level: 'alone' },
@@ -220,6 +233,8 @@ export const tgPt: TgCopy = {
         { title: 'Gestão de usuários e perfis', text: 'Criei a página de usuários, acessível apenas a administradores (middleware admin), com listagem paginada e alteração de perfil por meio dos composables useUsers, useRoles e useUpdateRole.' },
         { title: 'Testes de integração no backend (Go)', text: 'Escrevi os testes de integração do controller de login em Go, usando SQLite em memória para validar a integração entre a API e o banco sem depender do PostgreSQL.' }
       ],
+      coverAlt: 'Banner do Track',
+      gallery: ['Modelagem do Data Warehouse'],
       hardSkills: [
         { name: 'Nuxt 3 e Vue.js', level: 'teach' },
         { name: 'Nuxt UI e Tailwind CSS', level: 'teach' },
@@ -258,6 +273,8 @@ export const tgPt: TgCopy = {
         { title: 'Login com conta Microsoft', text: 'Implementei o login com conta Microsoft: a rota de servidor login/microsoft, o botão na tela de login e uma página de retorno que dá feedback ao usuário depois da autenticação.' },
         { title: 'Gestão de usuários e perfil', text: 'Criei a página de gestão de usuários (listagem, edição e exclusão, com modais de criação e exclusão) e a página de perfil, onde o usuário altera a senha ou exclui a própria conta, atendendo ao direito de eliminação de dados previsto na LGPD.' }
       ],
+      coverAlt: 'Banner do VisionData',
+      gallery: ['Modelagem do Data Warehouse', 'Funcionamento do login'],
       hardSkills: [
         { name: 'Nuxt (rotas de servidor e middlewares)', level: 'teach' },
         { name: 'Autenticação e sessão (nuxt-auth-utils e OAuth Microsoft)', level: 'alone' },

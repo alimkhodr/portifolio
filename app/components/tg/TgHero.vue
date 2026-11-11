@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { fatecPhoto } from '~/data/media'
 import { tgRepo } from '~/data/tg/shared'
 
 const tg = useTgContent()
@@ -7,9 +8,10 @@ const tg = useTgContent()
 <template>
   <section id="topo" aria-labelledby="tg-title" class="px-2 pt-2 sm:px-3 sm:pt-3">
     <DotPanel>
-      <div class="grid gap-12 px-5 py-12 sm:px-10 sm:py-16 lg:grid-cols-[1.25fr_1fr] lg:items-end lg:gap-16 lg:px-14 lg:py-24">
-        <div class="flex flex-col gap-7">
-          <span class="rise inline-flex w-fit items-center rounded-full px-4 py-1.5 text-sm ring ring-white/40 ring-inset" style="--i: 0">
+      <div class="grid lg:grid-cols-[1.15fr_1fr]">
+        <div class="flex flex-col justify-center gap-7 px-5 py-12 sm:px-10 sm:py-16 lg:py-20 lg:pr-6 lg:pl-14">
+          <span class="rise inline-flex w-fit items-center gap-3 rounded-full py-1.5 pr-4 pl-3 text-sm ring ring-white/40 ring-inset" style="--i: 0">
+            <BrandLogo id="fatec" size="h-4" class="text-white" />
             {{ tg.hero.badge }}
           </span>
 
@@ -50,22 +52,43 @@ const tg = useTgContent()
           </div>
         </div>
 
-        <!-- Ficha do trabalho, sobre os filetes do painel. -->
-        <dl class="rise border-t border-(--panel-line)" style="--i: 4">
-          <div
-            v-for="fact in tg.hero.facts"
-            :key="fact.label"
-            class="grid gap-1 border-b border-(--panel-line) py-4 sm:grid-cols-[8.5rem_minmax(0,1fr)] sm:gap-4"
-          >
-            <dt class="font-mono text-sm text-(--panel-muted)">
-              {{ fact.label }}
-            </dt>
-            <dd class="text-white">
-              {{ fact.value }}
-            </dd>
+        <figure class="m-2 mt-0 flex flex-col sm:m-3 sm:mt-0 lg:my-10 lg:mr-10 lg:ml-0">
+          <div class="unclip relative min-h-[18rem] flex-1 overflow-hidden rounded-xl">
+            <img
+              :src="fatecPhoto.src"
+              :width="fatecPhoto.width"
+              :height="fatecPhoto.height"
+              :alt="tg.hero.photoAlt"
+              fetchpriority="high"
+              class="absolute inset-0 size-full object-cover object-[50%_75%]"
+            >
+            <div class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-white/20 ring-inset" aria-hidden="true" />
           </div>
-        </dl>
+          <PhotoCredit
+            class="mt-2 px-1 text-(--panel-muted)"
+            :photo="fatecPhoto"
+            place="Fatec São José dos Campos"
+            :photo-by="tg.labels.photoBy"
+            :cropped="tg.labels.cropped"
+          />
+        </figure>
       </div>
+
+      <!-- Ficha do trabalho em uma faixa sobre os filetes do painel. -->
+      <dl class="grid border-t border-(--panel-line) lg:grid-cols-4">
+        <div
+          v-for="fact in tg.hero.facts"
+          :key="fact.label"
+          class="grid content-start gap-1 border-(--panel-line) px-5 py-4 not-first:border-t sm:px-10 lg:px-8 lg:py-6 lg:not-first:border-t-0 lg:not-first:border-l lg:first:pl-14"
+        >
+          <dt class="font-mono text-sm text-(--panel-muted)">
+            {{ fact.label }}
+          </dt>
+          <dd class="text-white">
+            {{ fact.value }}
+          </dd>
+        </div>
+      </dl>
     </DotPanel>
   </section>
 </template>

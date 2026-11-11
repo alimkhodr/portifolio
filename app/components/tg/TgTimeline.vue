@@ -66,24 +66,41 @@ const levelClass: Record<SkillLevel, string> = {
               </div>
             </dl>
 
-            <p class="mt-5 max-w-[64ch] leading-relaxed">
-              {{ project.solution }}
-            </p>
+            <!-- Capa ao lado do resumo no desktop; acima dele no celular. -->
+            <div class="mt-6 grid gap-6 xl:grid-cols-[minmax(0,1fr)_24rem] xl:gap-10">
+              <ImageZoom
+                class="xl:order-2"
+                :src="project.cover.src"
+                :alt="project.cover.alt"
+                :width="project.cover.width"
+                :height="project.cover.height"
+                :fit="project.cover.fit"
+                :position="project.cover.position"
+                :bg="project.cover.bg"
+                :zoom-label="tg.labels.zoom"
+              />
 
-            <div class="mt-5 max-w-[64ch]">
-              <h4 class="font-medium text-highlighted">
-                {{ tg.labels.contributions }}
-              </h4>
-              <p class="mt-1.5 leading-relaxed text-muted">
-                {{ project.contributions }}
-              </p>
+              <div class="xl:order-1">
+                <p class="max-w-[64ch] leading-relaxed">
+                  {{ project.solution }}
+                </p>
+
+                <div class="mt-5 max-w-[64ch]">
+                  <h4 class="font-medium text-highlighted">
+                    {{ tg.labels.contributions }}
+                  </h4>
+                  <p class="mt-1.5 leading-relaxed text-muted">
+                    {{ project.contributions }}
+                  </p>
+                </div>
+
+                <ul class="mt-5 flex flex-wrap gap-1.5" :aria-label="tg.labels.tech">
+                  <li v-for="tag in project.tags" :key="tag" class="rounded-full px-2 py-0.5 font-mono text-[11px] text-muted ring ring-default ring-inset">
+                    {{ tag }}
+                  </li>
+                </ul>
+              </div>
             </div>
-
-            <ul class="mt-5 flex flex-wrap gap-1.5" :aria-label="tg.labels.tech">
-              <li v-for="tag in project.tags" :key="tag" class="rounded-full px-2 py-0.5 font-mono text-[11px] text-muted ring ring-default ring-inset">
-                {{ tag }}
-              </li>
-            </ul>
 
             <details class="group mt-6">
               <summary class="inline-flex cursor-pointer list-none items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-highlighted ring ring-accented ring-inset transition-colors select-none hover:bg-muted [&::-webkit-details-marker]:hidden">
@@ -109,6 +126,27 @@ const levelClass: Record<SkillLevel, string> = {
                     <p class="mt-2 leading-relaxed text-muted">
                       {{ project.problem }}
                     </p>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 class="font-medium text-highlighted">
+                    {{ tg.labels.gallery }}
+                  </h4>
+                  <div class="mt-4 grid gap-5 sm:grid-cols-2">
+                    <ImageZoom
+                      v-for="image in project.galleryItems"
+                      :key="image.src"
+                      :src="image.src"
+                      :alt="image.caption"
+                      :caption="image.caption"
+                      :width="image.width"
+                      :height="image.height"
+                      :fit="image.fit"
+                      :position="image.position"
+                      :bg="image.bg"
+                      :zoom-label="tg.labels.zoom"
+                    />
                   </div>
                 </div>
 

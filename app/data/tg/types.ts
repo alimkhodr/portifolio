@@ -17,6 +17,9 @@ export interface TgProjectCopy {
   contributionItems: { title: string, text: string }[]
   // Aviso quando os commits foram feitos por uma conta compartilhada.
   commitsNote?: string
+  coverAlt: string
+  // Legendas na mesma ordem de gallery em app/data/tg/shared.ts.
+  gallery: string[]
   hardSkills: { name: string, level: SkillLevel }[]
   softSkills: { name: string, where: string }[]
 }
@@ -31,6 +34,7 @@ export interface TgCopy {
     title: string
     lead: string
     viewProjects: string
+    photoAlt: string
     facts: { label: string, value: string }[]
   }
   about: {
@@ -61,6 +65,10 @@ export interface TgCopy {
     hardSkills: string
     softSkills: string
     links: string
+    gallery: string
+    zoom: string
+    photoBy: string
+    cropped: string
     levels: Record<SkillLevel, string>
     linkKinds: Record<TgLinkKind, string>
   }

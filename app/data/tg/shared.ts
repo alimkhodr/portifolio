@@ -11,6 +11,19 @@ export type TgProjectId = 'dispvag' | 'trackcash' | 'drconvert' | 'geotrack' | '
 // repo: repositório principal; commits*: lista dos meus commits filtrada por autor.
 export type TgLinkKind = 'repo' | 'commits' | 'commitsFront' | 'commitsBack'
 
+// fit 'contain' mostra a imagem inteira sobre a cor de fundo dela (bg); 'cover' preenche o quadro.
+export interface TgImage {
+  src: string
+  width: number
+  height: number
+  fit?: 'cover' | 'contain'
+  position?: string
+  bg?: string
+}
+
+const img = (name: string, width: number, height: number, extra: Partial<TgImage> = {}): TgImage =>
+  ({ src: `/assets/tg/${name}.webp`, width, height, ...extra })
+
 export interface TgProjectMeta {
   id: TgProjectId
   name: string
@@ -20,6 +33,9 @@ export interface TgProjectMeta {
   professors?: string[]
   tags: string[]
   links: { kind: TgLinkKind, href: string, name?: string }[]
+  // Capturas do README do portfólio; legendas em app/data/tg/{pt,en,es}.ts.
+  cover: TgImage
+  gallery: TgImage[]
 }
 
 export const tgProjects: TgProjectMeta[] = [
@@ -31,7 +47,9 @@ export const tgProjects: TgProjectMeta[] = [
     team: 'TechForce',
     professors: ['Jean Carlos Costa (M2)', 'Antônio Egydio (P2)'],
     tags: ['Python', 'HTML', 'CSS', 'Bootstrap', 'Git'],
-    links: [{ kind: 'repo', href: 'https://github.com/TechForce-ADS/DispVag', name: 'TechForce-ADS/DispVag' }]
+    links: [{ kind: 'repo', href: 'https://github.com/TechForce-ADS/DispVag', name: 'TechForce-ADS/DispVag' }],
+    cover: img('dispvag-1', 1280, 743, { position: '50% 0%' }),
+    gallery: [img('dispvag-4', 1280, 742, { position: '50% 0%' }), img('dispvag-7', 1280, 744, { position: '50% 0%' })]
   },
   {
     id: 'trackcash',
@@ -41,7 +59,9 @@ export const tgProjects: TgProjectMeta[] = [
     team: 'TechForce',
     professors: ['Cláudio Etelvino de Lima (M2)', 'Giuliano Bertoti (P2)'],
     tags: ['Java', 'Swing', 'MySQL', 'NetBeans', 'Git'],
-    links: [{ kind: 'repo', href: 'https://github.com/TechForce-ADS/TrackCash', name: 'TechForce-ADS/TrackCash' }]
+    links: [{ kind: 'repo', href: 'https://github.com/TechForce-ADS/TrackCash', name: 'TechForce-ADS/TrackCash' }],
+    cover: img('trackcash-home', 1280, 660),
+    gallery: [img('trackcash-channels', 1280, 660), img('trackcash-md', 1600, 900, { fit: 'contain', bg: '#ffffff' })]
   },
   {
     id: 'drconvert',
@@ -53,7 +73,9 @@ export const tgProjects: TgProjectMeta[] = [
     links: [
       { kind: 'repo', href: 'https://github.com/alimkhodr/Projeto-API-Drconvert', name: 'Projeto-API-Drconvert' },
       { kind: 'commits', href: 'https://github.com/alimkhodr/Projeto-API-Drconvert/commits?author=alimkhodr' }
-    ]
+    ],
+    cover: img('drconvert-project', 1280, 832, { position: '0% 0%' }),
+    gallery: [img('drconvert-upload', 1280, 832), img('drconvert-der', 1446, 766, { fit: 'contain', bg: '#ffffff' })]
   },
   {
     id: 'geotrack',
@@ -65,7 +87,9 @@ export const tgProjects: TgProjectMeta[] = [
     links: [
       { kind: 'repo', href: 'https://github.com/iNineBD/GeoTrack-4Sem2024Main', name: 'GeoTrack-4Sem2024Main' },
       { kind: 'commits', href: 'https://github.com/iNineBD/GeoTrack-4Sem2024/commits?author=alimkhodr' }
-    ]
+    ],
+    cover: img('geotrack-markers', 1376, 613, { position: '0% 50%' }),
+    gallery: [img('geotrack-areas', 1600, 804, { position: '0% 50%' }), img('geotrack-db', 1063, 445, { fit: 'contain', bg: '#ffffff' })]
   },
   {
     id: 'track',
@@ -78,7 +102,9 @@ export const tgProjects: TgProjectMeta[] = [
       { kind: 'repo', href: 'https://github.com/iNineBD/Track-5Sem2025Main', name: 'Track-5Sem2025Main' },
       { kind: 'commitsFront', href: 'https://github.com/iNineBD/Track-5Sem2025Front/commits?author=alimkhodr' },
       { kind: 'commitsBack', href: 'https://github.com/iNineBD/Track-5Sem2025Server/commits?author=alimkhodr' }
-    ]
+    ],
+    cover: img('track-banner', 1600, 533, { fit: 'contain', bg: '#000000' }),
+    gallery: [img('track-dw', 510, 1120, { fit: 'contain', bg: '#2f2f2f' })]
   },
   {
     id: 'visiondata',
@@ -90,7 +116,9 @@ export const tgProjects: TgProjectMeta[] = [
     links: [
       { kind: 'repo', href: 'https://github.com/iNineBD/VisionData-6Sem2025Main', name: 'VisionData-6Sem2025Main' },
       { kind: 'commits', href: 'https://github.com/iNineBD/VisionData-6Sem2025Front/commits?author=alimkhodr' }
-    ]
+    ],
+    cover: img('visiondata-banner', 1600, 484, { fit: 'contain', bg: '#000000' }),
+    gallery: [img('visiondata-dw', 647, 680, { fit: 'contain', bg: '#2f2f2f' }), img('visiondata-auth', 1046, 611, { fit: 'contain', bg: '#ffffff' })]
   }
 ]
 

@@ -14,6 +14,13 @@ Portfólio de desenvolvedor para recrutadores e líderes técnicos. Linguagem in
 - `/`: portfólio profissional.
 - `/portfolio-banco-de-dados`: portfólio do Trabalho de Graduação (Fatec SJC), a partir do README de `alimkhodr/portfolio-banco-de-dados`. Topo no painel de pontos com a ficha do curso em filetes; sobre e conhecimentos na grade de células; os seis Projetos Integradores no mesmo trilho tracejado da experiência, com os detalhes em `<details>` nativo (abre sem JS). Textos em `app/data/tg/`, nos três idiomas. Na home, o curso da Fatec leva para essa página.
 
+## Imagens
+
+- Foto da Fatec SJC (Wikimedia Commons, CC BY-SA 3.0, basiliovideo, recortada): no topo do portfólio do TG e na coluna de formação da home, sempre com crédito, licença e aviso de recorte (`PhotoCredit`).
+- Logos das instituições (`BrandLogo`) como máscara: pegam a cor do texto, ficam neutros e acendem no hover da célula. Dados em `app/data/media.ts`.
+- Projetos do TG: capa ao lado do resumo e galeria nos detalhes; tudo abre ampliado num modal (`ImageZoom`). Diagramas e banners usam `contain` sobre a própria cor de fundo.
+- Diploma da UNIFEOB: só com data de nascimento, RG, link e código de validação cobertos.
+
 ## Cor
 
 Um único destaque. Tema claro e escuro seguindo o sistema, com alternância manual.

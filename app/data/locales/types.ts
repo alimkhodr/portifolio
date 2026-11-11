@@ -28,6 +28,10 @@ export interface SiteCopy {
     madeWith: string
     backToTop: string
     heroImageAlt: string
+    viewDiploma: string
+    zoomImage: string
+    photoBy: string
+    cropped: string
   }
   // Na mesma ordem de sectionIds.
   nav: [string, string, string, string, string]
@@ -46,6 +50,9 @@ export interface SiteCopy {
     // **texto** vira destaque em negrito.
     paragraphs: string[]
     educationTitle: string
+    photoAlt: string
+    diplomaTitle: string
+    diplomaNote: string
     // link: rótulo do link para a página do portfólio do TG (só no curso da Fatec).
     education: { period: string, course: string, school: string, status?: string, link?: string }[]
   }

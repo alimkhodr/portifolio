@@ -10,6 +10,7 @@ export const tgEn: TgCopy = {
     title: 'Integrated Projects Portfolio',
     lead: 'Six semesters, six partner companies and six real problems, from HTML pages to applications with ETL, tests and CI.',
     viewProjects: 'View projects',
+    photoAlt: 'Fatec São José dos Campos building under a blue sky',
     facts: [
       { label: 'Course', value: 'Database Technology (Technologist degree)' },
       { label: 'Institution', value: 'Fatec São José dos Campos, Prof. Jessen Vidal' },
@@ -48,6 +49,10 @@ export const tgEn: TgCopy = {
     hardSkills: 'Hard skills',
     softSkills: 'Soft skills',
     links: 'Links',
+    gallery: 'Project images',
+    zoom: 'Enlarge image',
+    photoBy: 'Photo',
+    cropped: 'cropped',
     levels: {
       teach: 'Can teach it',
       alone: 'Can do it alone',
@@ -81,6 +86,8 @@ export const tgEn: TgCopy = {
         { title: 'Requirements and documentation', text: 'I took part in gathering requirements with the client and in the documentation required by the course: wireframes, Design Thinking and Balanced Scorecard.' }
       ],
       commitsNote: 'Commits were made through the team\'s shared account (TechForce-ADS), so there is no individual history in the repository.',
+      coverAlt: 'DispVag home page',
+      gallery: ['Front-end openings', 'Job opening details'],
       hardSkills: [
         { name: 'HTML and CSS', level: 'alone' },
         { name: 'Bootstrap', level: 'alone' },
@@ -115,6 +122,8 @@ export const tgEn: TgCopy = {
         { title: 'MySQL database', text: 'Creation script for the administrator, channels, administrator channels and users tables, with their primary and foreign keys.' }
       ],
       commitsNote: 'Commits were made through the team\'s shared account (TechForce-ADS), so there is no individual history in the repository.',
+      coverAlt: 'TrackCash home screen',
+      gallery: ['Channel registration', 'Data model'],
       hardSkills: [
         { name: 'Java (Swing and NetBeans)', level: 'alone' },
         { name: 'Database modeling', level: 'alone' },
@@ -147,6 +156,8 @@ export const tgEn: TgCopy = {
         { title: 'Project page and navigation between stages', text: 'I created the project page (project/page.tsx) with the navigation control between the Landing Zone, Bronze and Silver stages (page-control.tsx) and the cards for the mapped fields (field-card.tsx). I later refactored this page to follow the application\'s new routes and components.' },
         { title: '"File has header" option on upload', text: 'In the upload form (upload-form.tsx), I added the option to say whether the CSV has a header row and started sending that information to the upload service, so the back end correctly identifies the field names.' }
       ],
+      coverAlt: 'Project page with the mapped fields',
+      gallery: ['File upload', 'Entity-relationship model'],
       hardSkills: [
         { name: 'React and Next.js', level: 'help' },
         { name: 'TypeScript', level: 'help' },
@@ -181,6 +192,8 @@ export const tgEn: TgCopy = {
         { title: 'Geographic areas', text: 'I worked on the geographic areas filter, refreshing the list after an area is saved or deleted and syncing the modal when the user switches areas. I added loading states on buttons, an error snackbar and marker cleanup.' },
         { title: 'Routes and Street View', text: 'I created the GeoRoutesFilter component, which fetches and draws on the map the routes a user has traveled, and adjusted the location positioning in Street View.' }
       ],
+      coverAlt: 'Search filters and markers on the map',
+      gallery: ['Geographic areas', 'Database model'],
       hardSkills: [
         { name: 'Vue.js 3', level: 'alone' },
         { name: 'Vuetify', level: 'alone' },
@@ -220,6 +233,8 @@ export const tgEn: TgCopy = {
         { title: 'User and role management', text: 'I created the users page, accessible only to administrators (admin middleware), with a paginated list and role changes through the useUsers, useRoles and useUpdateRole composables.' },
         { title: 'Back end integration tests (Go)', text: 'I wrote the integration tests for the login controller in Go, using in-memory SQLite to validate the integration between the API and the database without depending on PostgreSQL.' }
       ],
+      coverAlt: 'Track banner',
+      gallery: ['Data Warehouse model'],
       hardSkills: [
         { name: 'Nuxt 3 and Vue.js', level: 'teach' },
         { name: 'Nuxt UI and Tailwind CSS', level: 'teach' },
@@ -258,6 +273,8 @@ export const tgEn: TgCopy = {
         { title: 'Microsoft account login', text: 'I implemented login with a Microsoft account: the login/microsoft server route, the button on the login screen and a callback page that gives the user feedback after authentication.' },
         { title: 'User management and profile', text: 'I created the user management page (listing, editing and deletion, with create and delete modals) and the profile page, where users change their password or delete their own account, meeting the right to data erasure provided for in LGPD.' }
       ],
+      coverAlt: 'VisionData banner',
+      gallery: ['Data Warehouse model', 'How login works'],
       hardSkills: [
         { name: 'Nuxt (server routes and middlewares)', level: 'teach' },
         { name: 'Authentication and session (nuxt-auth-utils and Microsoft OAuth)', level: 'alone' },

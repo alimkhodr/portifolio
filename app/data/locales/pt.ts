@@ -20,7 +20,11 @@ export const pt: SiteCopy = {
     current: 'Atual',
     madeWith: 'Feito com',
     backToTop: 'Voltar ao topo',
-    heroImageAlt: 'Ali Mohamed Khodr sentado em frente a dois monitores, com iluminação azul ao fundo'
+    heroImageAlt: 'Ali Mohamed Khodr sentado em frente a dois monitores, com iluminação azul ao fundo',
+    viewDiploma: 'Ver diploma',
+    zoomImage: 'Ampliar imagem',
+    photoBy: 'Foto',
+    cropped: 'recortada',
   },
   nav: ['Sobre', 'Projetos', 'Experiência', 'Stack', 'Contato'],
   hero: {
@@ -36,14 +40,17 @@ export const pt: SiteCopy = {
     title: { lead: 'Sobre ', accent: 'mim', tail: '.' },
     lead: 'Gosto de assumir produtos do zero: arquitetura inicial, CI/CD, Docker, temas, testes e deploy.',
     paragraphs: [
-      'Comecei a programar no ensino técnico em Desenvolvimento de Sistemas, na **ETEC**. Depois cursei Banco de Dados na **Fatec São José dos Campos** e Análise e Desenvolvimento de Sistemas na **Univap**.',
+      'Comecei a programar no ensino técnico em Desenvolvimento de Sistemas, na **ETEC**. Depois cursei Banco de Dados na **Fatec São José dos Campos** e Análise e Desenvolvimento de Sistemas na **UNIFEOB**.',
       'Passei pela **APTIV**, com VB, C#, SQL, React e Node. Hoje estou na **Qeevo Group (ex-Quero Educação)**, full-stack com Vue, Nuxt, Ruby, Node e Docker em AWS.',
       'Na Qeevo, fui tech lead de dois produtos construídos do zero: um gateway de pagamentos embarcável e uma área do aluno multi-tenant.',
       'Fora do código: café, futebol e música.'
     ],
     educationTitle: 'Formação',
+    photoAlt: 'Prédio da Fatec São José dos Campos sob céu azul',
+    diplomaTitle: 'Diploma de Tecnólogo em Análise e Desenvolvimento de Sistemas, UNIFEOB',
+    diplomaNote: 'Data de nascimento, RG e código de validação foram cobertos.',
     education: [
-      { period: 'Mar 2023 a out 2025', course: 'Análise e Desenvolvimento de Sistemas', school: 'Universidade do Vale do Paraíba (Univap)', status: 'Concluído' },
+      { period: 'Mar 2023 a out 2025', course: 'Análise e Desenvolvimento de Sistemas', school: 'Centro Universitário Fundação de Ensino Octávio Bastos (UNIFEOB)', status: 'Concluído' },
       { period: 'Fev 2022 a dez 2025', course: 'Banco de Dados', school: 'Fatec São José dos Campos, Prof. Jessen Vidal', link: 'Portfólio de Projetos Integradores' },
       { period: 'Fev 2019 a dez 2021', course: 'Técnico em Desenvolvimento de Sistemas', school: 'ETEC Profª Ilza Nascimento Pintus' },
       { period: 'Jan 2022 a dez 2026', course: 'Inglês avançado (C1)', school: 'CNA Idiomas' }

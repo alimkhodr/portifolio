@@ -20,7 +20,11 @@ export const en: SiteCopy = {
     current: 'Current',
     madeWith: 'Built with',
     backToTop: 'Back to top',
-    heroImageAlt: 'Ali Mohamed Khodr sitting in front of two monitors, with blue light in the background'
+    heroImageAlt: 'Ali Mohamed Khodr sitting in front of two monitors, with blue light in the background',
+    viewDiploma: 'View diploma',
+    zoomImage: 'Enlarge image',
+    photoBy: 'Photo',
+    cropped: 'cropped',
   },
   nav: ['About', 'Projects', 'Experience', 'Stack', 'Contact'],
   hero: {
@@ -36,14 +40,17 @@ export const en: SiteCopy = {
     title: { lead: 'About ', accent: 'me', tail: '.' },
     lead: 'I like owning products from day one: initial architecture, CI/CD, Docker, theming, tests and deploy.',
     paragraphs: [
-      'I started coding in a technical program in Systems Development at **ETEC**. Then I studied Database Technology at **Fatec São José dos Campos** and Systems Analysis and Development at **Univap**.',
+      'I started coding in a technical program in Systems Development at **ETEC**. Then I studied Database Technology at **Fatec São José dos Campos** and Systems Analysis and Development at **UNIFEOB**.',
       'I worked at **APTIV** with VB, C#, SQL, React and Node. Today I am at **Qeevo Group (formerly Quero Educação)**, working full-stack with Vue, Nuxt, Ruby, Node and Docker on AWS.',
       'At Qeevo, I was the tech lead of two products built from scratch: an embeddable payment gateway and a multi-tenant student portal.',
       'Away from code: coffee, football and music.'
     ],
     educationTitle: 'Education',
+    photoAlt: 'Fatec São José dos Campos building under a blue sky',
+    diplomaTitle: 'Technologist diploma in Systems Analysis and Development, UNIFEOB',
+    diplomaNote: 'Date of birth, ID number and validation code are covered.',
     education: [
-      { period: 'Mar 2023 to Oct 2025', course: 'Systems Analysis and Development', school: 'Universidade do Vale do Paraíba (Univap)', status: 'Completed' },
+      { period: 'Mar 2023 to Oct 2025', course: 'Systems Analysis and Development', school: 'Centro Universitário Fundação de Ensino Octávio Bastos (UNIFEOB)', status: 'Completed' },
       { period: 'Feb 2022 to Dec 2025', course: 'Database Technology', school: 'Fatec São José dos Campos, Prof. Jessen Vidal', link: 'Integrated Projects Portfolio' },
       { period: 'Feb 2019 to Dec 2021', course: 'Systems Development Technician', school: 'ETEC Profª Ilza Nascimento Pintus' },
       { period: 'Jan 2022 to Dec 2026', course: 'Advanced English (C1)', school: 'CNA Idiomas' }

@@ -24,6 +24,9 @@ export function useTgContent() {
         ...meta,
         ...copy.projects[meta.id],
         latest: index === tgProjects.length - 1,
+        // Imagens de shared.ts com o texto alternativo e as legendas do idioma.
+        cover: { ...meta.cover, alt: copy.projects[meta.id].coverAlt },
+        galleryItems: meta.gallery.map((image, position) => ({ ...image, caption: copy.projects[meta.id].gallery[position] ?? meta.name })),
         professorsText: meta.professors ? list.format(meta.professors) : undefined,
         links: meta.links.map(link => ({
           href: link.href,

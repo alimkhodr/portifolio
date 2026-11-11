@@ -1,6 +1,7 @@
 import type { LocaleCode } from '~/data/shared'
 import type { SiteCopy } from '~/data/locales/types'
 import { cvFiles, jobMeta, metricValues, projectMeta, sectionIds, stackMeta } from '~/data/shared'
+import { educationMeta } from '~/data/media'
 import { en } from '~/data/locales/en'
 import { es } from '~/data/locales/es'
 import { pt } from '~/data/locales/pt'
@@ -23,6 +24,7 @@ export function useSiteContent() {
       metricItems: metricValues.map((metric, index) => ({ ...metric, label: copy.metrics.labels[index] })),
       projectItems: projectMeta.map(meta => ({ ...meta, ...copy.projects.items[meta.id] })),
       jobItems: jobMeta.map(meta => ({ ...meta, ...copy.experience.jobs[meta.id] })),
+      educationItems: copy.about.education.map((item, index) => ({ ...item, ...educationMeta[index]! })),
       stackGroups: stackMeta.map(group => ({
         id: group.id,
         label: copy.stack.groups[group.id],
