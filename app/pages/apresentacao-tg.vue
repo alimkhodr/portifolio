@@ -54,13 +54,6 @@ const label = 'font-mono text-[22px] tracking-[0.06em] text-muted uppercase'
                 class="absolute inset-0 size-full object-cover object-[50%_75%]"
               >
             </div>
-            <PhotoCredit
-              class="mt-3 text-[16px] text-(--panel-muted)"
-              :photo="fatecPhoto"
-              place="Fatec São José dos Campos"
-              :photo-by="content.ui.photoBy"
-              :cropped="content.ui.cropped"
-            />
           </figure>
         </div>
         <dl class="deck-in grid grid-cols-4 border-t border-(--panel-line)" style="--i: 3">
@@ -530,6 +523,15 @@ const label = 'font-mono text-[22px] tracking-[0.06em] text-muted uppercase'
             </dd>
           </div>
         </dl>
+        <!-- Crédito da foto da Fatec usada na capa (licença CC BY-SA). -->
+        <PhotoCredit
+          as="p"
+          class="mt-5 text-[16px] text-(--panel-muted)"
+          :photo="fatecPhoto"
+          place="Capa: Fatec São José dos Campos"
+          :photo-by="content.ui.photoBy"
+          :cropped="content.ui.cropped"
+        />
       </div>
     </DeckSlide>
   </Deck>
