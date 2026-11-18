@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { fatecPhoto, jobLogos } from '~/data/media'
 import { tgRepo, tgPath } from '~/data/tg/shared'
-import { apiSlides, presenterAge, progression, slidesPath, visionData as vd } from '~/data/tg/slides'
+import { apiSlides, educationStatus, presenterAge, progression, slidesPath, stackByProject, visionData as vd } from '~/data/tg/slides'
 
 // Slides da apresentação do TG (cerca de 7 minutos): 1 min de apresentação pessoal,
 // 2 min das cinco primeiras APIs e 4 min do VisionData. Só em português e fora dos buscadores.
@@ -123,11 +123,13 @@ const label = 'font-mono text-[22px] tracking-[0.06em] text-muted uppercase'
                 :style="{ '--i': 2 + position }"
               >
                 <div class="flex items-start justify-between gap-4">
-                  <span class="font-mono text-[20px] text-muted">{{ item.period }}</span>
+                  <span
+                    class="rounded-full px-3 py-0.5 font-mono text-[18px] ring ring-inset"
+                    :class="educationStatus[position] === 'Em andamento' ? 'text-primary ring-primary/40' : 'text-muted ring-default'"
+                  >{{ educationStatus[position] }}</span>
                   <BrandLogo :id="item.logo" class="text-highlighted [zoom:1.8]" />
                 </div>
                 <span class="mt-1 text-[28px] leading-tight font-medium text-highlighted">{{ item.course }}</span>
-                <span v-if="item.status" class="w-fit rounded-full px-3 py-0.5 font-mono text-[18px] text-primary ring ring-primary/40 ring-inset">{{ item.status }}</span>
               </NodeCell>
             </ul>
           </div>
@@ -156,29 +158,29 @@ const label = 'font-mono text-[22px] tracking-[0.06em] text-muted uppercase'
       </div>
     </DeckSlide>
 
-    <!-- 3. Trilha das seis APIs -->
+    <!-- 3. Visão geral das seis APIs -->
     <DeckSlide section="Projetos integradores">
       <div class="flex h-full flex-col justify-center">
         <h2 class="deck-in" :class="title" style="--i: 0">
-          Seis semestres, <span class="text-primary">seis APIs</span>.
+          Seis projetos, <span class="text-primary">cinco bancos de dados</span>.
         </h2>
-        <p class="deck-in mt-6 max-w-[56ch] text-[30px] leading-snug text-muted" style="--i: 1">
-          Os dois primeiros em Análise e Desenvolvimento de Sistemas e os quatro seguintes em Banco de Dados, sempre com Scrum e uma demanda real.
+        <p class="deck-in mt-6 max-w-[58ch] text-[30px] leading-snug text-muted" style="--i: 1">
+          Dois projetos em Análise e Desenvolvimento de Sistemas e quatro em Banco de Dados, sempre com uma demanda real e Scrum.
         </p>
-        <ol class="node-grid mt-16 grid-cols-6">
+        <ol class="node-grid mt-14 grid-cols-6">
           <NodeCell
             v-for="(project, position) in tg.projectItems"
             :key="project.id"
             as="li"
-            class="deck-in flex min-h-[300px] flex-col gap-3 p-7"
+            class="deck-in flex min-h-[320px] flex-col gap-3 p-7"
             :class="{ 'bg-primary! text-inverted': project.latest }"
             :style="{ '--i': 2 + position }"
           >
             <span class="font-mono text-[22px]" :class="project.latest ? 'text-inverted/80' : 'text-primary'">{{ project.period }}</span>
             <span class="mt-2 text-[34px] leading-none font-medium tracking-[-0.02em]" :class="project.latest ? 'text-inverted' : 'text-highlighted'">{{ project.name }}</span>
             <span class="text-[22px] leading-snug" :class="project.latest ? 'text-inverted/85' : 'text-muted'">{{ project.partner.name }}</span>
-            <span class="mt-auto font-mono text-[18px]" :class="project.latest ? 'text-inverted/80' : 'text-dimmed'">
-              {{ project.latest ? 'Destaque' : project.course }}
+            <span class="mt-auto font-mono text-[19px] leading-snug" :class="project.latest ? 'text-inverted' : 'text-toned'">
+              {{ stackByProject[project.id] }}
             </span>
           </NodeCell>
         </ol>
@@ -215,7 +217,7 @@ const label = 'font-mono text-[22px] tracking-[0.06em] text-muted uppercase'
             v-for="fact in [
               { label: 'Empresa parceira', value: 'Pro4tech' },
               { label: 'Equipe', value: 'iNineBD' },
-              { label: 'Meu papel', value: 'Autenticação e gestão de usuários no frontend' }
+              { label: 'Meu papel', value: 'Autenticação, controle de acesso e gestão de usuários' }
             ]"
             :key="fact.label"
             class="grid content-start gap-1.5 border-(--panel-line) pt-7 pr-8 not-first:border-l not-first:pl-8"
@@ -277,47 +279,87 @@ const label = 'font-mono text-[22px] tracking-[0.06em] text-muted uppercase'
       </div>
     </DeckSlide>
 
-    <!-- 11. Stack e dados -->
+    <!-- 11. Arquitetura de dados -->
     <DeckSlide section="VisionData">
-      <div class="grid h-full grid-cols-[minmax(0,1fr)_520px] gap-16">
-        <div class="flex flex-col justify-center">
-          <h2 class="deck-in" :class="title" style="--i: 0">
-            Stack e <span class="text-primary">dados</span>.
-          </h2>
-          <ul class="node-grid mt-12 grid-cols-1">
-            <NodeCell
-              v-for="(row, position) in vd.stack"
-              :key="row.layer"
-              as="li"
-              class="deck-in grid grid-cols-[180px_300px_minmax(0,1fr)] items-baseline gap-6 px-7 py-5"
-              :style="{ '--i': 1 + position }"
-            >
-              <span class="font-mono text-[20px] text-muted uppercase">{{ row.layer }}</span>
-              <span class="text-[28px] font-medium text-highlighted">{{ row.tech }}</span>
-              <span class="text-[24px] text-muted">{{ row.use }}</span>
-            </NodeCell>
-          </ul>
-        </div>
-        <figure class="deck-in flex flex-col justify-center" style="--i: 3">
-          <DeckShot :image="vd.dw" alt="Modelagem do Data Warehouse do VisionData" frame="aspect-[647/680]" />
-          <figcaption class="mt-4 text-[22px] text-muted">
-            Modelagem do Data Warehouse (Oracle)
-          </figcaption>
-        </figure>
+      <div class="flex h-full flex-col justify-center">
+        <h2 class="deck-in" :class="title" style="--i: 0">
+          Do chamado ao <span class="text-primary">indicador</span>.
+        </h2>
+        <ol class="mt-12 grid grid-cols-[repeat(4,minmax(0,1fr))] gap-x-14">
+          <li
+            v-for="(stage, position) in vd.pipeline"
+            :key="stage.step"
+            class="deck-in relative flex flex-col"
+            :style="{ '--i': 1 + position }"
+          >
+            <span class="mb-4 font-mono text-[20px] text-muted uppercase">{{ String(position + 1).padStart(2, '0') }} · {{ stage.step }}</span>
+            <ul class="node-grid grid-cols-1">
+              <NodeCell v-for="item in stage.items" :key="item.name" as="li" class="flex flex-col gap-1 p-6">
+                <span class="font-mono text-[18px] text-primary">{{ item.tech }}</span>
+                <span class="text-[28px] leading-tight font-medium text-highlighted">{{ item.name }}</span>
+                <span class="text-[20px] leading-snug text-muted">{{ item.note }}</span>
+              </NodeCell>
+            </ul>
+            <UIcon
+              v-if="position < vd.pipeline.length - 1"
+              name="i-ph-arrow-right"
+              class="absolute top-[110px] -right-[46px] size-9 text-primary"
+              aria-hidden="true"
+            />
+          </li>
+        </ol>
       </div>
     </DeckSlide>
 
-    <!-- 12. Busca vetorizada -->
+    <!-- 12. Data Warehouse -->
     <DeckSlide section="VisionData">
-      <div class="grid h-full grid-cols-[minmax(0,1fr)_1280px] items-center gap-12">
+      <div class="grid h-full grid-cols-[minmax(0,1fr)_620px] items-center gap-16">
         <div>
-          <span class="deck-in" :class="team" style="--i: 0">Entrega da equipe</span>
-          <h2 class="deck-in mt-6 text-[56px] leading-[1.04] font-medium tracking-[-0.03em] text-highlighted" style="--i: 1">
-            Busca vetorizada de chamados
+          <h2 class="deck-in" :class="title" style="--i: 0">
+            Data Warehouse em <span class="text-primary">estrela</span>.
           </h2>
-          <p class="deck-in mt-6 text-[26px] leading-snug text-muted" style="--i: 2">
-            Chamados semelhantes, indexados no Elasticsearch, para quem atende não procurar de novo uma solução que já existe.
-          </p>
+          <DeckSchema v-bind="vd.schema" compact class="deck-in mt-10" style="--i: 1" />
+        </div>
+        <div class="flex flex-col gap-8">
+          <ul class="space-y-4">
+            <li
+              v-for="(item, position) in [
+                'Grão: um registro por chamado e tag',
+                'Dim_Dates em três papéis: abertura, fechamento e primeira resposta',
+                'Carga com MERGE: atualiza ou insere cada dimensão pela chave de negócio'
+              ]"
+              :key="item"
+              class="deck-in flex gap-4 text-[26px] leading-snug text-highlighted"
+              :style="{ '--i': 2 + position }"
+            >
+              <span class="mt-[0.5em] size-2.5 shrink-0 bg-primary" aria-hidden="true" />
+              {{ item }}
+            </li>
+          </ul>
+          <DeckCode :lines="vd.merge" caption="Carga das dimensões no ETL em Python (SQL Server)" class="deck-in" style="--i: 5" />
+        </div>
+      </div>
+    </DeckSlide>
+
+    <!-- 13. Busca de chamados -->
+    <DeckSlide section="VisionData">
+      <div class="grid h-full grid-cols-[minmax(0,1fr)_1180px] items-center gap-14">
+        <div>
+          <span class="deck-in" :class="team" style="--i: 0">Equipe</span>
+          <h2 class="deck-in mt-6 text-[54px] leading-[1.04] font-medium tracking-[-0.03em] text-highlighted" style="--i: 1">
+            Busca de chamados no Elasticsearch
+          </h2>
+          <ul class="mt-8 space-y-4">
+            <li
+              v-for="(item, position) in vd.search"
+              :key="item"
+              class="deck-in flex gap-4 text-[24px] leading-snug text-highlighted"
+              :style="{ '--i': 2 + position }"
+            >
+              <span class="mt-[0.5em] size-2.5 shrink-0 bg-primary" aria-hidden="true" />
+              {{ item }}
+            </li>
+          </ul>
         </div>
         <div class="deck-in" style="--i: 2">
           <DeckVideo v-bind="vd.videos.search" label="Busca de chamados no VisionData" />
@@ -325,17 +367,18 @@ const label = 'font-mono text-[22px] tracking-[0.06em] text-muted uppercase'
       </div>
     </DeckSlide>
 
-    <!-- 13. Dashboards -->
+    <!-- 14. Indicadores e previsões -->
     <DeckSlide section="VisionData">
-      <div class="grid h-full grid-cols-[minmax(0,1fr)_1280px] items-center gap-12">
+      <div class="grid h-full grid-cols-[minmax(0,1fr)_minmax(0,1fr)] items-center gap-14">
         <div>
-          <span class="deck-in" :class="team" style="--i: 0">Entrega da equipe</span>
-          <h2 class="deck-in mt-6 text-[56px] leading-[1.04] font-medium tracking-[-0.03em] text-highlighted" style="--i: 1">
-            Dashboards e previsões
+          <span class="deck-in" :class="team" style="--i: 0">Equipe</span>
+          <h2 class="deck-in mt-6 text-[54px] leading-[1.04] font-medium tracking-[-0.03em] text-highlighted" style="--i: 1">
+            Indicadores e previsões
           </h2>
-          <p class="deck-in mt-6 text-[26px] leading-snug text-muted" style="--i: 2">
-            Métricas dos chamados por prioridade, tag, categoria, departamento e canal, e previsões por produto e por cliente.
+          <p class="deck-in mt-5 text-[24px] leading-snug text-muted" style="--i: 2">
+            A API em Go consulta o Data Warehouse, e modelos em Python com Prophet fazem previsões por produto e por cliente.
           </p>
+          <DeckCode :lines="vd.resolution" caption="Tempo médio de resolução por prioridade (trecho simplificado)" class="deck-in mt-8" style="--i: 3" />
         </div>
         <div class="deck-in" style="--i: 2">
           <DeckVideo v-bind="vd.videos.dashboards" label="Dashboards do VisionData" />
@@ -343,20 +386,46 @@ const label = 'font-mono text-[22px] tracking-[0.06em] text-muted uppercase'
       </div>
     </DeckSlide>
 
-    <!-- 14. Minha parte: autenticação -->
+    <!-- 15. LGPD -->
+    <DeckSlide section="VisionData">
+      <div class="flex h-full flex-col justify-center">
+        <h2 class="deck-in max-w-[24ch]" :class="title" style="--i: 0">
+          LGPD no <span class="text-primary">banco e na aplicação</span>.
+        </h2>
+        <ul class="node-grid mt-12 grid-cols-3">
+          <NodeCell
+            v-for="(item, position) in vd.lgpd"
+            :key="item.title"
+            as="li"
+            class="deck-in flex min-h-[200px] flex-col gap-2 p-8"
+            :style="{ '--i': 1 + position }"
+          >
+            <div class="flex items-start justify-between gap-4">
+              <span class="text-[30px] font-medium text-highlighted">{{ item.title }}</span>
+              <span :class="item.mine ? mine : team">{{ item.mine ? 'Minha parte' : 'Equipe' }}</span>
+            </div>
+            <p class="text-[22px] leading-snug text-muted">
+              {{ item.text }}
+            </p>
+          </NodeCell>
+        </ul>
+      </div>
+    </DeckSlide>
+
+    <!-- 16. Minha parte: autenticação e controle de acesso -->
     <DeckSlide section="VisionData · minha parte">
       <div class="grid h-full grid-cols-[minmax(0,640px)_minmax(0,1fr)] gap-[72px]">
         <div class="flex flex-col justify-center">
           <span class="deck-in w-fit" :class="mine" style="--i: 0">Minha parte</span>
           <h2 class="deck-in mt-6" :class="title" style="--i: 1">
-            Autenticação com <span class="text-primary">nuxt-auth-utils</span>
+            Autenticação e <span class="text-primary">controle de acesso</span>
           </h2>
           <ul class="mt-10 space-y-5">
             <li
               v-for="(item, position) in [
-                'Login, logout e sessão do usuário',
-                'Rotas de servidor login, logout e user, e o composable useAuth',
-                'Middlewares authenticated e admin, que restringem páginas a usuários autenticados e a administradores'
+                'Sessão no servidor, com rotas de login, logout e dados do usuário',
+                'Login com conta Microsoft por OAuth, com rota de servidor própria',
+                'Acesso por perfil: páginas restritas a usuários autenticados e a administradores'
               ]"
               :key="item"
               class="deck-in flex gap-5 text-[30px] leading-snug text-highlighted"
@@ -367,55 +436,30 @@ const label = 'font-mono text-[22px] tracking-[0.06em] text-muted uppercase'
             </li>
           </ul>
         </div>
-        <div class="flex min-w-0 items-center">
-          <DeckShot :image="vd.authFlow" alt="Fluxo de autenticação do VisionData" frame="aspect-[1046/611]" class="deck-in w-full shadow-2xl shadow-black/20" style="--i: 2" />
+        <div class="relative flex min-w-0 items-center">
+          <div class="deck-in w-full pb-[190px]" style="--i: 2">
+            <DeckShot :image="vd.authFlow" alt="Fluxo de autenticação entre servidor, token e aplicação" frame="aspect-[1046/611]" class="shadow-2xl shadow-black/20" />
+          </div>
+          <div class="deck-in absolute right-[-24px] bottom-0 w-[56%]" style="--i: 4">
+            <DeckVideo v-bind="vd.videos.login" label="Login com conta Microsoft no VisionData" class="shadow-2xl shadow-black/30" />
+          </div>
         </div>
       </div>
     </DeckSlide>
 
-    <!-- 15. Minha parte: login com Microsoft -->
+    <!-- 17. Minha parte: usuários e direito de eliminação -->
     <DeckSlide section="VisionData · minha parte">
       <div class="grid h-full grid-cols-[minmax(0,1fr)_1120px] items-center gap-16">
         <div>
           <span class="deck-in" :class="mine" style="--i: 0">Minha parte</span>
           <h2 class="deck-in mt-6 text-[56px] leading-[1.04] font-medium tracking-[-0.03em] text-highlighted" style="--i: 1">
-            Login com conta Microsoft
+            Usuários e direito de eliminação
           </h2>
           <ul class="mt-8 space-y-4">
             <li
               v-for="(item, position) in [
-                'Rota de servidor login/microsoft',
-                'Botão na tela de login',
-                'Página de retorno com feedback depois da autenticação'
-              ]"
-              :key="item"
-              class="deck-in flex gap-4 text-[26px] leading-snug text-highlighted"
-              :style="{ '--i': 2 + position }"
-            >
-              <span class="mt-[0.5em] size-2.5 shrink-0 bg-primary" aria-hidden="true" />
-              {{ item }}
-            </li>
-          </ul>
-        </div>
-        <div class="deck-in" style="--i: 2">
-          <DeckVideo v-bind="vd.videos.login" label="Login com conta Microsoft no VisionData" />
-        </div>
-      </div>
-    </DeckSlide>
-
-    <!-- 16. Minha parte: usuários e perfil -->
-    <DeckSlide section="VisionData · minha parte">
-      <div class="grid h-full grid-cols-[minmax(0,1fr)_1120px] items-center gap-16">
-        <div>
-          <span class="deck-in" :class="mine" style="--i: 0">Minha parte</span>
-          <h2 class="deck-in mt-6 text-[56px] leading-[1.04] font-medium tracking-[-0.03em] text-highlighted" style="--i: 1">
-            Gestão de usuários e perfil
-          </h2>
-          <ul class="mt-8 space-y-4">
-            <li
-              v-for="(item, position) in [
-                'Listagem, edição e exclusão de usuários, com modais',
-                'Perfil em que o usuário troca a senha ou exclui a própria conta'
+                'Gestão de usuários: listar, editar e excluir contas',
+                'O próprio usuário troca a senha ou exclui a conta, como prevê a LGPD'
               ]"
               :key="item"
               class="deck-in flex gap-4 text-[26px] leading-snug text-highlighted"
@@ -429,35 +473,6 @@ const label = 'font-mono text-[22px] tracking-[0.06em] text-muted uppercase'
         <div class="deck-in" style="--i: 2">
           <DeckVideo v-bind="vd.videos.users" label="Gestão de usuários no VisionData" />
         </div>
-      </div>
-    </DeckSlide>
-
-    <!-- 17. LGPD -->
-    <DeckSlide section="VisionData">
-      <div class="flex h-full flex-col justify-center">
-        <h2 class="deck-in max-w-[24ch]" :class="title" style="--i: 0">
-          Privacidade da autenticação à <span class="text-primary">exclusão dos dados</span>.
-        </h2>
-        <ul class="node-grid mt-14 grid-cols-3">
-          <NodeCell
-            v-for="(item, position) in vd.lgpd"
-            :key="item.title"
-            as="li"
-            class="deck-in flex min-h-[190px] flex-col gap-2 p-8"
-            :style="{ '--i': 1 + position }"
-          >
-            <div class="flex items-start justify-between gap-4">
-              <span class="text-[32px] font-medium text-highlighted">{{ item.title }}</span>
-              <span :class="item.mine ? mine : team">{{ item.mine ? 'Minha parte' : 'Equipe' }}</span>
-            </div>
-            <p class="text-[24px] leading-snug text-muted">
-              {{ item.text }}
-            </p>
-          </NodeCell>
-        </ul>
-        <p class="deck-in mt-8 text-[24px] text-muted" style="--i: 7">
-          A exclusão da própria conta atende ao direito de eliminação de dados previsto na LGPD.
-        </p>
       </div>
     </DeckSlide>
 
