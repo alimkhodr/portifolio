@@ -1,0 +1,12 @@
+Apresentação do TG (versão offline)
+
+Funciona sem internet e é igual à versão online, com vídeos e animações.
+
+No Mac: dê dois cliques em "Apresentar (Mac).command".
+  Se o macOS bloquear, clique com o botão direito no arquivo, escolha Abrir e confirme.
+No Windows: dê dois cliques em "Apresentar (Windows).bat".
+
+O navegador abre a apresentação sozinho. Feche a janela do terminal para encerrar.
+É preciso ter Python 3 ou Node.js instalado no computador.
+
+Teclas: setas, Espaço ou o passador de slides para avançar e voltar; F para tela cheia; D para o tema claro ou escuro.

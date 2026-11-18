@@ -50,6 +50,8 @@ export interface TgCopy {
   closing: {
     title: Heading
     text: string
+    // Downloads dos slides da apresentação (gerados por scripts/deck-offline.sh no deploy).
+    downloads: { title: string, note: string, pdf: string, offline: string }
   }
   labels: {
     partner: string

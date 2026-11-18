@@ -33,7 +33,13 @@ export const tgEn: TgCopy = {
   },
   closing: {
     title: { lead: 'Final ', accent: 'thoughts', tail: '.' },
-    text: 'The six Integrated Projects show a clear progression. I started by building static pages and desktop screens, moved on to relational modeling with MySQL and ended up with complete applications: Nuxt front ends, Java and Go back ends, Oracle, PostgreSQL and SQL Server databases, Data Warehouses, ETL pipelines, automated tests, CI, and security and LGPD requirements. Along the way, I also went from learning the stack to being the person who defines the front-end structure and the standards the team follows.'
+    text: 'The six Integrated Projects show a clear progression. I started by building static pages and desktop screens, moved on to relational modeling with MySQL and ended up with complete applications: Nuxt front ends, Java and Go back ends, Oracle, PostgreSQL and SQL Server databases, Data Warehouses, ETL pipelines, automated tests, CI, and security and LGPD requirements. Along the way, I also went from learning the stack to being the person who defines the front-end structure and the standards the team follows.',
+    downloads: {
+      title: 'Graduation project talk',
+      note: 'Slides in Portuguese. The PDF opens on any computer; the offline version runs in the browser without internet, just like the online one.',
+      pdf: 'Download PDF',
+      offline: 'Download offline version (.zip)'
+    }
   },
   labels: {
     partner: 'Partner company',

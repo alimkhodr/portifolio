@@ -63,9 +63,18 @@ function fromHash() {
   if (number) go(number - 1)
 }
 
+// ?tema=claro ou ?tema=escuro fixa o tema (usado na exportação em PDF).
+function fromQuery() {
+  const theme = new URLSearchParams(location.search).get('tema')
+  if (theme === 'claro') colorMode.preference = 'light'
+  else if (theme === 'escuro') colorMode.preference = 'dark'
+}
+
 onMounted(() => {
   fit()
-  fromHash()
+  fromQuery()
+  // Depois da hidratação: no site gerado, ler o # antes disso fazia o deck voltar ao slide 1.
+  requestAnimationFrame(fromHash)
   ready.value = true
   window.addEventListener('resize', fit)
   window.addEventListener('keydown', onKey)
@@ -82,13 +91,14 @@ onBeforeUnmount(() => {
 <template>
   <div class="deck fixed inset-0 overflow-hidden bg-default select-none" @click="onClick">
     <div
-      class="absolute top-1/2 left-1/2 h-[1080px] w-[1920px] transition-opacity duration-300"
+      class="deck-canvas absolute top-1/2 left-1/2 h-[1080px] w-[1920px] transition-opacity duration-300"
       :class="{ 'opacity-0': !ready }"
       :style="{ transform: `translate(-50%, -50%) scale(${scale})` }"
     >
       <slot />
 
-      <div class="absolute inset-x-0 bottom-0 z-10 h-1.5" aria-hidden="true">
+      <!-- Só depois de montar: o total de slides só é conhecido quando os slides se registram. -->
+      <div v-if="ready" class="deck-progress absolute inset-x-0 bottom-0 z-10 h-1.5" aria-hidden="true">
         <div
           class="h-full bg-primary transition-[width] duration-500 ease-out-expo"
           :style="{ width: `${((current + 1) / Math.max(total, 1)) * 100}%` }"
@@ -96,7 +106,7 @@ onBeforeUnmount(() => {
       </div>
     </div>
 
-    <p class="sr-only" aria-live="polite">
+    <p v-if="ready" class="sr-only" aria-live="polite">
       Slide {{ current + 1 }} de {{ total }}
     </p>
   </div>
@@ -121,6 +131,56 @@ onBeforeUnmount(() => {
   .deck-slide.is-active .deck-in {
     animation: rise 0.8s var(--ease-out-expo) both;
     animation-delay: calc(var(--i, 0) * 80ms + 120ms);
+  }
+}
+
+/* Impressão e PDF: um slide por página de 1920x1080, todos visíveis, sem animação. */
+@media print {
+  @page {
+    size: 1920px 1080px;
+    margin: 0;
+  }
+
+  html,
+  body {
+    background: var(--ui-bg);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .deck,
+  .deck-canvas {
+    position: static !important;
+    overflow: visible !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  .deck-canvas {
+    width: auto !important;
+    height: auto !important;
+  }
+
+  .deck-slide {
+    position: relative !important;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    opacity: 1 !important;
+    visibility: visible !important;
+    break-after: page;
+  }
+
+  .deck-slide:last-of-type {
+    break-after: auto;
+  }
+
+  .deck-slide .deck-in {
+    animation: none !important;
+  }
+
+  .deck-progress {
+    display: none;
   }
 }
 </style>

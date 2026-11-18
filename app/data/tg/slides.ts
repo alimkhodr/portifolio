@@ -6,6 +6,12 @@ import { img } from './shared'
 
 export const slidesPath = '/apresentacao-tg'
 
+// Gerados a cada deploy por scripts/deck-offline.sh (não existem no `nuxt dev`).
+export const slideDownloads = {
+  pdf: '/downloads/apresentacao-tg.pdf',
+  offline: '/downloads/apresentacao-tg-offline.zip'
+}
+
 // Idade na data da apresentação, confirmada pelo Ali (faz 23 em 15/12/2026).
 export const presenterAge: number | undefined = 22
 

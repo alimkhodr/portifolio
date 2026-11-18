@@ -33,7 +33,13 @@ export const tgEs: TgCopy = {
   },
   closing: {
     title: { lead: 'Consideraciones ', accent: 'finales', tail: '.' },
-    text: 'Los seis Proyectos Integradores muestran una evolución clara. Empecé construyendo páginas estáticas y pantallas de escritorio, pasé por el modelado relacional con MySQL y llegué a aplicaciones completas, con frontend en Nuxt, backends en Java y Go, bases de datos Oracle, PostgreSQL y SQL Server, Data Warehouses, pipelines de ETL, pruebas automatizadas, CI y requisitos de seguridad y LGPD. En ese camino, también dejé de ser quien aprende el stack para ser quien define la estructura del frontend y los estándares que sigue el equipo.'
+    text: 'Los seis Proyectos Integradores muestran una evolución clara. Empecé construyendo páginas estáticas y pantallas de escritorio, pasé por el modelado relacional con MySQL y llegué a aplicaciones completas, con frontend en Nuxt, backends en Java y Go, bases de datos Oracle, PostgreSQL y SQL Server, Data Warehouses, pipelines de ETL, pruebas automatizadas, CI y requisitos de seguridad y LGPD. En ese camino, también dejé de ser quien aprende el stack para ser quien define la estructura del frontend y los estándares que sigue el equipo.',
+    downloads: {
+      title: 'Presentación del TG',
+      note: 'Diapositivas en portugués. El PDF se abre en cualquier computadora; la versión offline funciona en el navegador sin internet, igual que la online.',
+      pdf: 'Descargar PDF',
+      offline: 'Descargar versión offline (.zip)'
+    }
   },
   labels: {
     partner: 'Empresa socia',
