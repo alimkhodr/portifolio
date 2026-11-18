@@ -112,7 +112,7 @@ export const tgProjects: TgProjectMeta[] = [
     period: '2025/2',
     partner: { name: 'Pro4tech', href: 'https://www.pro4tech.com.br/' },
     team: 'iNineBD',
-    tags: ['Nuxt', 'Vue', 'TypeScript', 'Go', 'Elasticsearch', 'Oracle', 'Python'],
+    tags: ['Nuxt', 'Vue', 'TypeScript', 'Go', 'Elasticsearch', 'SQL Server', 'Python'],
     links: [
       { kind: 'repo', href: 'https://github.com/iNineBD/VisionData-6Sem2025Main', name: 'VisionData-6Sem2025Main' },
       { kind: 'commits', href: 'https://github.com/iNineBD/VisionData-6Sem2025Front/commits?author=alimkhodr' }

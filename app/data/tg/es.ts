@@ -33,7 +33,7 @@ export const tgEs: TgCopy = {
   },
   closing: {
     title: { lead: 'Consideraciones ', accent: 'finales', tail: '.' },
-    text: 'Los seis Proyectos Integradores muestran una evolución clara. Empecé construyendo páginas estáticas y pantallas de escritorio, pasé por el modelado relacional con MySQL y llegué a aplicaciones completas, con frontend en Nuxt, backends en Java y Go, bases de datos Oracle y PostgreSQL, Data Warehouses, pipelines de ETL, pruebas automatizadas, CI y requisitos de seguridad y LGPD. En ese camino, también dejé de ser quien aprende el stack para ser quien define la estructura del frontend y los estándares que sigue el equipo.'
+    text: 'Los seis Proyectos Integradores muestran una evolución clara. Empecé construyendo páginas estáticas y pantallas de escritorio, pasé por el modelado relacional con MySQL y llegué a aplicaciones completas, con frontend en Nuxt, backends en Java y Go, bases de datos Oracle, PostgreSQL y SQL Server, Data Warehouses, pipelines de ETL, pruebas automatizadas, CI y requisitos de seguridad y LGPD. En ese camino, también dejé de ser quien aprende el stack para ser quien define la estructura del frontend y los estándares que sigue el equipo.'
   },
   labels: {
     partner: 'Empresa socia',
@@ -256,14 +256,14 @@ export const tgEs: TgCopy = {
       course: 'Base de Datos',
       area: 'Pro4tech está especializada en transformación digital. Usa tecnologías como inteligencia artificial, análisis de datos, IoT y computación en la nube para crear estrategias personalizadas que aumentan la eficiencia, mejoran la experiencia del cliente e impulsan el crecimiento de los negocios.',
       problem: 'Pro4tech tenía un gran volumen de tickets de soporte antiguos y desorganizados. Sin estructura, el equipo perdía tiempo buscando soluciones a problemas ya resueltos, y la empresa no lograba extraer insights estratégicos de ese historial.',
-      solution: 'Transforma los tickets en una base de conocimiento consultable, con búsqueda vectorial de tickets similares, dashboards de métricas, predicciones por producto o cliente con Machine Learning y exportación de insights generados por IA. Cumple con la LGPD, con anonimización, logs de auditoría, respaldos, control de consentimiento y perfiles de acceso.',
+      solution: 'Transforma los tickets en una base de conocimiento consultable, con búsqueda textual de tickets en Elasticsearch, dashboards de métricas, predicciones por producto o cliente con Machine Learning y exportación de insights generados por IA. Cumple con la LGPD, con anonimización, logs de auditoría, respaldos, control de consentimiento y perfiles de acceso.',
       tech: [
         { name: 'Nuxt, Vue.js y TypeScript', use: 'desarrollo del frontend, incluidas las rutas de servidor de Nuxt.' },
         { name: 'nuxt-auth-utils', use: 'gestión de sesión y autenticación, incluido el inicio de sesión con cuenta Microsoft.' },
         { name: 'Chart.js', use: 'gráficos de los dashboards.' },
         { name: 'Go', use: 'desarrollo de la API REST en el backend.' },
-        { name: 'Elasticsearch', use: 'indexación y búsqueda vectorial de los tickets.' },
-        { name: 'Oracle', use: 'base de datos relacional y Data Warehouse del proyecto.' },
+        { name: 'Elasticsearch', use: 'indexación y búsqueda textual de los tickets, con analizador en portugués.' },
+        { name: 'SQL Server', use: 'base de datos relacional, Data Warehouse y base LGPD del proyecto.' },
         { name: 'Python', use: 'ETL y modelos de Machine Learning para las predicciones.' },
         { name: 'Jira', use: 'gestión de los sprints y de las tareas del equipo.' }
       ],

@@ -33,7 +33,7 @@ export const tgPt: TgCopy = {
   },
   closing: {
     title: { lead: 'Considerações ', accent: 'finais', tail: '.' },
-    text: 'Os seis Projetos Integradores mostram uma evolução clara. Comecei construindo páginas estáticas e telas desktop, passei pela modelagem relacional com MySQL e cheguei a aplicações completas, com frontend em Nuxt, backends em Java e Go, bancos Oracle e PostgreSQL, Data Warehouses, pipelines de ETL, testes automatizados, CI e requisitos de segurança e LGPD. Ao longo desse caminho, também deixei de ser quem está aprendendo a stack para ser quem define a estrutura do frontend e os padrões seguidos pela equipe.'
+    text: 'Os seis Projetos Integradores mostram uma evolução clara. Comecei construindo páginas estáticas e telas desktop, passei pela modelagem relacional com MySQL e cheguei a aplicações completas, com frontend em Nuxt, backends em Java e Go, bancos Oracle, PostgreSQL e SQL Server, Data Warehouses, pipelines de ETL, testes automatizados, CI e requisitos de segurança e LGPD. Ao longo desse caminho, também deixei de ser quem está aprendendo a stack para ser quem define a estrutura do frontend e os padrões seguidos pela equipe.'
   },
   labels: {
     partner: 'Empresa parceira',
@@ -256,14 +256,14 @@ export const tgPt: TgCopy = {
       course: 'Banco de Dados',
       area: 'A Pro4tech é especializada em transformação digital. Usa tecnologias como inteligência artificial, análise de dados, IoT e computação em nuvem para criar estratégias personalizadas que aumentam a eficiência, melhoram a experiência do cliente e impulsionam o crescimento dos negócios.',
       problem: 'A Pro4tech tinha um grande volume de chamados de suporte antigos e desorganizados. Sem estrutura, a equipe perdia tempo procurando soluções para problemas já resolvidos, e a empresa não conseguia extrair insights estratégicos desse histórico.',
-      solution: 'Transforma os chamados em uma base de conhecimento pesquisável, com busca vetorizada de chamados semelhantes, dashboards de métricas, previsões por produto ou cliente com Machine Learning e exportação de insights gerados por IA. Segue a LGPD, com anonimização, logs de auditoria, backups, controle de consentimento e perfis de acesso.',
+      solution: 'Transforma os chamados em uma base de conhecimento pesquisável, com busca textual de chamados no Elasticsearch, dashboards de métricas, previsões por produto ou cliente com Machine Learning e exportação de insights gerados por IA. Segue a LGPD, com anonimização, logs de auditoria, backups, controle de consentimento e perfis de acesso.',
       tech: [
         { name: 'Nuxt, Vue.js e TypeScript', use: 'desenvolvimento do frontend, incluindo as rotas de servidor do Nuxt.' },
         { name: 'nuxt-auth-utils', use: 'gerenciamento de sessão e autenticação, incluindo o login com conta Microsoft.' },
         { name: 'Chart.js', use: 'gráficos dos dashboards.' },
         { name: 'Go', use: 'desenvolvimento da API REST no backend.' },
-        { name: 'Elasticsearch', use: 'indexação e busca vetorizada dos chamados.' },
-        { name: 'Oracle', use: 'banco relacional e Data Warehouse do projeto.' },
+        { name: 'Elasticsearch', use: 'indexação e busca textual dos chamados, com analisador em português.' },
+        { name: 'SQL Server', use: 'banco relacional, Data Warehouse e banco LGPD do projeto.' },
         { name: 'Python', use: 'ETL e modelos de Machine Learning para as previsões.' },
         { name: 'Jira', use: 'gestão das sprints e das tarefas da equipe.' }
       ],

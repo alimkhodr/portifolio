@@ -33,7 +33,7 @@ export const tgEn: TgCopy = {
   },
   closing: {
     title: { lead: 'Final ', accent: 'thoughts', tail: '.' },
-    text: 'The six Integrated Projects show a clear progression. I started by building static pages and desktop screens, moved on to relational modeling with MySQL and ended up with complete applications: Nuxt front ends, Java and Go back ends, Oracle and PostgreSQL databases, Data Warehouses, ETL pipelines, automated tests, CI, and security and LGPD requirements. Along the way, I also went from learning the stack to being the person who defines the front-end structure and the standards the team follows.'
+    text: 'The six Integrated Projects show a clear progression. I started by building static pages and desktop screens, moved on to relational modeling with MySQL and ended up with complete applications: Nuxt front ends, Java and Go back ends, Oracle, PostgreSQL and SQL Server databases, Data Warehouses, ETL pipelines, automated tests, CI, and security and LGPD requirements. Along the way, I also went from learning the stack to being the person who defines the front-end structure and the standards the team follows.'
   },
   labels: {
     partner: 'Partner company',
@@ -256,14 +256,14 @@ export const tgEn: TgCopy = {
       course: 'Database Technology',
       area: 'Pro4tech specializes in digital transformation. It uses technologies such as artificial intelligence, data analytics, IoT and cloud computing to create tailored strategies that increase efficiency, improve customer experience and drive business growth.',
       problem: 'Pro4tech had a large volume of old, disorganized support tickets. Without structure, the team lost time looking for solutions to problems that had already been solved, and the company could not extract strategic insights from that history.',
-      solution: 'It turns tickets into a searchable knowledge base, with vector search for similar tickets, metrics dashboards, Machine Learning forecasts by product or customer and export of AI-generated insights. It complies with LGPD, with anonymization, audit logs, backups, consent control and access roles.',
+      solution: 'It turns tickets into a searchable knowledge base, with full-text search of tickets in Elasticsearch, metrics dashboards, Machine Learning forecasts by product or customer and export of AI-generated insights. It complies with LGPD, with anonymization, audit logs, backups, consent control and access roles.',
       tech: [
         { name: 'Nuxt, Vue.js and TypeScript', use: 'front-end development, including Nuxt server routes.' },
         { name: 'nuxt-auth-utils', use: 'session and authentication management, including Microsoft account login.' },
         { name: 'Chart.js', use: 'dashboard charts.' },
         { name: 'Go', use: 'building the REST API on the back end.' },
-        { name: 'Elasticsearch', use: 'indexing and vector search of tickets.' },
-        { name: 'Oracle', use: 'relational database and Data Warehouse of the project.' },
+        { name: 'Elasticsearch', use: 'indexing and full-text search of tickets, with a Portuguese analyzer.' },
+        { name: 'SQL Server', use: 'relational database, Data Warehouse and LGPD database of the project.' },
         { name: 'Python', use: 'ETL and Machine Learning models for the forecasts.' },
         { name: 'Jira', use: 'management of sprints and team tasks.' }
       ],
