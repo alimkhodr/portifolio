@@ -132,7 +132,7 @@ CONTENT = {
         "education": [
             ("Análise e Desenvolvimento de Sistemas", "UNIFEOB",
              "03/2023 - 10/2025", "concluído"),
-            ("Banco de Dados (Tecnólogo)", "Fatec São José dos Campos", "02/2022 - 12/2025", ""),
+            ("Banco de Dados (Tecnólogo)", "Fatec São José dos Campos", "02/2022 - atual", ""),
             ("Técnico em Desenvolvimento de Sistemas", "ETEC Profª Ilza Nascimento Pintus", "02/2019 - 12/2021", ""),
         ],
         "languages": [
@@ -220,7 +220,7 @@ CONTENT = {
         "education": [
             ("Systems Analysis and Development", "UNIFEOB",
              "03/2023 - 10/2025", "completed"),
-            ("Database Technology (Technologist degree)", "Fatec São José dos Campos", "02/2022 - 12/2025", ""),
+            ("Database Technology (Technologist degree)", "Fatec São José dos Campos", "02/2022 - present", ""),
             ("Systems Development Technician", "ETEC Profª Ilza Nascimento Pintus", "02/2019 - 12/2021", ""),
         ],
         "languages": [
@@ -309,7 +309,7 @@ CONTENT = {
         "education": [
             ("Análisis y Desarrollo de Sistemas", "UNIFEOB",
              "03/2023 - 10/2025", "completado"),
-            ("Tecnología en Base de Datos", "Fatec São José dos Campos", "02/2022 - 12/2025", ""),
+            ("Tecnología en Base de Datos", "Fatec São José dos Campos", "02/2022 - actual", ""),
             ("Técnico en Desarrollo de Sistemas", "ETEC Profª Ilza Nascimento Pintus", "02/2019 - 12/2021", ""),
         ],
         "languages": [

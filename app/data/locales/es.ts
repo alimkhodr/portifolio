@@ -51,7 +51,7 @@ export const es: SiteCopy = {
     diplomaNote: 'La fecha de nacimiento, el documento de identidad y el código de validación están cubiertos.',
     education: [
       { period: 'Mar 2023 a oct 2025', course: 'Análisis y Desarrollo de Sistemas', school: 'Centro Universitário Fundação de Ensino Octávio Bastos (UNIFEOB)', status: 'Completado' },
-      { period: 'Feb 2022 a dic 2025', course: 'Tecnología en Base de Datos', school: 'Fatec São José dos Campos, Prof. Jessen Vidal', link: 'Portafolio de Proyectos Integradores' },
+      { period: 'Feb 2022 a la actualidad', course: 'Tecnología en Base de Datos', school: 'Fatec São José dos Campos, Prof. Jessen Vidal', link: 'Portafolio de Proyectos Integradores' },
       { period: 'Feb 2019 a dic 2021', course: 'Técnico en Desarrollo de Sistemas', school: 'ETEC Profª Ilza Nascimento Pintus' },
       { period: 'Ene 2022 a dic 2026', course: 'Inglés avanzado (C1)', school: 'CNA Idiomas' }
     ]

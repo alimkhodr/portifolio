@@ -6,8 +6,8 @@ import { img } from './shared'
 
 export const slidesPath = '/apresentacao-tg'
 
-// Idade na data da apresentação. Fica de fora do slide enquanto não for confirmada.
-export const presenterAge: number | undefined = undefined
+// Idade na data da apresentação, confirmada pelo Ali (faz 23 em 15/12/2026).
+export const presenterAge: number | undefined = 22
 
 export interface ApiSlide {
   id: Exclude<TgProjectId, 'visiondata'>
