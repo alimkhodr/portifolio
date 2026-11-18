@@ -13,11 +13,12 @@ Portfólio de desenvolvedor para recrutadores e líderes técnicos. Linguagem in
 
 - `/`: portfólio profissional.
 - `/portfolio-banco-de-dados`: portfólio do Trabalho de Graduação (Fatec SJC), a partir do README de `alimkhodr/portfolio-banco-de-dados`. Topo no painel de pontos com a ficha do curso em filetes; sobre e conhecimentos na grade de células; os seis Projetos Integradores no mesmo trilho tracejado da experiência, com os detalhes em `<details>` nativo (abre sem JS). Textos em `app/data/tg/`, nos três idiomas. Na home, o curso da Fatec leva para essa página.
+- `/apresentacao-tg`: slides da apresentação do TG (cerca de 7 minutos), só em português e com `noindex`. Layout próprio (`layouts/deck.vue`, sem cabeçalho e rodapé). Canvas fixo de 1920x1080 escalado para a janela, então fica igual em qualquer projetor. Capa, abertura do VisionData e agradecimento no painel de pontos; o resto na grade de células. Teclado: setas, PageUp/PageDown (passadores de slide), Espaço, Home e End; F tela cheia; D tema. O número do slide fica no endereço (`#5`). Vídeos do VisionData mudos, em loop, tocando só no slide deles. Textos em `app/data/tg/slides.ts`.
 
 ## Imagens
 
 - Foto da Fatec SJC (Wikimedia Commons, CC BY-SA 3.0, basiliovideo, recortada): no topo do portfólio do TG e na coluna de formação da home, sempre com crédito, licença e aviso de recorte (`PhotoCredit`).
-- Logos das instituições (`BrandLogo`) como máscara: pegam a cor do texto, ficam neutros e acendem no hover da célula. Dados em `app/data/media.ts`.
+- Logos das instituições e das empresas (`BrandLogo`) como máscara: pegam a cor do texto, ficam neutros e acendem no hover. Dados em `app/data/media.ts`. Qeevo (qeevo.com.br), Etec (etecsjcampos.com.br, só a palavra) e VisionData viram PNG só com o alfa; APTIV vem do Wikimedia Commons (domínio público).
 - Projetos do TG: capa ao lado do resumo e galeria nos detalhes; tudo abre ampliado num modal (`ImageZoom`). Diagramas e banners usam `contain` sobre a própria cor de fundo.
 - Diploma da UNIFEOB: só com data de nascimento, RG, link e código de validação cobertos.
 

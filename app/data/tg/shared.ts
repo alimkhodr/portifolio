@@ -21,7 +21,7 @@ export interface TgImage {
   bg?: string
 }
 
-const img = (name: string, width: number, height: number, extra: Partial<TgImage> = {}): TgImage =>
+export const img = (name: string, width: number, height: number, extra: Partial<TgImage> = {}): TgImage =>
   ({ src: `/assets/tg/${name}.webp`, width, height, ...extra })
 
 export interface TgProjectMeta {

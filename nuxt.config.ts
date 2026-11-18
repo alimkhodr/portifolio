@@ -77,7 +77,9 @@ export default defineNuxtConfig({
     prerender: {
       routes: [
         '/', '/en', '/es',
-        '/portfolio-banco-de-dados', '/en/portfolio-banco-de-dados', '/es/portfolio-banco-de-dados'
+        '/portfolio-banco-de-dados', '/en/portfolio-banco-de-dados', '/es/portfolio-banco-de-dados',
+        // Slides da apresentação do TG, só em português.
+        '/apresentacao-tg'
       ]
     }
   },

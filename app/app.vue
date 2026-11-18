@@ -22,17 +22,9 @@ useSeoMeta({
 
 <template>
   <UApp :tooltip="{ delayDuration: 200 }">
-    <a
-      href="#conteudo"
-      class="fixed top-3 left-3 z-50 -translate-y-24 rounded-full bg-inverted px-4 py-2 text-sm font-medium text-inverted transition-transform focus:translate-y-0"
-    >{{ content.ui.skipLink }}</a>
-
-    <SiteHeader />
-
-    <main id="conteudo">
+    <!-- Cabeçalho, rodapé e link de pular ficam em layouts/default.vue; os slides usam layouts/deck.vue. -->
+    <NuxtLayout>
       <NuxtPage />
-    </main>
-
-    <SiteFooter />
+    </NuxtLayout>
   </UApp>
 </template>

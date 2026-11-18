@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { jobLogos } from '~/data/media'
+
 const content = useSiteContent()
 </script>
 
@@ -11,7 +13,7 @@ const content = useSiteContent()
         <li
           v-for="job in content.jobItems"
           :key="job.id"
-          class="reveal relative grid gap-4 pb-14 pl-9 last:pb-0 md:grid-cols-[13rem_minmax(0,1fr)] md:gap-x-16 md:pl-0"
+          class="group reveal relative grid gap-4 pb-14 pl-9 last:pb-0 md:grid-cols-[13rem_minmax(0,1fr)] md:gap-x-16 md:pl-0"
         >
           <!-- Trilho: linha tracejada com um marcador por cargo. -->
           <span class="rail absolute top-2 bottom-0 left-[5px] w-px md:left-[15rem]" aria-hidden="true" />
@@ -28,9 +30,12 @@ const content = useSiteContent()
           </div>
 
           <div>
-            <h3 class="text-2xl font-medium tracking-[-0.02em] text-highlighted">
-              {{ job.role }}
-            </h3>
+            <div class="flex items-start justify-between gap-6">
+              <h3 class="text-2xl font-medium tracking-[-0.02em] text-highlighted">
+                {{ job.role }}
+              </h3>
+              <BrandLogo :id="jobLogos[job.id]" class="mt-2 text-dimmed transition-colors duration-300 group-hover:text-highlighted" />
+            </div>
             <div class="mt-1 font-medium text-primary">
               {{ job.company }}
             </div>
